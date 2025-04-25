@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EMOPet</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1 id="main-title">EMOPet</h1>
+    <p id="welcome-message">Welcome to EMOPet! Choose your activities and bond with your holographic friends Fritz and Lulu!</p>
+    <p id="completed-counter">Completed activities: 0</p>
+  </header>
+
+  <main>
+    <section id="add-task">
+      <h2>Add a New Activity</h2>
+      <input type="text" id="task-input" placeholder="Type an activity and press Enter..." />
+      <div class="pets">
+        <div class="pet">
+          <img src="images/dog-hologram.png" alt="Fritz the Dog" />
+          <p>Fritz</p>
+        </div>
+        <div class="pet">
+          <img src="images/cat-hologram.png" alt="Lulu the Cat" />
+          <p>Lulu</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="choose-pet">
+      <h2>Choose Pet</h2>
+      <ul id="task-list"></ul>
+    </section>
+
+    <section id="chosen">
+      <h2>Chosen</h2>
+      <ul id="chosen-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
