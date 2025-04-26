@@ -1,0 +1,8 @@
+const pieces = [
+  'assets/new-jungle-puzzle/piece1.jpg',
+  'assets/new-jungle-puzzle/piece2.jpg',
+  'assets/new-jungle-puzzle/piece3.jpg',
+  'assets/new-jungle-puzzle/piece4.jpg',
+  'assets/new-jungle-puzzle/piece5.jpg',
+  'assets/new-jungle-puzzle/piece6.jpg'
+];
