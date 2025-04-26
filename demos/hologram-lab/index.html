@@ -1,0 +1,38 @@
+<!-- File: demos/hologram-lab/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EMOpet Hologram Lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .hologram-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .hologram {
+      width: 300px;
+      height: 300px;
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); }
+      to { box-shadow: 0 0 20px rgba(76, 175, 80, 0.8); }
+    }
+  </style>
+</head>
+<body>
+  <h1>EMOpet Hologram Lab 🐾</h1>
+  <div class="hologram-container">
+    <div class="hologram" id="dog-hologram">
+      <img src="../dog.png" alt="Virtual Dog" style="width: 100%;">
+    </div>
+    <div class="hologram" id="cat-hologram">
+      <img src="../cat.png" alt="Virtual Cat" style="width: 100%;">
+    </div>
+  </div>
+</body>
+</html>
