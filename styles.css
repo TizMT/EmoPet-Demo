@@ -19,3 +19,29 @@ body {
 }
 
 /* Puoi aggiungere qui gli altri stili già esistenti se vuoi ricopiarli */
+/* Add these lines below existing code */
+#tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+/* Animation for the pet */
+@keyframes petJump {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.pet {
+  animation: petJump 0.8s ease-in-out;
+}
