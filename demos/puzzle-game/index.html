@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EMOpet Jungle Puzzle</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    #puzzle-board {
+      width: 400px;
+      height: 400px;
+      border: 2px solid #4CAF50;
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      padding: 10px;
+      background: #1a1a1a;
+    }
+    .puzzle-piece {
+      background-size: cover;
+      cursor: grab;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+    .puzzle-piece:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: #4CAF50; text-align: center;">Jungle Therapy Puzzle 🌿</h1>
+  <div id="puzzle-board"></div>
+
+  <!-- Aggiungi Interact.js per drag-and-drop -->
+  <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs/dist/interact.min.js"></script>
+  <script>
+    // Crea il puzzle
+    const board = document.getElementById('puzzle-board');
+    const pieces = [
+      'https://via.placeholder.com/133x133/4CAF50/000?text=1',
+      'https://via.placeholder.com/133x133/2196F3/000?text=2',
+      'https://via.placeholder.com/133x133/f44336/000?text=3',
+      'https://via.placeholder.com/133x133/FF9800/000?text=4',
+      'https://via.placeholder.com/133x133/9C27B0/000?text=5',
+      'https://via.placeholder.com/133x133/00BCD4/000?text=6',
+      'https://via.placeholder.com/133x133/8BC34A/000?text=7',
+      'https://via.placeholder.com/133x133/FF5722/000?text=8',
+      'https://via.placeholder.com/133x133/607D8B/000?text=9'
+    ];
+
+    pieces.forEach((imgUrl, index) => {
+      const piece = document.createElement('div');
+      piece.className = 'puzzle-piece';
+      piece.style.backgroundImage = `url(${imgUrl})`;
+      piece.draggable = true;
+      board.appendChild(piece);
+    });
+
+    // Abilita drag-and-drop
+    interact('.puzzle-piece').draggable({
+      inertia: true,
+      modifiers: [
+        interact.modifiers.restrictRect({
+          restriction: 'parent',
+          endOnly: true
+        })
+      ],
+      autoScroll: true,
+      listeners: {
+        move: dragMoveListener
+      }
+    });
+
+    function dragMoveListener(event) {
+      const target = event.target;
+      const x = (parseFloat(target.getAttribute('data-x')) || 0;
+      const y = (parseFloat(target.getAttribute('data-y')) || 0;
+      target.style.transform = `translate(${x + event.dx}px, ${y + event.dy}px)`;
+      target.setAttribute('data-x', x + event.dx);
+      target.setAttribute('data-y', y + event.dy);
+    }
+  </script>
+</body>
+</html>
