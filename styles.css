@@ -1,9 +1,10 @@
 body {
-    background: linear-gradient(to bottom, #a8e6cf, #dcedc1);
-    color: #333;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
 }
 
 #task-input {
