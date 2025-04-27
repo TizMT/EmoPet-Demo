@@ -25,6 +25,39 @@
     .puzzle-piece:hover {
       transform: scale(1.05);
     }
+    #page-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2.2em;
+    color: #00695c;
+    margin-top: 20px;
+}
+
+#page-subtitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    color: #004d40;
+    margin-bottom: 20px;
+}
+
+#shuffle-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #00b894;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#shuffle-button:hover {
+    background-color: #00997a;
+}
+
   </style>
 </head>
 <body>
@@ -40,6 +73,14 @@
 <img src="../../assets/new-jungle-puzzle/piece4.jpg" class="puzzle-piece" alt="Piece 4">
 <img src="../../assets/new-jungle-puzzle/piece5.jpg" class="puzzle-piece" alt="Piece 5">
 <img src="../../assets/new-jungle-puzzle/piece6.jpg" class="puzzle-piece" alt="Piece 6">
+<script>
+function shufflePieces() {
+    const pieces = document.querySelectorAll('.puzzle-piece');
+    pieces.forEach(piece => {
+        piece.style.order = Math.floor(Math.random() * 10);
+    });
+}
+</script>
 
 </body>
 </html>
