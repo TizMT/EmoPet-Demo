@@ -35,14 +35,35 @@ body {
   z-index: 1000;
   font-family: Arial, sans-serif;
 }
-
-/* Animation for the pet */
-@keyframes petJump {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
+#relaxLink {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #ffcccb;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 20px auto;
 }
 
-.pet {
-  animation: petJump 0.8s ease-in-out;
+#relaxLink:hover {
+  background-color: #ff6f61;
+  transform: scale(1.1);
+}
+#relaxLink {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #ffcccb;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 20px auto;
+}
+
+#relaxLink:hover {
+  background-color: #ff6f61;
+  transform: scale(1.1);
 }
