@@ -1,0 +1,44 @@
+/* Stile base ologrammi */
+.hologram {
+  position: relative;
+  margin: 20px;
+}
+
+/* Sfondo immagini per visibilità */
+.hologram img {
+  width: 180px;
+  height: 180px;
+  background: rgba(255,255,255,0.05); /* Leva trasparenza eccessiva */
+  border-radius: 15px;
+  padding: 8px;
+  object-fit: contain;
+}
+
+/* Stile descrizioni */
+.hologram-description {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  opacity: 0.9;
+}
+
+.hologram-description h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #ffd700; /* GOLD per titoli */
+}
+
+.hologram-description p {
+  margin: 4px 0;
+  font-size: 0.9em;
+  line-height: 1.3;
+}
