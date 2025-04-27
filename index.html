@@ -34,11 +34,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Speech bubble with greeting as clickable link -->
+  <!-- Speech bubble with clickable link updated with placeholder image and dark overlay for text -->
 <a href="placeholder.html" target="_blank" style="position: fixed; top: 10px; right: 10px; display: block; width: 220px; z-index: 1100; text-decoration: none;">
   <div class="speech-bubble" style="position: relative;">
-    <img src="images/speech-bubble.png" alt="Speech Bubble" style="width: 100%; display: block;">
-    <div style="position: absolute; top: 20px; left: 20px; right: 20px; text-align: center; color: #fff; font-size: 14px;">
+    <!-- Usa la placeholder se non hai l'immagine definitiva -->
+    <img src="https://via.placeholder.com/220x150.png?text=Speech+Bubble" alt="Speech Bubble" style="width: 100%; display: block;">
+    <!-- Aggiunto un background semitrasparente per migliorare il contrasto del testo -->
+    <div style="position: absolute; top: 20px; left: 20px; right: 20px; text-align: center; background: rgba(0, 0, 0, 0.5); color: #fff; font-size: 14px; padding: 5px;">
       <p style="margin: 0;">HELLO, WE ARE FRITZ AND LULU, YOUR VIRTUAL FRIENDS. WE ARE HERE TO KEEP YOU COMPANY.</p>
     </div>
   </div>
