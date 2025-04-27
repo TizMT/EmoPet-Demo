@@ -34,6 +34,17 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Pet thumbnails (dog and cat) below the space bubble -->
+<div class="pet-thumbnails" style="position: fixed; top: 170px; right: 10px; display: flex; gap: 10px; z-index: 1100;">
+  <!-- Dog image -->
+  <div style="border: 2px solid #3399ff; padding: 5px; border-radius: 8px; background: rgba(51,153,255,0.1);">
+    <img src="https://placedog.net/80/80" alt="Cute Dog" style="width: 80px; height: 80px; object-fit: cover;">
+  </div>
+  <!-- Cat image -->
+  <div style="border: 2px solid #3399ff; padding: 5px; border-radius: 8px; background: rgba(51,153,255,0.1);">
+    <img src="https://placecats.com/80/80" alt="Cute Cat" style="width: 80px; height: 80px; object-fit: cover;">
+  </div>
+</div>
   <!-- Speech bubble with clickable link updated with placeholder image and dark overlay for text -->
 <a href="placeholder.html" target="_blank" style="position: fixed; top: 10px; right: 10px; display: block; width: 220px; z-index: 1100; text-decoration: none;">
   <div class="speech-bubble" style="position: relative;">
