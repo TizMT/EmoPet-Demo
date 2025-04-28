@@ -155,22 +155,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-// Show the overlay on startup
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('tutorial-overlay').style.display = 'flex';
-});
 
-// Hide the overlay on click
-document.getElementById('start-btn').addEventListener('click', function() {
-  document.getElementById('tutorial-overlay').style.display = 'none';
-});
-</script><!-- Collegamento al file JavaScript -->
+<!-- Collegamento al file JavaScript -->
 <script src="tutorial.js"></script>
   <div style="text-align: center; margin-top: 40px;">
   <p style="font-size: 24px; color: #ff6600; font-weight: bold;">
     IF YOU’RE HAPPY, LET’S PLAY: <a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/" target="_blank" style="color: #3399ff;">Puzzle Game</a>
   </p>
 </div>
+<script>
+// When the user presses "Enter" in the input, add the activity to the list
+document.getElementById('task-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    const taskText = this.value.trim();
+    if (taskText !== '') {
+      const listItem = document.createElement('li');
+      listItem.textContent = taskText;
+      document.getElementById('chosen-list').appendChild(listItem);
+      this.value = ''; // Clear the input
+    }
+  }
+});
+</script>
 
 </body>
 </html>
