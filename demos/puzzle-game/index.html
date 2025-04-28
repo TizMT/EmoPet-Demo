@@ -1,81 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>EMOPet Puzzle Game</title>
-  <style>
-    body {
-      background: #a8e6cf;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .puzzle-piece {
-      width: 150px;
-      height: 150px;
-      margin: 10px;
-      object-fit: cover;
-      border: 2px solid #00695c;
-      box-shadow: 0 0 10px rgba(0, 150, 0, 0.5);
-      transition: transform 0.3s;
-    }
-    .puzzle-piece:hover {
-      transform: scale(1.05);
-    }
-    #page-title {
-      width: 100%;
-      text-align: center;
-      font-size: 2.2em;
-      color: #00695c;
-      margin-top: 20px;
-    }
-    #page-subtitle {
-      width: 100%;
-      text-align: center;
-      font-size: 1.2em;
-      color: #004d40;
-      margin-bottom: 20px;
-    }
-    #shuffle-button {
-      display: block;
-      margin: 10px auto;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #00b894;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    #shuffle-button:hover {
-      background-color: #00997a;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>EMOPet Puzzle Game</title>
+    <style>
+        body {
+            background: #a8e6cf;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .puzzle-piece {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            object-fit: cover;
+            border: 2px solid #00695c;
+            box-shadow: 0 0 10px rgba(0, 150, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+        }
+        #page-title {
+            width: 100%;
+            text-align: center;
+            font-size: 2.2em;
+            color: #00695c;
+            margin-top: 20px;
+        }
+        #page-subtitle {
+            width: 100%;
+            text-align: center;
+            font-size: 1.2em;
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+        #shuffle-button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #00b894;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #shuffle-button:hover {
+            background-color: #00997a;
+        }
+    </style>
 </head>
 <body>
-  <h1 id="page-title">Welcome to the Puzzle Game!</h1>
-  <p id="page-subtitle">You compose and discover the jungle with its animals!</p>
+    <h1 id="page-title">Welcome to the Puzzle Game!</h1>
+    <p id="page-subtitle">You compose and discover the jungle with its animals!</p>
 
-  <button id="shuffle-button" onclick="shufflePieces()">Shuffle Puzzle</button>
+    <button id="shuffle-button" onclick="shufflePieces()">Shuffle Puzzle</button>
 
-  <img src="assets/new-jungle-puzzle/piece1.jpg" class="puzzle-piece" alt="Piece 1">
-  <img src="assets/new-jungle-puzzle/piece2.jpg" class="puzzle-piece" alt="Piece 2">
-  <img src="assets/new-jungle-puzzle/piece3.jpg" class="puzzle-piece" alt="Piece 3">
-  <img src="assets/new-jungle-puzzle/piece4.jpg" class="puzzle-piece" alt="Piece 4">
-  <img src="assets/new-jungle-puzzle/piece5.jpg" class="puzzle-piece" alt="Piece 5">
-  <img src="assets/new-jungle-puzzle/piece6.jpg" class="puzzle-piece" alt="Piece 6">
+    <img src="../../assets/new-jungle-puzzle/piece1.jpg" class="puzzle-piece" alt="Piece 1">
+    <img src="../../assets/new-jungle-puzzle/piece2.jpg" class="puzzle-piece" alt="Piece 2">
+    <img src="../../assets/new-jungle-puzzle/piece3.jpg" class="puzzle-piece" alt="Piece 3">
+    <img src="../../assets/new-jungle-puzzle/piece4.jpg" class="puzzle-piece" alt="Piece 4">
+    <img src="../../assets/new-jungle-puzzle/piece5.jpg" class="puzzle-piece" alt="Piece 5">
+    <img src="../../assets/new-jungle-puzzle/piece6.jpg" class="puzzle-piece" alt="Piece 6">
 
-  <script>
-    function shufflePieces() {
-      const pieces = document.querySelectorAll('.puzzle-piece');
-      pieces.forEach(piece => {
-        piece.style.order = Math.floor(Math.random() * 10);
-      });
-    }
-  </script>
+    <script>
+        function shufflePieces() {
+            const pieces = document.querySelectorAll('.puzzle-piece');
+            pieces.forEach(piece => {
+                piece.style.order = Math.floor(Math.random() * 10);
+            });
+        }
+    </script>
 </body>
 </html>
