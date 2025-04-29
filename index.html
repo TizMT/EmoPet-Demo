@@ -4,58 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EMOPet</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #f0f4f8;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #project-title {
+      text-align: center;
+      color: white;
+      background-color: #0066cc;
+      padding: 20px;
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+    #project-description {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: center;
+      border: 2px solid #0066cc;
+      padding: 15px;
+      background-color: #f9f9f9;
+      font-size: 1.2em;
+      font-variant: small-caps;
+      color: #333;
+    }
+    #tutorial-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      font-family: Arial, sans-serif;
+    }
+    #tutorial-overlay h1 {
+      font-size: 2em;
+    }
+    .link-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .link-section a {
+      color: #0066cc;
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+    .link-section a:hover {
+      text-decoration: underline;
+      color: #004a99;
+    }
+  </style>
 </head>
 <body>
-  <!-- Speech Bubble with Frame -->
-  <a href="placeholder.html" target="_blank" style="position: fixed; top: 10px; right: 10px; display: block; width: 250px; z-index: 1100; text-decoration: none;">
-    <div class="speech-bubble" style="position: relative; border: 5px solid #3399ff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); background-color: #fff;">
-      <img src="https://via.placeholder.com/220x150.png?text=Speech+Bubble" alt="Speech Bubble" style="width: 100%; display: block; border-bottom: 3px solid #3399ff;">
-      <div style="position: absolute; top: 20px; left: 20px; right: 20px; text-align: center; background: rgba(0, 0, 0, 0.5); color: #fff; font-size: 14px; padding: 5px; border-radius: 8px;">
-        <p style="margin: 0;">HELLO, WE ARE FRITZ AND LULU, YOUR VIRTUAL FRIENDS. WE ARE HERE TO KEEP YOU COMPANY.</p>
-      </div>
-    </div>
-  </a>
+  <!-- Titolo del progetto -->
+  <header id="project-title">EMOPet an app of PAW Pal AI</header>
 
-  <!-- Choose Your Pet Section -->
-  <section id="choose-pet">
-    <h2 style="text-align: center; margin-top: 20px;">Choose Your Pet</h2>
-    <div class="pet-container" style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-      <!-- Fritz -->
-      <a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/#fritz" 
-         style="text-decoration: none; color: inherit;">
-        <div class="pet">
-          <img src="images/fritz.jpg" alt="Fritz the Dog" style="width: 150px; border-radius: 10px;">
-          <h3 style="text-align: center; margin-top: 10px;">Fritz</h3>
-        </div>
-      </a>
-      <!-- Lulù -->
-      <a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/#lulu" 
-         style="text-decoration: none; color: inherit;">
-        <div class="pet">
-          <img src="images/lulu.jpg" alt="Lulù the Cat" style="width: 150px; border-radius: 10px;">
-          <h3 style="text-align: center; margin-top: 10px;">Lulù</h3>
-        </div>
-      </a>
-    </div>
-  </section>
+  <!-- Breve descrizione -->
+  <div id="project-description">
+    Choose your virtual animal Fritz (the dog) and Lulu (the cat) that will help you relax with music, play, ZEN exercises, and tips for a healthy snack.
+  </div>
 
-  <!-- Relax Section -->
-  <section id="relax-section" style="text-align: center; margin-top: 40px;">
-    <a href="https://www.youtube.com/watch?v=h5QRYsDMHuk" target="_blank" id="relaxLink" style="font-size: 18px; text-decoration: none; color: #4CAF50;">
-      🎶 How are you? Let's relax together
-    </a>
-    <div class="video-container" style="margin-top: 20px;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/h5QRYsDMHuk" frameborder="0" allowfullscreen></iframe>
-      <img src="images/zen-pet.png" alt="Zen Pet Hologram" id="zen-pet" style="width: 150px; margin-top: 20px;">
-    </div>
-  </section>
+  <!-- Overlay -->
+  <div id="tutorial-overlay">
+    <h1>Welcome to EMOPet! Your virtual friends are here to guide you.</h1>
+  </div>
 
-  <!-- Footer -->
-  <footer style="text-align: center; margin-top: 50px; font-size: 14px; color: #555;">
-    <p>
-      EmoPet is a project idea under development by Leonardo TRONCI (<a href="https://eventornado.com/submission/paw-pal-ai#idea" target="_blank" style="color: #3399ff;">PAW Pal AI</a>)
-    </p>
-  </footer>
+  <!-- Link al puzzle -->
+  <div class="link-section">
+    <p>Let's play to recompose the puzzle:</p>
+    <a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/" target="_blank">Click here to play the Puzzle Game!</a>
+  </div>
 </body>
 </html>
