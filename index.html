@@ -20,7 +20,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #ff9400, #ff6600); /* Orange gradient */
+      background: linear-gradient(135deg, #ff9400, #ff6600);
       color: white;
       display: flex;
       flex-direction: column;
@@ -29,16 +29,17 @@
       z-index: 1000;
       text-align: center;
       animation: fadeIn 1.5s;
+      padding: 20px;
     }
 
     #tutorial-overlay h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       margin-bottom: 20px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     #tutorial-overlay p {
-      font-size: 1.5em;
+      font-size: 1.2em;
       margin-bottom: 20px;
       max-width: 600px;
       line-height: 1.5;
@@ -56,7 +57,7 @@
       color: white;
       border: none;
       padding: 15px 30px;
-      font-size: 1.5em;
+      font-size: 1.2em;
       border-radius: 10px;
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -68,17 +69,21 @@
       transform: scale(1.1);
     }
 
-    /* Main title */
-    #project-title {
-      text-align: center;
-      color: white;
-      background-color: #0066cc;
-      padding: 20px;
-      font-size: 2.5em;
-      font-weight: bold;
+    @media (max-width: 600px) {
+      #tutorial-overlay h1 {
+        font-size: 2em;
+      }
+
+      #tutorial-overlay p {
+        font-size: 1em;
+      }
+
+      #tutorial-overlay button {
+        padding: 10px 20px;
+        font-size: 1em;
+      }
     }
 
-    /* Content section */
     .content-section {
       max-width: 800px;
       margin: 20px auto;
@@ -89,59 +94,6 @@
       border-radius: 10px;
     }
 
-    .content-section img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    .content-section h2 {
-      color: #0066cc;
-    }
-
-    .content-section p {
-      font-size: 1.2em;
-      color: #333;
-    }
-
-    /* Dialogue Section */
-    .dialogue-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      margin: 40px auto;
-      max-width: 900px;
-      gap: 20px;
-    }
-
-    .dialogue {
-      background-color: #fff;
-      border: 2px solid #0066cc;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      max-width: 400px;
-      text-align: left;
-      font-size: 1.2em;
-    }
-
-    .dialogue img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-right: 15px;
-    }
-
-    .dialogue p {
-      margin: 0;
-    }
-
-    .dialogue h3 {
-      margin: 0;
-      color: #0066cc;
-    }
-
-    /* Footer */
     #footer {
       text-align: center;
       margin-top: 50px;
@@ -156,11 +108,6 @@
 
     #footer a:hover {
       text-decoration: underline;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
   </style>
 </head>
@@ -178,8 +125,8 @@
     <div class="content-section">
       <h2>Relax and Enjoy</h2>
       <p>Listen to calming music and let Fritz and Lulù guide you through a world of relaxation.</p>
-      <a href="https://www.youtube.com/watch?v=h5QRYsDMHuk" target="_blank">
-        <img src="sleeping-bear.jpg" alt="Sleeping Bear Preview" style="max-width: 200px;">
+      <a href="https://example.com/music-videos" target="_blank">
+        <img src="demos/hologram-lab/images/zen-pet.png" alt="Zen Pet Icon" style="max-width: 50px; vertical-align: middle; margin-right: 10px;">
         Discover Relaxing Videos
       </a>
     </div>
@@ -188,40 +135,30 @@
       <div class="dialogue">
         <img src="images/fritz.jpg" alt="Fritz the Dog">
         <div>
-          <h3>Hi, I'm Fritz!</h3>
+          <h3><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" target="_blank">Fritz</a></h3>
           <p>Your playful and cheerful virtual friend. Let's have some fun together!</p>
         </div>
       </div>
       <div class="dialogue">
         <img src="images/lulu.jpg" alt="Lulù the Cat">
         <div>
-          <h3>Hi, I'm Lulù!</h3>
+          <h3><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" target="_blank">Lulù</a></h3>
           <p>Your curious and graceful companion. Let's explore and relax together!</p>
         </div>
       </div>
-      <div class="content-section">
-        <h2>Play the <b>Forest Puzzle</b></h2>
-        <a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/" target="_blank">
-          <img src="puzzle-icon.png" alt="Puzzle Icon" style="max-width: 50px;">
-          Solve the Puzzle Now!
-        </a>
-      </div>
+    </div>
+
+    <div id="footer">
+      <p>Here we talk about us (Fritz and Lulu): <a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" target="_blank"><u>Click Here</u></a></p>
+      <p>This is a prototype project under development by Leonardo Tronci. Learn more about the idea at:</p>
+      <a href="https://eventornado.com/submission/paw-pal-ai#idea" target="_blank">PAW Pal AI Project</a>
     </div>
   </div>
 
-  <!-- Footer -->
-  <div id="footer" style="display: none;">
-    <p>This is a prototype project under development by Leonardo Tronci. Learn more about the idea at:</p>
-    <a href="https://eventornado.com/submission/paw-pal-ai#idea" target="_blank">PAW Pal AI Project</a>
-    <p>Date: April 2025</p>
-  </div>
-
   <script>
-    // Close overlay and show main content
     document.getElementById('start-btn').addEventListener('click', function() {
       document.getElementById('tutorial-overlay').style.display = 'none';
       document.getElementById('main-content').style.display = 'block';
-      document.getElementById('footer').style.display = 'block';
     });
   </script>
 </body>
