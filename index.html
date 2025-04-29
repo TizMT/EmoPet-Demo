@@ -6,13 +6,10 @@
   <title>EMOPet</title>
   <style>
     /* General styles */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
-    }
-
+   body {
+  background: linear-gradient(to bottom, #e6e9ef, #fdfdfd);
+  color: #333;
+}
     /* Overlay styles */
     #tutorial-overlay {
       position: fixed;
@@ -112,6 +109,12 @@
   </style>
 </head>
 <body>
+  <header style="background-color: #ffffffd0; padding: 10px 20px; display: flex; align-items: center; justify-content: flex-start; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <h1 style="font-variant: small-caps; font-weight: bold; font-size: 1.5em; color: #2c3e50; margin: 0;">
+    EMOPet: your virtual friend
+  </h1>
+</header>
+
   <!-- Overlay -->
   <div id="tutorial-overlay">
     <h1>Welcome to EMOPet!</h1>
@@ -129,13 +132,14 @@
 <a href="https://www.youtube.com/embed/h5QRYsDMHuk" target="_blank" style="display: inline-block; text-decoration: none;">
   <img src="images/relaxing-video-preview.jpg" alt="Relaxing Video" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
 </a>
-      <div style="margin-top: 20px;">
-  <a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/" 
-     style="display: inline-block; background-color: #ff6600; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-size: 1.1em; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-    🧩 Play our Jungle Puzzle
+     <div class="content-section">
+  <h2>Ready to Play?</h2>
+  <p>Discover our fun jungle puzzle starring Fritz and Lulù!</p>
+  <a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/"
+     style="display: inline-block; background-color: #27ae60; color: white; padding: 14px 28px; font-size: 1.1em; text-decoration: none; border-radius: 8px; font-weight: bold;">
+     🧩 Play our Jungle Puzzle
   </a>
 </div>
-
     </div>
 
     <div class="dialogue-section">
@@ -168,5 +172,8 @@
       document.getElementById('main-content').style.display = 'block';
     });
   </script>
+  <div style="position: fixed; bottom: 10px; right: 10px; opacity: 0.7;">
+  <img src="images/emopet-by-leo-logo.png" alt="EmoPet by Leo T." style="width: 80px; border-radius: 50%;">
+</div>
 </body>
 </html>
