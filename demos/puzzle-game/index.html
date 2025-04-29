@@ -5,54 +5,79 @@
     <title>EMOPet Puzzle Game</title>
     <style>
         body {
-            background: #a8e6cf;
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
         }
+
+        #puzzle-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 20px;
+        }
+
         .puzzle-piece {
             width: 150px;
             height: 150px;
-            margin: 10px;
             object-fit: cover;
-            border: 2px solid #00695c;
-            box-shadow: 0 0 10px rgba(0, 150, 0, 0.5);
-            transition: transform 0.3s;
+            border: 3px solid #00695c;
+            border-radius: 10px;
+            cursor: grab;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .puzzle-piece:hover {
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+
+        .puzzle-piece:active {
+            cursor: grabbing;
+        }
+
         #page-title {
-            width: 100%;
-            text-align: center;
-            font-size: 2.2em;
+            font-size: 2.5em;
             color: #00695c;
-            margin-top: 20px;
+            margin: 20px 0 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
+
         #page-subtitle {
-            width: 100%;
-            text-align: center;
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #004d40;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
+
         #shuffle-button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            font-size: 1em;
-            background-color: #00b894;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            background: linear-gradient(145deg, #00b894, #00997a);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
         }
+
         #shuffle-button:hover {
-            background-color: #00997a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .drop-zone {
+            border: 3px dashed #00695c;
+            border-radius: 10px;
+            margin: 5px;
         }
     </style>
 </head>
@@ -62,20 +87,54 @@
 
     <button id="shuffle-button" onclick="shufflePieces()">Shuffle Puzzle</button>
 
-    <img src="../../assets/new-jungle-puzzle/piece1.jpg" class="puzzle-piece" alt="Piece 1">
-    <img src="../../assets/new-jungle-puzzle/piece2.jpg" class="puzzle-piece" alt="Piece 2">
-    <img src="../../assets/new-jungle-puzzle/piece3.jpg" class="puzzle-piece" alt="Piece 3">
-    <img src="../../assets/new-jungle-puzzle/piece4.jpg" class="puzzle-piece" alt="Piece 4">
-    <img src="../../assets/new-jungle-puzzle/piece5.jpg" class="puzzle-piece" alt="Piece 5">
-    <img src="../../assets/new-jungle-puzzle/piece6.jpg" class="puzzle-piece" alt="Piece 6">
+    <div id="puzzle-container">
+        <!-- Aggiungi qui i div per le drop zone se vuoi un'area specifica -->
+        <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece1.jpg" class="puzzle-piece" alt="Piece 1" draggable="true">
+        <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece2.jpg" class="puzzle-piece" alt="Piece 2" draggable="true">
+        <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece3.jpg" class="puzzle-piece" alt="Piece 3" draggable="true">
+        <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece4.jpg" class="puzzle-piece" alt="Piece 4" draggable="true">
+        <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece5.jpg" class="puzzle-piece" alt="Piece 5" draggable="true">
+        <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece6.jpg" class="puzzle-piece" alt="Piece 6" draggable="true">
+    </div>
 
     <script>
-        function shufflePieces() {
-            const pieces = document.querySelectorAll('.puzzle-piece');
-            pieces.forEach(piece => {
-                piece.style.order = Math.floor(Math.random() * 10);
-            });
+        let draggedPiece = null;
+
+        // Aggiungi event listeners per il drag-and-drop
+        document.querySelectorAll('.puzzle-piece').forEach(piece => {
+            piece.addEventListener('dragstart', handleDragStart);
+            piece.addEventListener('dragend', handleDragEnd);
+        });
+
+        function handleDragStart(e) {
+            draggedPiece = this;
+            setTimeout(() => (this.style.opacity = '0.5'), 0);
         }
+
+        function handleDragEnd(e) {
+            draggedPiece = null;
+            setTimeout(() => (this.style.opacity = '1'), 0);
+        }
+
+        function shufflePieces() {
+            const container = document.getElementById('puzzle-container');
+            const pieces = Array.from(container.children);
+            
+            // Shuffle efficace
+            pieces.sort(() => Math.random() - 0.5);
+            
+            // Riordina gli elementi nel DOM
+            pieces.forEach(piece => container.appendChild(piece));
+        }
+
+        // Aggiungi questo se vuoi implementare le drop zone
+        document.addEventListener('dragover', e => e.preventDefault());
+        document.addEventListener('drop', e => {
+            e.preventDefault();
+            if (e.target.classList.contains('drop-zone')) {
+                e.target.appendChild(draggedPiece);
+            }
+        });
     </script>
 </body>
 </html>
