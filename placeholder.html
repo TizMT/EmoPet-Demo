@@ -3,28 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <title>Coming Soon - EMOPet</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #f7f7f7;
-      margin: 0;
-      padding: 0;
-    }
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
+  margin: 0;
+  padding: 0;
+}
     .container {
-      max-width: 600px;
-      margin: 80px auto;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  animation: fadeIn 1s ease-out;
+}
     h1 {
       color: #ff6600;
       font-size: 36px;
       margin-bottom: 20px;
     }
+    @media (max-width: 600px) {
+  .container {
+    margin: 40px 10px;
+    padding: 15px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 16px;
+  }
+}
     p {
       font-size: 18px;
       color: #333;
@@ -42,6 +56,21 @@
     .link-section a:hover {
       text-decoration: underline;
     }
+    .button-link {
+  display: inline-block;
+  background: #3399ff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.button-link:hover {
+  background: #ff6600;
+  transform: scale(1.05);
+}
   </style>
 </head>
 <body>
@@ -65,9 +94,10 @@
     </div>
     
     <p style="margin-top: 20px;">
-      <a href="https://www.storyberries.com/category/age-0-3-bedtime-stories/" target="_blank" style="font-size: 16px;">Click here to read more Puppy Stories!</a>
-    </p>
-
+  <a href="https://www.storyberries.com/category/age-0-3-bedtime-stories/" target="_blank" class="button-link">
+  Click here to read more Puppy Stories!
+</a>
+</p>
     <!-- New Puzzle Section -->
     <div class="link-section">
       <p>If you love puzzles, we have more for you! Enjoy playing:</p>
