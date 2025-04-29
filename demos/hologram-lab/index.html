@@ -1,60 +1,56 @@
-<!-- File: demos/hologram-lab/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EMOpet Hologram Lab</title>
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    .hologram-container {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 50px;
-    }
-    .hologram {
-      width: 300px;
-      height: 300px;
-      border: 2px solid #4CAF50;
-      border-radius: 10px;
-      animation: glow 2s infinite alternate;
-    }
-    @keyframes glow {
-      from { box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); }
-      to { box-shadow: 0 0 20px rgba(76, 175, 80, 0.8); }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Fritz (Dog) -->
-<div class="hologram">
- <img src="images/fritz.jpg" alt="Fritz the Dog"> 
-  <div class="hologram-description">
-    <h3>FRITZ</h3>
-    <p>Loyal playful dog • Loves running in meadows • Always ready to fetch!</p>
-  </div>
-</div>
-
-<!-- Lulù (Cat) -->
   <h1>EMOpet Hologram Lab 🐾</h1>
-<div class="hologram-container">
+  <div class="hologram-container">
+    <!-- Fritz -->
     <div class="hologram">
-        <img src="images/fritz.jpg" alt="Fritz the Dog">
+      <img src="images/fritz.jpg" alt="Fritz the Dog">
+      <div class="hologram-description">
+        <h3>FRITZ</h3>
+        <p>Loyal playful dog • Loves running in meadows • Always ready to fetch!</p>
+      </div>
     </div>
+    <!-- Lulù -->
     <div class="hologram">
-        <img src="images/lulu.jpg" alt="Lulù the Cat">
+      <img src="images/lulu.jpg" alt="Lulù the Cat">
+      <div class="hologram-description">
+        <h3>LULÙ</h3>
+        <p>Graceful and curious cat • Loves sunny spots • Master of mischief!</p>
+      </div>
     </div>
-    <div class="hologram">
-        <img src="images/zen-pet.png" alt="Zen Pet Hologram">
+  </div>
+
+  <!-- Zen Pet -->
+  <div class="hologram" style="margin-top: 30px;">
+    <img src="images/zen-pet.png" alt="Zen Pet Hologram">
+    <div class="hologram-description">
+      <h3>ZEN PET</h3>
+      <p>Calm and wise • Meditates on a book • Inspires inner peace!</p>
     </div>
-</div>
-  Added main page link: IF YOU’RE HAPPY, LET’S PLAY: Puzzle Game
-  <!-- Aggiunta del link al Puzzle Game -->
+    <p style="margin-top: 10px;">
+      <a href="https://www.adaptedmind.com/Math-Worksheets.html?utm_medium=cpc&utm_source=google&campaignid=893890531&campaign_type=display&placement=d&utm_content=responsivedisplayad&adid=706818012223&adset_id=47463390467&utm_term=&ad_position=&device=c&gad_source=5&gclid=EAIaIQobChMI75Syidb8jAMV2o5QBh1gixLBEAEYASAAEgLvDPD_BwE" target="_blank" style="color: #3399ff;">Try the Zen Game for Kids</a>
+    </p>
+  </div>
+
+  <!-- Link al Puzzle Game -->
   <div style="text-align: center; margin-top: 40px;">
     <p style="font-size: 24px; color: #ff6600; font-weight: bold;">
       IF YOU’RE HAPPY, LET’S PLAY: <a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/" target="_blank" style="color: #3399ff;">Puzzle Game</a>
     </p>
   </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; margin-top: 50px; font-size: 14px; color: #555;">
+    <p>
+      EmoPet is a project idea under development by Leonardo TRONCI (<a href="https://eventornado.com/submission/paw-pal-ai#idea" target="_blank" style="color: #3399ff;">PAW Pal AI</a>)
+    </p>
+  </footer>
 </body>
 </html>
