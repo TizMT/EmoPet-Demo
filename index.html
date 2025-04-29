@@ -5,12 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EMOPet</title>
   <style>
+    /* General styles */
     body {
-      background-color: #f0f4f8;
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
     }
+
+    /* Overlay styles */
+    #tutorial-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff7eb3, #ff758c);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      text-align: center;
+      animation: fadeIn 1.5s;
+    }
+
+    #tutorial-overlay h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    #tutorial-overlay p {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    #tutorial-overlay img {
+      max-width: 300px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    #tutorial-overlay button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    #tutorial-overlay button:hover {
+      background: #45a049;
+      transform: scale(1.1);
+    }
+
+    /* Vignette styles */
+    #vignette {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 10px;
+      z-index: 1100;
+    }
+
+    #vignette img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    /* Main title */
     #project-title {
       text-align: center;
       color: white;
@@ -19,67 +96,160 @@
       font-size: 2.5em;
       font-weight: bold;
     }
-    #project-description {
+
+    /* Content section */
+    .content-section {
       max-width: 800px;
       margin: 20px auto;
       text-align: center;
-      border: 2px solid #0066cc;
       padding: 15px;
       background-color: #f9f9f9;
+      border: 2px solid #0066cc;
+      border-radius: 10px;
+    }
+
+    .content-section img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .content-section h2 {
+      color: #0066cc;
+    }
+
+    .content-section p {
       font-size: 1.2em;
-      font-variant: small-caps;
       color: #333;
     }
-    #tutorial-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      color: white;
+
+    /* Dialogue Section */
+    .dialogue-section {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
-      z-index: 1000;
-      font-family: Arial, sans-serif;
+      margin: 40px auto;
+      max-width: 900px;
     }
-    #tutorial-overlay h1 {
-      font-size: 2em;
-    }
-    .link-section {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .link-section a {
-      color: #0066cc;
+
+    .dialogue {
+      background-color: #fff;
+      border: 2px solid #0066cc;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      text-align: left;
       font-size: 1.2em;
+    }
+
+    .dialogue img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .dialogue p {
+      margin: 0;
+    }
+
+    .dialogue h3 {
+      margin: 0;
+      color: #0066cc;
+    }
+
+    /* Footer */
+    #footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 1em;
+      color: #555;
+    }
+
+    #footer a {
+      color: #3399ff;
       text-decoration: none;
     }
-    .link-section a:hover {
+
+    #footer a:hover {
       text-decoration: underline;
-      color: #004a99;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <!-- Titolo del progetto -->
-  <header id="project-title">EMOPet an app of PAW Pal AI</header>
-
-  <!-- Breve descrizione -->
-  <div id="project-description">
-    Choose your virtual animal Fritz (the dog) and Lulu (the cat) that will help you relax with music, play, ZEN exercises, and tips for a healthy snack.
-  </div>
-
   <!-- Overlay -->
   <div id="tutorial-overlay">
-    <h1>Welcome to EMOPet! Your virtual friends are here to guide you.</h1>
+    <h1>Welcome to EMOPet!</h1>
+    <p>Discover an exciting world of relaxation, interactive puzzles, and fun with Fritz and Lulù! Start your journey and explore all the activities designed just for you.</p>
+    <img src="Dog%20and%20Cat%20ologram-EmoPet.png" alt="Fritz and Lulù">
+    <button id="start-btn">START <span>➡️</span></button>
   </div>
 
-  <!-- Link al puzzle -->
-  <div class="link-section">
-    <p>Let's play to recompose the puzzle:</p>
-    <a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/" target="_blank">Click here to play the Puzzle Game!</a>
+  <!-- Vignette -->
+  <div id="vignette">
+    <a href="https://example.com/fritz">
+      <img src="images/fritz.jpg" alt="Fritz the Dog">
+    </a>
+    <a href="https://example.com/lulu">
+      <img src="images/lulu.jpg" alt="Lulù the Cat">
+    </a>
   </div>
+
+  <!-- Main Title -->
+  <header id="project-title" style="display: none;">EMOPet: An App of PAW Pal AI</header>
+
+  <!-- Main Content -->
+  <div id="main-content" style="display: none;">
+    <div class="content-section">
+      <h2>Relax and Enjoy</h2>
+      <p>Listen to calming music and let Fritz and Lulù guide you through a world of relaxation.</p>
+      <a href="https://example.com/music-videos" target="_blank">Discover Relaxing Videos</a>
+    </div>
+
+    <div class="dialogue-section">
+      <div class="dialogue">
+        <img src="images/fritz.jpg" alt="Fritz the Dog">
+        <div>
+          <h3>Hi, I'm Fritz!</h3>
+          <p>Your playful and cheerful virtual friend. Let's have some fun together!</p>
+        </div>
+      </div>
+      <div class="dialogue">
+        <img src="images/lulu.jpg" alt="Lulù the Cat">
+        <div>
+          <h3>Hi, I'm Lulù!</h3>
+          <p>Your curious and graceful companion. Let's explore and relax together!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Play the Puzzle Game</h2>
+      <p>Put your skills to the test and solve the jungle animal puzzles. Can you complete them all?</p>
+      <a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/" target="_blank">Play the Puzzle Game</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer" style="display: none;">
+    <p>This is a prototype project under development by Leonardo Tronci. Learn more about the idea at:</p>
+    <a href="https://eventornado.com/submission/paw-pal-ai#idea" target="_blank">PAW Pal AI Project</a>
+    <p>Date: April 29, 2025</p>
+  </div>
+
+  <script>
+    // Close overlay and show main content
+    document.getElementById('start-btn').addEventListener('click', function() {
+      document.getElementById('tutorial-overlay').style.display = 'none';
+      document.getElementById('project-title').style.display = 'block';
+      document.getElementById('main-content').style.display = 'block';
+      document.getElementById('footer').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
