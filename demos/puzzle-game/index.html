@@ -106,8 +106,7 @@
     <button id="shuffle-button" onclick="shufflePieces()">Shuffle Puzzle</button>
 
     <div id="puzzle-container">
-        <!-- Aggiungi qui i div per le drop zone se vuoi un'area specifica -->
-        <img src="../../assets/new-jungle-puzzle/piece1_updated.png" alt="Puzzle Piece 1">
+        <img src="../../assets/new-jungle-puzzle/piece1_updated.png" class="puzzle-piece" alt="Puzzle Piece 1" draggable="true">
         <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece2.jpg" class="puzzle-piece" alt="Piece 2" draggable="true">
         <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece3.jpg" class="puzzle-piece" alt="Piece 3" draggable="true">
         <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece4.jpg" class="puzzle-piece" alt="Piece 4" draggable="true">
@@ -124,45 +123,50 @@
     </div>
 </div>
 
-    <script>
-        let draggedPiece = null;
+<script>
+    let draggedPiece = null;
 
-        // Aggiungi event listeners per il drag-and-drop
-        document.querySelectorAll('.puzzle-piece').forEach(piece => {
-            piece.addEventListener('dragstart', handleDragStart);
-            piece.addEventListener('dragend', handleDragEnd);
-        });
+    // Aggiungi event listeners per i pezzi del puzzle
+    document.querySelectorAll('.puzzle-piece').forEach(piece => {
+        piece.addEventListener('dragstart', handleDragStart);
+        piece.addEventListener('dragend', handleDragEnd);
+    });
 
-        function handleDragStart(e) {
-            draggedPiece = this;
-            setTimeout(() => (this.style.opacity = '0.5'), 0);
-        }
+    function handleDragStart(e) {
+        draggedPiece = this; // Salva il pezzo che viene trascinato
+        setTimeout(() => (this.style.opacity = '0.5'), 0); // Cambia l'opacità per feedback visivo
+        console.log("Drag start:", draggedPiece); // Debug
+    }
 
-        function handleDragEnd(e) {
-            draggedPiece = null;
-            setTimeout(() => (this.style.opacity = '1'), 0);
-        }
+    function handleDragEnd(e) {
+        setTimeout(() => (this.style.opacity = '1'), 0); // Ripristina l'opacità
+        console.log("Drag end:", draggedPiece); // Debug
+    }
 
-        function shufflePieces() {
-            const container = document.getElementById('puzzle-container');
-            const pieces = Array.from(container.children);
-            
-            // Shuffle efficace
-            pieces.sort(() => Math.random() - 0.5);
-            
-            // Riordina gli elementi nel DOM
-            pieces.forEach(piece => container.appendChild(piece));
-        }
+    function shufflePieces() {
+        const container = document.getElementById('puzzle-container');
+        const pieces = Array.from(container.children);
+        
+        // Shuffle efficace
+        pieces.sort(() => Math.random() - 0.5);
+        
+        // Riordina gli elementi nel DOM
+        pieces.forEach(piece => container.appendChild(piece));
+    }
 
-        // Aggiungi questo se vuoi implementare le drop zone
-        document.addEventListener('dragover', e => e.preventDefault());
-        document.addEventListener('drop', e => {
-            e.preventDefault();
-            if (e.target.classList.contains('drop-zone')) {
-                e.target.appendChild(draggedPiece);
+    // Configura le drop zone
+    document.querySelectorAll('.drop-zone').forEach(zone => {
+        zone.addEventListener('dragover', e => e.preventDefault()); // Permette il dragover
+        zone.addEventListener('drop', e => {
+            e.preventDefault(); // Impedisce il comportamento predefinito
+            console.log("Dropped on:", e.target); // Debug
+            if (draggedPiece) {
+                e.target.appendChild(draggedPiece); // Aggiunge il pezzo nella drop-zone
+                draggedPiece = null; // Resetta la variabile dopo il drop
             }
         });
-    </script>
+    });
+</script>
     <div id="footer" style="text-align: center; padding: 10px; font-size: 12px; color: #555;">
   <p>Prototype in development by Leonardo TRONCI</p>
 </div>
