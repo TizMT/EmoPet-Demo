@@ -153,19 +153,29 @@
         // Riordina gli elementi nel DOM
         pieces.forEach(piece => container.appendChild(piece));
     }
-
-    // Configura le drop zone
-    document.querySelectorAll('.drop-zone').forEach(zone => {
-        zone.addEventListener('dragover', e => e.preventDefault()); // Permette il dragover
-        zone.addEventListener('drop', e => {
-            e.preventDefault(); // Impedisce il comportamento predefinito
-            console.log("Dropped on:", e.target); // Debug
-            if (draggedPiece) {
-                e.target.appendChild(draggedPiece); // Aggiunge il pezzo nella drop-zone
-                draggedPiece = null; // Resetta la variabile dopo il drop
-            }
-        });
+// Configure drop zones
+document.querySelectorAll('.drop-zone').forEach(zone => {
+    zone.addEventListener('dragover', function (e) {
+        e.preventDefault(); // Allow dragover event for drop zones
     });
+
+    zone.addEventListener('drop', function (e) {
+        e.preventDefault(); // Prevent default behavior
+        console.log("Dropped on:", e.target); // Debugging output
+
+        if (draggedPiece) {
+            e.target.appendChild(draggedPiece); // Place the puzzle piece inside the drop zone
+            
+            // Ensure the puzzle piece remains inside the drop zone
+            draggedPiece.style.position = "absolute"; 
+            draggedPiece.style.left = "0";
+            draggedPiece.style.top = "0";
+            draggedPiece.style.opacity = "1"; // Restore normal opacity
+            
+            draggedPiece = null; // Reset the dragged piece variable
+        }
+    });
+});
 </script>
     <div id="footer" style="text-align: center; padding: 10px; font-size: 12px; color: #555;">
   <p>Prototype in development by Leonardo TRONCI</p>
