@@ -82,10 +82,21 @@
         }
 
         .drop-zone {
-            border: 3px dashed #00695c;
-            border-radius: 10px;
-            margin: 5px;
-        }
+    border: 3px dashed #00695c;
+    border-radius: 10px;
+    margin: 5px;
+    width: 150px; /* Aggiunto */
+    height: 150px; /* Aggiunto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f8ff; /* Aggiunto per renderla più visibile */
+    transition: background 0.3s ease;
+}
+
+.drop-zone:hover {
+    background-color: #dcedc1; /* Cambio colore quando un pezzo viene trascinato sopra */
+}
     </style>
 </head>
 <body>
@@ -102,7 +113,14 @@
         <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece4.jpg" class="puzzle-piece" alt="Piece 4" draggable="true">
         <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece5.jpg" class="puzzle-piece" alt="Piece 5" draggable="true">
         <img src="/EmoPet-Demo/assets/new-jungle-puzzle/piece6.jpg" class="puzzle-piece" alt="Piece 6" draggable="true">
-    </div>
+    </div <div id="drop-zone-container" style="width: 600px; height: 400px; border: 3px dashed #00695c; border-radius: 10px; margin: 20px auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;">
+    <div class="drop-zone" id="zone1"></div>
+    <div class="drop-zone" id="zone2"></div>
+    <div class="drop-zone" id="zone3"></div>
+    <div class="drop-zone" id="zone4"></div>
+    <div class="drop-zone" id="zone5"></div>
+    <div class="drop-zone" id="zone6"></div>
+</div>
 
     <script>
         let draggedPiece = null;
