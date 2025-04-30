@@ -6,9 +6,9 @@
 
 /* Sfondo immagini per visibilità */
 .hologram img {
-  width: 180px;
-  height: 180px;
-  background: rgba(255,255,255,0.05); /* Leva trasparenza eccessiva */
+  max-width: 100%;
+  height: auto;
+  background: rgba(255,255,255,0.05);
   border-radius: 15px;
   padding: 8px;
   object-fit: contain;
@@ -20,7 +20,8 @@
   bottom: -45px;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
+  width: 90%;
+  max-width: 240px;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   color: #fff;
   padding: 8px 12px;
