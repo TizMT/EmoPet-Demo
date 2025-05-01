@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Scientific Sponsors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffcc80, #ff7043);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background 1s ease-in-out;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: #E8F5E9;
+            padding: 6px 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            z-index: 1001;
+        }
+
+        .lang-btn {
+            background: #00796B;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .lang-btn:hover {
+            background: #004D40;
+            transform: scale(1.1);
+        }
+
+        .content-box {
+            max-width: 90%;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #ff9800, #e65100);
+            color: white;
+            padding: 18px;
+            border-radius: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            animation: bounce 2s infinite;
+            margin-top: 25px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .link-box {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .nutrition-btn {
+            background: #00796B;
+            color: white;
+            padding: 14px 22px;
+            font-size: 1.3em;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .nutrition-btn:hover {
+            background: #004D40;
+            transform: scale(1.05);
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Language Switch Button -->
+    <div class="language-switch">
+        <button id="toggle-language" class="lang-btn">EN | IT</button>
+    </div>
+
+    <div class="content-box">
+        <h1 data-lang="en" data-it="I NOSTRI SPONSOR SCIENTIFICI">OUR SCIENTIFIC SPONSORS</h1>
+        <p data-lang="en" data-it="Il progetto Paw Pal AI nasce in Sardegna, una delle famose Blue Zones del mondo!">
+            Paw Pal AI was born in Sardinia, one of the world's famous Blue Zones!
+        </p>
+
+        <p data-lang="en" data-it="Sardegna è conosciuta per la longevità della sua popolazione grazie a una dieta equilibrata e uno stile di vita sano.">
+            Sardinia is known for the longevity of its population, thanks to a balanced diet and a healthy lifestyle.
+        </p>
+
+        <div class="cta-box">
+            🌿💚 <span data-lang="en" data-it="Scopri i benefici di un'alimentazione sana e naturale, proprio come fanno gli abitanti delle Blue Zones!">
+                Discover the benefits of a healthy and natural diet, just like the people living in Blue Zones!
+            </span> 💚🌿  
+        </div>
+
+        <div class="link-box">
+            <a href="https://www.facebook.com/share/p/19Lbb14Vp7/" target="_blank" class="nutrition-btn" 
+               data-lang="en" data-it="Ecco alcuni suggerimenti nutrizionali del Dott. Diana sulla pet therapy!">
+                Here are some nutritional tips from Dr. Diana on pet therapy!
+            </a>
+        </div>
+
+        <div class="link-box">
+            <a href="https://www.microbiologiaitalia.it/diete/dieta-delle-blue-zones/" target="_blank" class="nutrition-btn"
+               data-lang="en" data-it="Scopri di più sulla dieta delle Blue Zones!">
+                Learn more about the Blue Zones Diet!
+            </a>
+        </div>
+
+        <div class="link-box">
+            <a href="nutrition.html" class="nutrition-btn" data-lang="en" data-it="Leggi di più sulla corretta alimentazione!">
+                Read more about healthy nutrition! 🥗🍊
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer con riferimento al progetto -->
+    <p class="footer-text">
+        🌍 <span data-lang="en" data-it="Idea progettuale e prototipo di Leonardo Tronci.">
+            Concept and prototype by Leonardo Tronci.
+        </span> 🚀
+    </p>
+
+    <script src="translate.js"></script>
+
+</body>
+</html>
