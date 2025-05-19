@@ -32,9 +32,10 @@
       text-decoration: none;
       font-weight: bold;
     }
-    nav .lang-switch {
+    nav .lang-switch button {
       background: white;
       color: #333;
+      border: none;
       padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
@@ -94,9 +95,10 @@
   <nav>
     <div>
       <a href="index.html">🏠 Home</a>
-      <a href="overlay.html">✨ Overlay</a>
     </div>
-    <div class="lang-switch" onclick="location.href='leo_it.html'">🇮🇹 ITA</div>
+    <div class="lang-switch">
+      <button onclick="window.location.href='https://translate.google.com/translate?sl=en&tl=it&u=' + window.location.href">🇮🇹 Translate</button>
+    </div>
   </nav>
 
   <header>
@@ -104,34 +106,49 @@
     <p>What the media says about Leo and his global award at Future Minds Hackathon 2025</p>
   </header>
 
+  <div style="text-align: center; margin-top: 20px;">
+    <img src="https://github.com/TizMT/EmoPet-Demo/blob/main/Screenshot_20250519_161310.jpg" alt="Leonardo Tronci" style="width: 180px; border: 4px solid #ff7043; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+  </div>
+
   <main>
+    <div class="section">
+      <h2>👤 About Me</h2>
+      <p>
+        I’m <strong>Leonardo Tronci</strong>, a 4th-year student at the European Classical High School of the Convitto Nazionale in Cagliari, living in Quartucciu (Sardinia, Italy).<br>
+        I am passionate about technology, especially computer engineering applied to health and education. I created <strong>Leo EmoPet</strong> to help children better manage emotions using digital empathy and gamified virtual therapy.
+      </p>
+      <p>
+        I also volunteer with <em>Arka Eventi Culturali</em>, supporting social and educational campaigns – including Christmas fundraising for Syrian children.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🗞 What They Say About Leo</h2>
+      <p>
+        Italian media described my journey as a mix of empathy and creativity that brought me from my hometown to a global AI stage. Winning 3rd place at the Future Minds Hackathon 2025 confirmed my desire to innovate through technology, helping real people with real needs.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>💌 Support the Project</h2>
+      <p>🚀 Are you a software developer, sponsor or researcher interested in children’s wellbeing and digital innovation?</p>
+      <p>🎓 Would you like to support my growth through mentoring or scholarships?</p>
+      <p>🏫 Want to host a workshop at your school or event?</p>
+      <p>📩 Contact me directly: <a href="mailto:Leo.Tronci@tiscali.it">Leo.Tronci@tiscali.it</a></p>
+    </div>
+
     <div class="section">
       <h2>📰 Press Coverage</h2>
       <ul>
         <li><a href="https://www.unionesarda.it/news-sardegna/cagliari/cagliari-unapp-per-aiutare-i-bambini-con-lansia-lo-studente-leonardo-tronci-sul-podio-globale-dellai-budxib1s" target="_blank">Unione Sarda (IT)</a>: Leo EmoPet helps children manage anxiety – the only Italian student on a global AI podium.
           <a class="translate-link" href="https://translate.google.com/translate?sl=it&tl=en&u=https://www.unionesarda.it/news-sardegna/cagliari/cagliari-unapp-per-aiutare-i-bambini-con-lansia-lo-studente-leonardo-tronci-sul-podio-globale-dellai-budxib1s" target="_blank">🌐 Translate this article</a>
         </li>
-        <li><a href="https://www.unionesarda.it/en/sardinia/cagliari-an-app-to-help-children-with-anxiety-the-student-leonardo-tronci-on-the-global-ai-podium-mbideyq2" target="_blank">Unione Sarda (EN)</a>: English version – international attention to a Sardinian student’s idea.</li>
-        <li><a href="https://www.cronachedallasardegna.it/2025/05/06/leonardo-tronci-studente-cagliaritano-terzo-classificato-al-future-minds-ai-hackathon-unico-studente-italiano-nella-finale-di-una-competizione-globale-di-intelligenza-artificiale-nellambito-de/" target="_blank">Cronache dalla Sardegna</a>: The only Italian student among global finalists in a tough AI competition – pride for Sardinia.
-          <a class="translate-link" href="https://translate.google.com/translate?sl=it&tl=en&u=https://www.cronachedallasardegna.it/2025/05/06/leonardo-tronci-studente-cagliaritano-terzo-classificato-al-future-minds-ai-hackathon-unico-studente-italiano-nella-finale-di-una-competizione-globale-di-intelligenza-artificiale-nellambito-de/" target="_blank">🌐 Translate this article</a>
-        </li>
-        <li><a href="https://www.cagliaripost.com/leonardo-tronci-studente-del-liceo-classico-europeo-convitto-di-cagliari-terzo-classificato-al-future-minds-ai-hackathon/" target="_blank">CagliariPost</a>: Leo’s school celebrates his success with pride and educational value.
-          <a class="translate-link" href="https://translate.google.com/translate?sl=it&tl=en&u=https://www.cagliaripost.com/leonardo-tronci-studente-del-liceo-classico-europeo-convitto-di-cagliari-terzo-classificato-al-future-minds-ai-hackathon/" target="_blank">🌐 Translate this article</a>
-        </li>
         <li><a href="https://www.castedduonline.it/leonardo-tronci-da-quartucciu-al-podio-internazionale-nel-campo-dellintelligenza-artificiale/" target="_blank">Casteddu Online</a>: From Quartucciu to the international AI podium – the story of talent and perseverance.
           <a class="translate-link" href="https://translate.google.com/translate?sl=it&tl=en&u=https://www.castedduonline.it/leonardo-tronci-da-quartucciu-al-podio-internazionale-nel-campo-dellintelligenza-artificiale/" target="_blank">🌐 Translate this article</a>
         </li>
-        <li><a href="https://www.instagram.com/p/DJe7KFJsgmh/" target="_blank">Instagram</a>: Celebration post for Leo’s global podium with community support.</li>
-        <li><a href="https://www.unionesarda.it/de/sardinien/cagliari-eine-app-zur-unterstutzung-von-kindern-mit-angstzustanden-der-student-leonardo-tronci-auf-dem-globalen-ki-podium-e7jzlqyb" target="_blank">Unione Sarda (DE)</a>: German version – emphasis on child mental health and international relevance.</li>
-        <li>
-  <a href="https://www.convittocagliari.edu.it/index.php/attivita-progetti-licei/1713-creazione-di-app-e-riconoscimento-mondiale-al-liceo-europeo" target="_blank">
-    Convitto Nazionale Cagliari – Official School Website
-  </a>: The school proudly announces Leonardo's international achievement with Leo EmoPet, highlighting the creativity and value of the European Classical curriculum.
-  <a class="translate-link" href="https://translate.google.com/translate?sl=it&tl=en&u=https://www.convittocagliari.edu.it/index.php/attivita-progetti-licei/1713-creazione-di-app-e-riconoscimento-mondiale-al-liceo-europeo" target="_blank">
-    🌐 Translate this article
-  </a>
-</li>
-
+        <li><a href="https://www.convittocagliari.edu.it/index.php/attivita-progetti-licei/1713-creazione-di-app-e-riconoscimento-mondiale-al-liceo-europeo" target="_blank">Convitto Nazionale Cagliari – Official School Website</a>: The school proudly announces Leonardo's international achievement with Leo EmoPet, highlighting the creativity and value of the European Classical curriculum.
+          <a class="translate-link" href="https://translate.google.com/translate?sl=it&tl=en&u=https://www.convittocagliari.edu.it/index.php/attivita-progetti-licei/1713-creazione-di-app-e-riconoscimento-mondiale-al-liceo-europeo" target="_blank">🌐 Translate this article</a>
+        </li>
       </ul>
     </div>
 
@@ -143,16 +160,15 @@
 
     <div class="section">
       <h2>📄 Download this Press Page</h2>
-      <a href="#" class="cta">📥 Download as PDF</a>
+      <a href="leo-press.pdf" download class="cta">📥 Download as PDF</a>
       <div class="social-links">
-  <p>Share on:</p>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://tizmt.github.io/EmoPet-Demo/leo.html" target="_blank">Facebook</a>
-  <a href="https://twitter.com/intent/tweet?url=https://tizmt.github.io/EmoPet-Demo/leo.html&text=Check+out+Leo+EmoPet's+press+page+and+award!" target="_blank">X (Twitter)</a>
-  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tizmt.github.io/EmoPet-Demo/leo.html" target="_blank">LinkedIn</a>
-  <a href="https://www.tiktok.com/upload" target="_blank">TikTok (add manually)</a>
-  <a href="https://www.instagram.com/" target="_blank">Instagram (link in bio)</a>
-</div>
-
+        <p>Share on:</p>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tizmt.github.io/EmoPet-Demo/leo.html" target="_blank">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url=https://tizmt.github.io/EmoPet-Demo/leo.html&text=Check+out+Leo+EmoPet+and+his+global+award!" target="_blank">X (Twitter)</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tizmt.github.io/EmoPet-Demo/leo.html" target="_blank">LinkedIn</a>
+        <a href="https://www.tiktok.com/upload" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+      </div>
     </div>
   </main>
 
