@@ -30,7 +30,7 @@ EMOPet is an interactive web application designed for children to manage playful
 
 ### © Project Copyright
 
-© Leonardo Tronci / AgriMotus – Leo EmoPet 2024–2025  
+© Leonardo Tronci /  – Leo EmoPet 2024–2025  
 *Leo EmoPet* is an original digital pet therapy and emotional support project for children, designed to promote emotional awareness and mental well-being through interactive experiences.  
 All content—including texts, graphics, interaction design, conversational logic, and related materials—is protected.  
 Copying, reproduction, or redistribution, even partially, is prohibited without written permission from the author.  
