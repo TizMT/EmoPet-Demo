@@ -146,7 +146,15 @@ if (luluDesc) luluDesc.innerText = lang === 'en'
   });
 </script>
 
-  
+  <script>
+  function goToStory(pet) {
+    const activity = document.getElementById(`${pet}-select`).value;
+    localStorage.setItem('chosenPet', pet);
+    localStorage.setItem('chosenActivity', activity);
+    window.location.href = "../create-story.html";
+  }
+</script>
+
   
 </body>
 </html>
