@@ -119,19 +119,15 @@
       ? 'EMOpet Hologram Lab 🐾'
       : 'Laboratorio Ologrammi EMOpet 🐾';
 
-    // Fritz chatbot
-    const fritzTexts = {
-      en: ["Hello! I'm Fritz. Want to solve a puzzle together?", "I love adventures! Do you like mazes or memory games?", "Let's go play the Puzzle Game!"],
-      it: ["Ciao! Sono Fritz. Vuoi risolvere un puzzle?", "Adoro le avventure! Preferisci labirinti o memoria?", "Andiamo a giocare!"]
-    };
-    document.getElementById('fritz-msg').innerText = fritzTexts[lang][fritzIndex];
+    // Fritz - solo prima frase
+    document.getElementById('fritz-msg').innerText = lang === 'en'
+      ? "Hello! I'm Fritz. Want to solve a puzzle together?"
+      : "Ciao! Sono Fritz. Vuoi risolvere un puzzle insieme?";
 
-    // Lulù chatbot
-    const luluTexts = {
-      en: ["Hi there, I'm Lulù. Feeling relaxed today?", "I love to listen to music in the trees.", "Would you like a calm activity? Let's choose one together."],
-      it: ["Ciao, sono Lulù. Ti senti rilassato oggi?", "Adoro ascoltare musica tra gli alberi.", "Scegliamo qualcosa di tranquillo."]
-    };
-    document.getElementById('lulu-msg').innerText = luluTexts[lang][luluIndex];
+    // Lulù - solo prima frase
+    document.getElementById('lulu-msg').innerText = lang === 'en'
+      ? "Hi there, I'm Lulù. Feeling relaxed today?"
+      : "Ciao, sono Lulù. Ti senti rilassato oggi?";
   }
 </script>
 
