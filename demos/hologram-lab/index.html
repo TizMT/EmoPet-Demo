@@ -15,19 +15,41 @@
       <div class="hologram-description">
         <h3>FRITZ</h3>
         <p>Loyal playful dog • Loves running in meadows • Always ready to fetch!</p>
+<div class="chatbox" id="fritz-chat">
+  <p id="fritz-msg">Hello! I'm Fritz. Want to solve a puzzle together?</p>
+  <select id="fritz-select">
+    <option value="adventure">Go on an adventure</option>
+    <option value="puzzle">Solve a puzzle</option>
+    <option value="treasure">Search for a treasure</option>
+  </select><br>
+  <button onclick="nextFritz()">Next</button>
+  <button onclick="goToStory('fritz')">Create a Story</button>
+</div>
+
+        
       </div>
     </div>
     <!-- Lulù -->
-    <div class="hologram">
-      <img src="images/lulu.jpg" alt="Lulù the Cat">
-      <div class="hologram-description">
-        <h3>LULÙ</h3>
-        <p>Graceful and curious cat • Loves sunny spots • Master of mischief!</p>
-      </div>
+<div class="hologram">
+  <img src="images/lulu.jpg" alt="Lulù the Cat">
+  <div class="hologram-description">
+    <h3>LULÙ</h3>
+    <p>Graceful and curious cat • Loves sunny spots • Master of mischief!</p>
+
+    <div class="chatbox" id="lulu-chat">
+      <p id="lulu-msg">Hi there, I'm Lulù. Feeling relaxed today?</p>
+      <select id="lulu-select">
+        <option value="music">Listen to music</option>
+        <option value="sun">Relax in the sun</option>
+        <option value="tree">Climb a tree</option>
+      </select><br>
+      <button onclick="nextLulu()">Next</button>
+      <button onclick="goToStory('lulu')">Create a Story</button>
     </div>
   </div>
+</div>
 
-  <!-- Zen Pet -->
+    <!-- Zen Pet -->
   <div class="hologram" style="margin-top: 30px;">
     <img src="images/zen-pet.png" alt="Zen Pet Hologram">
     <div class="hologram-description">
