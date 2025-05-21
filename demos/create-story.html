@@ -12,35 +12,26 @@
       background: #f4faff;
       color: #333;
     }
-
     header {
       text-align: center;
       margin-bottom: 30px;
     }
-
-   
     header h1 {
       font-size: 32px;
       color: #ff6600;
       margin-bottom: 10px;
     }
-
     header p {
       font-size: 16px;
       color: #555;
     }
-
-    #lang-toggle {
+    #lang-select {
       position: fixed;
       top: 10px;
       right: 10px;
-      padding: 6px 12px;
-      background-color: #eee;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      cursor: pointer;
+      padding: 6px;
+      border-radius: 5px;
     }
-
     main {
       max-width: 700px;
       margin: 0 auto;
@@ -49,13 +40,11 @@
       padding: 30px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-
     .story-box {
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 30px;
     }
-
     .restart-button {
       display: block;
       margin: 0 auto;
@@ -67,17 +56,17 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
-    .back-link {
-      text-align: center;
-      margin-top: 15px;
+    .print-button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #2196F3;
+      color: white;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
-
-    .back-link a {
-      color: #3399ff;
-      text-decoration: none;
-    }
-
     footer {
       margin-top: 40px;
       text-align: center;
@@ -85,154 +74,93 @@
       color: #666;
       padding-bottom: 30px;
     }
-
-    @media screen and (max-width: 600px) {
-      header h1 {
-        font-size: 24px;
-      }
-
-      .story-box {
-        font-size: 16px;
-      }
-    }
   </style>
 </head>
 <body>
-  <button id="lang-toggle" onclick="toggleLanguage()">🇬🇧 / 🇮🇹</button>
-<div style="position: fixed; top: 10px; right: 10px;">
-  <select id="lang-select" onchange="changeLanguage()" style="padding: 6px; border-radius: 5px;">
+  <select id="lang-select" onchange="changeLanguage()">
     <option value="en">🇬🇧 English</option>
     <option value="it">🇮🇹 Italiano</option>
     <option value="fr">🇫🇷 Français</option>
-    <option value="de">🇩🇪 Deutsch</option>
-    <option value="es">🇪🇸 Español</option>
   </select>
-</div>
-
 
   <header>
-    <h1>Create a Story</h1>
-    <p><strong>Create a Story is a project by EMOPet</strong></p>
+    <h1 id="main-title">Create a Story</h1>
+    <p id="main-sub">Create a Story is a project by EMOPet</p>
   </header>
 
-  <!-- Inserisci questo all'interno di <main> nel file create-story.html -->
-<div class="story-box" id="story-text">
-  <p id="story-base"></p>
-
-  <div id="ending-choice" style="margin-top: 20px;">
-    <label for="ending-select"><strong>✨ Choose your ending:</strong></label><br>
-    <select id="ending-select" style="margin: 10px 0; padding: 6px;">
-      <option value="happy">Happy Ending</option>
-      <option value="funny">Funny Ending</option>
-      <option value="mystery">Mystery Ending</option>
-    </select>
-    <br>
-    <button onclick="showEnding()" style="padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer;">Show My Ending</button>
-  </div>
-
-  <div id="story-ending" style="margin-top: 20px; font-weight: bold;"></div>
-
-  <div id="trophy-block" style="display: none; text-align: center; margin-top: 30px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" alt="Trophy" style="width: 100px;">
-    <p style="font-size: 18px; color: #ff6600;">🌟 Bravo! Do you want to play again?</p>
-    <button onclick="window.location.href='hologram-lab/index.html'" style="margin: 10px; padding: 10px 20px; background: #2196F3; color: white; border: none; border-radius: 8px; cursor: pointer;">Play Again</button>
-    <button onclick="window.location.href='../placeholder.html'" style="margin: 10px; padding: 10px 20px; background: #FF5722; color: white; border: none; border-radius: 8px; cursor: pointer;">Back to Home</button>
-  </div>
-</div>
-
-
-    <div class="back-link">
-      <p><a href="../placeholder.html">🔙 Back to the start page</a></p>
+  <main>
+    <div class="story-box" id="story-text">
+      Loading your story...
     </div>
+    <button class="restart-button" onclick="location.href='hologram-lab/index.html'">Start Again</button>
+    <button class="print-button" onclick="window.print()">🖶️ Print your story</button>
   </main>
 
   <footer>
     <p>© Leonardo Tronci – Leo EmoPet 2024–2025</p>
-    <p>
-      All content of this project, including texts, graphics, interaction design, conversational logic, and related materials, is protected.<br>
-      Copying, reproduction, or redistribution, even partially, is prohibited without written permission from the author.<br>
-      All rights reserved.
-    </p>
-    <p style="margin-top: 15px;">
-      🏆 <strong>Third Place Winner – Future Minds Hackathon, May 2025</strong><br>
-      Organized by Fifty Is Nifty
-    </p>
+    <p>All content of this project, including texts, graphics, interaction design, conversational logic, and related materials, is protected.<br>
+    Copying, reproduction, or redistribution, even partially, is prohibited without written permission from the author.<br>
+    All rights reserved.</p>
+    <p><strong>Disclaimer:</strong> This demo is intended for educational purposes. Any interaction by minors must be supervised by a parent or legal guardian. No personal data is collected.</p>
+    <p style="margin-top: 15px;">🏆 <strong>Third Place Winner – Future Minds Hackathon, May 2025</strong><br>
+    Organized by Fifty Is Nifty</p>
   </footer>
 
- <script>
-const storyTexts = {
-  en: {
-    header: "Create a Story",
-    subtitle: "Create a Story is a project by EMOPet",
-    restart: "🔁 Start Again",
-    back: "🔙 Back to the start page",
-    base: "Fritz grabbed his explorer hat. \"Ready for an adventure?\" Together, you crossed rivers, explored secret caves, and climbed a huge mountain. At the top, you discovered a strange map carved in stone...",
-    endings: {
-      happy: "You followed the map and found a hidden garden full of sparkling flowers. Fritz barked joyfully!",
-      funny: "The map led to a giant pile of socks! Fritz rolled around laughing.",
-      mystery: "Suddenly, the map vanished! A whisper in the wind said: 'Adventure never ends...'"
+  <script>
+    const stories = {
+      en: {
+        fritz: {
+          adventure: "Fritz grabbed his explorer hat. Together, you crossed rivers, explored caves, and reached a glowing mountain top...",
+          puzzle: "Fritz brought a giant puzzle and wagged his tail excitedly. Piece by piece, you laughed solving it together...",
+          treasure: "With a bark, Fritz uncovered a map! You followed it through trees and meadows to find a sparkling treasure chest!"
+        },
+        lulu: {
+          music: "Lulù curled up near the window as music filled the air. You joined, creating a gentle song of joy.",
+          sun: "Lulù stretched under the sunbeam. You both lay in peace, soaking in warmth and light.",
+          tree: "Lulù climbed a tall tree and called for you. From up high, the world looked magical and new!"
+        }
+      },
+      it: {
+        fritz: {
+          adventure: "Fritz afferrò il cappello da esploratore. Insieme avete attraversato fiumi, grotte e raggiunto la cima luminosa di una montagna...",
+          puzzle: "Fritz portò un puzzle gigante e scodinzolava felice. Pezzo dopo pezzo, lo risolveste ridendo insieme...",
+          treasure: "Con un abbaio, Fritz trovò una mappa! La seguisti tra alberi e prati fino a un forziere brillante!"
+        },
+        lulu: {
+          music: "Lulù si accoccolò vicino alla finestra mentre la musica si diffondeva. Ti unisti a lei, creando un canto di gioia.",
+          sun: "Lulù si stese sotto il raggio di sole. Vi sdraiaste in pace, assorbendo calore e luce.",
+          tree: "Lulù salì su un albero alto e ti chiamò. Da lassù, il mondo sembrava magico e nuovo!"
+        }
+      },
+      fr: {
+        fritz: {
+          adventure: "Fritz a pris son chapeau d’aventurier. Ensemble, vous avez traversé rivières, grottes et atteint un sommet brillant...",
+          puzzle: "Fritz apporta un puzzle immense et remuait la queue. Pièce par pièce, vous le résolviez en riant...",
+          treasure: "Avec un aboiement, Fritz trouva une carte! Vous l'avez suivie jusqu'à un trésor caché!"
+        },
+        lulu: {
+          music: "Lulù s’est couchée près de la fenêtre alors que la musique remplissait l’air. Ensemble, vous avez créé une mélodie douce.",
+          sun: "Lulù s’étira sous un rayon de soleil. Vous vous reposiez dans la chaleur et la lumière.",
+          tree: "Lulù grimpa dans un grand arbre et t’appela. De là-haut, le monde semblait magique!"
+        }
+      }
+    };
+
+    let lang = 'en';
+
+    function changeLanguage() {
+      lang = document.getElementById('lang-select').value;
+      loadStory();
     }
-  },
-  it: {
-    header: "Crea la tua storia",
-    subtitle: "Crea una Storia è un progetto di EMOPet",
-    restart: "🔁 Ricomincia",
-    back: "🔙 Torna alla pagina iniziale",
-    base: "Fritz afferrò il cappello da esploratore. \"Pronto per un'avventura?\" Insieme avete attraversato fiumi, esplorato grotte segrete e scalato una montagna enorme. In cima, avete scoperto una mappa scolpita nella roccia...",
-    endings: {
-      happy: "Avete seguito la mappa e trovato un giardino nascosto pieno di fiori brillanti. Fritz ha abbaiato felice!",
-      funny: "La mappa portava a una montagna di calzini! Fritz ci si è rotolato sopra ridendo.",
-      mystery: "Improvvisamente, la mappa è sparita! Un sussurro nel vento diceva: 'L'avventura non finisce mai...'"
+
+    function loadStory() {
+      const pet = localStorage.getItem('chosenPet');
+      const activity = localStorage.getItem('chosenActivity');
+      const text = stories?.[lang]?.[pet]?.[activity] || "Story not found. Please try again.";
+      document.getElementById('story-text').innerText = text;
     }
-  },
-  fr: {
-    header: "Crée ton histoire",
-    subtitle: "Créer une histoire est un projet d'EMOPet",
-    restart: "🔁 Recommencer",
-    back: "🔙 Retour à la page d’accueil",
-    base: "Fritz a attrapé son chapeau d'explorateur. \"Prêt pour une aventure ?\" Ensemble, vous avez traversé des rivières, exploré des grottes secrètes et grimpé une haute montagne. En haut, vous avez trouvé une carte gravée dans la pierre...",
-    endings: {
-      happy: "Vous avez suivi la carte et trouvé un jardin caché rempli de fleurs étincelantes. Fritz aboyait de joie !",
-      funny: "La carte menait à un tas géant de chaussettes ! Fritz roulait de rire.",
-      mystery: "Soudain, la carte a disparu ! Un murmure dans le vent disait : 'L'aventure ne finit jamais...'"
-    }
-  }
-};
 
-let lang = 'en';
-
-function changeLanguage() {
-  lang = document.getElementById('lang-select')?.value || 'en';
-  showStory();
-}
-
-function showStory() {
-  const strings = storyTexts[lang];
-  if (!strings) return;
-
-  document.querySelector('h1').innerText = strings.header;
-  document.querySelector('header p').innerText = strings.subtitle;
-  document.querySelector('.restart-button').innerText = strings.restart;
-  document.querySelector('.back-link a').innerText = strings.back;
-
-  document.getElementById('story-base').innerText = strings.base;
-  document.getElementById('story-ending').innerText = '';
-  document.getElementById('trophy-block').style.display = 'none';
-}
-
-function showEnding() {
-  const choice = document.getElementById('ending-select').value;
-  const ending = storyTexts[lang].endings[choice];
-  document.getElementById('story-ending').innerText = ending;
-  document.getElementById('trophy-block').style.display = 'block';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  lang = document.getElementById('lang-select')?.value || 'en';
-  showStory();
-});
-</script>
-
-
+    document.addEventListener('DOMContentLoaded', loadStory);
+  </script>
 </body>
 </html>
