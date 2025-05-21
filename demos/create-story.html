@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create a Story – EMOPet</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4faff;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    #lang-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 6px 12px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-box {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .restart-button {
+      display: block;
+      margin: 0 auto;
+      padding: 12px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .back-link a {
+      color: #3399ff;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+      padding-bottom: 30px;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
+
+      .story-box {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="lang-toggle" onclick="toggleLanguage()">🇬🇧 / 🇮🇹</button>
+
+  <header>
+    <h1>Create a Story</h1>
+    <p><strong>Create a Story is a project by EMOPet</strong></p>
+  </header>
+
+  <main>
+    <div class="story-box" id="story-text">
+      Loading your story...
+    </div>
+    <button class="restart-button" onclick="window.location.href='index.html'">🔁 Start Again</button>
+
+    <div class="back-link">
+      <p><a href="../placeholder.html">🔙 Back to the start page</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Leonardo Tronci – Leo EmoPet 2024–2025</p>
+    <p>
+      All content of this project, including texts, graphics, interaction design, conversational logic, and related materials, is protected.<br>
+      Copying, reproduction, or redistribution, even partially, is prohibited without written permission from the author.<br>
+      All rights reserved.
+    </p>
+    <p style="margin-top: 15px;">
+      🏆 <strong>Third Place Winner – Future Minds Hackathon, May 2025</strong><br>
+      Organized by Fifty Is Nifty
+    </p>
+  </footer>
+
+  <script>
+    const langTexts = {
+      en: {
+        fritz: {
+          puzzle: "One sunny morning, Fritz the playful dog invited you to solve a big puzzle. You both laughed and wagged tails as the final piece clicked in!",
+          treasure: "Fritz sniffed the ground and barked: 'Let's go find a treasure!' You followed him through gardens and found a shiny box full of cookies!",
+          adventure: "Fritz grabbed his explorer hat. 'Ready for an adventure?' Together, you crossed rivers, jumped logs, and discovered a magic stone!"
+        },
+        lulu: {
+          music: "Lulù curled up on a sunny windowsill. Soft music played as you both listened in peace, feeling calm and happy together.",
+          sun: "Lulù led you to the garden. The sun was warm, and you both stretched and relaxed on the grass like sleepy cats.",
+          tree: "Lulù climbed a tall tree and called, 'Come see the view!' You both sat on a branch, watching clouds float by in the blue sky."
+        }
+      },
+      it: {
+        fritz: {
+          puzzle: "Una mattina di sole, Fritz il cane giocherellone ti invitò a risolvere un grande puzzle. Rideste insieme finché l’ultimo pezzo scattò al suo posto!",
+          treasure: "Fritz fiutò il terreno e abbaiò: 'Andiamo a cercare un tesoro!' Lo seguisti tra i giardini e trovaste una scatola piena di biscotti!",
+          adventure: "Fritz mise il suo cappello da esploratore. 'Pronto per un’avventura?' Insieme attraversaste fiumi, saltaste tronchi e scopriste una pietra magica!"
+        },
+        lulu: {
+          music: "Lulù si accoccolò su un davanzale al sole. Una dolce musica suonava mentre ascoltavate insieme, calmi e felici.",
+          sun: "Lulù ti portò in giardino. Il sole era caldo e vi sdraiaste sull’erba come due gatti rilassati.",
+          tree: "Lulù salì su un albero alto e disse: 'Vieni a vedere il panorama!' Seduti su un ramo, guardavate le nuvole fluttuare nel cielo."
+        }
+      }
+    };
+
+    let lang = 'en';
+
+    function toggleLanguage() {
+      lang = lang === 'en' ? 'it' : 'en';
+      showStory();
+    }
+
+    function showStory() {
+      const pet = localStorage.getItem('chosenPet');
+      const activity = localStorage.getItem('chosenActivity');
+      const text = langTexts[lang]?.[pet]?.[activity] || "Oops! Something went wrong. Please start again.";
+      document.getElementById('story-text').innerText = text;
+    }
+
+    document.addEventListener('DOMContentLoaded', showStory);
+  </script>
+</body>
+</html>
