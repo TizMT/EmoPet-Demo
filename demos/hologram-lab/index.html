@@ -109,26 +109,30 @@
   </div>
 </footer>
 <script>
-  let lang = 'en';
+  document.addEventListener("DOMContentLoaded", function () {
+    let lang = 'en';
 
-  function toggleLanguage() {
-    lang = lang === 'en' ? 'it' : 'en';
+    document.getElementById('lang-toggle').addEventListener('click', function () {
+      lang = lang === 'en' ? 'it' : 'en';
 
-    // Titolo
-    document.querySelector('h1').innerText = lang === 'en'
-      ? 'EMOpet Hologram Lab 🐾'
-      : 'Laboratorio Ologrammi EMOpet 🐾';
+      // Titolo
+      document.querySelector('h1').innerText = lang === 'en'
+        ? 'EMOpet Hologram Lab 🐾'
+        : 'Laboratorio Ologrammi EMOpet 🐾';
 
-    // Fritz - solo prima frase
-    document.getElementById('fritz-msg').innerText = lang === 'en'
-      ? "Hello! I'm Fritz. Want to solve a puzzle together?"
-      : "Ciao! Sono Fritz. Vuoi risolvere un puzzle insieme?";
+      // Fritz - prima frase
+      const fritzMsg = document.getElementById('fritz-msg');
+      if (fritzMsg) fritzMsg.innerText = lang === 'en'
+        ? "Hello! I'm Fritz. Want to solve a puzzle together?"
+        : "Ciao! Sono Fritz. Vuoi risolvere un puzzle insieme?";
 
-    // Lulù - solo prima frase
-    document.getElementById('lulu-msg').innerText = lang === 'en'
-      ? "Hi there, I'm Lulù. Feeling relaxed today?"
-      : "Ciao, sono Lulù. Ti senti rilassato oggi?";
-  }
+      // Lulù - prima frase
+      const luluMsg = document.getElementById('lulu-msg');
+      if (luluMsg) luluMsg.innerText = lang === 'en'
+        ? "Hi there, I'm Lulù. Feeling relaxed today?"
+        : "Ciao, sono Lulù. Ti senti rilassato oggi?";
+    });
+  });
 </script>
 
   
