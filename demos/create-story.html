@@ -115,11 +115,86 @@
     <p><strong>Create a Story is a project by EMOPet</strong></p>
   </header>
 
-  <main>
-    <div class="story-box" id="story-text">
-      Loading your story...
-    </div>
-   <button class="restart-button" onclick="window.location.href='hologram-lab/index.html'">🔁 Start Again</button>
+  <!-- Inserisci questo all'interno di <main> nel file create-story.html -->
+<div class="story-box" id="story-text">
+  <p id="story-base"></p>
+
+  <div id="ending-choice" style="margin-top: 20px;">
+    <label for="ending-select"><strong>✨ Choose your ending:</strong></label><br>
+    <select id="ending-select" style="margin: 10px 0; padding: 6px;">
+      <option value="happy">Happy Ending</option>
+      <option value="funny">Funny Ending</option>
+      <option value="mystery">Mystery Ending</option>
+    </select>
+    <br>
+    <button onclick="showEnding()" style="padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer;">Show My Ending</button>
+  </div>
+
+  <div id="story-ending" style="margin-top: 20px; font-weight: bold;"></div>
+
+  <div id="trophy-block" style="display: none; text-align: center; margin-top: 30px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" alt="Trophy" style="width: 100px;">
+    <p style="font-size: 18px; color: #ff6600;">🌟 Bravo! Do you want to play again?</p>
+    <button onclick="window.location.href='hologram-lab/index.html'" style="margin: 10px; padding: 10px 20px; background: #2196F3; color: white; border: none; border-radius: 8px; cursor: pointer;">Play Again</button>
+    <button onclick="window.location.href='../placeholder.html'" style="margin: 10px; padding: 10px 20px; background: #FF5722; color: white; border: none; border-radius: 8px; cursor: pointer;">Back to Home</button>
+  </div>
+</div>
+
+<script>
+const storyTexts = {
+  en: {
+    base: "Fritz grabbed his explorer hat. \"Ready for an adventure?\" Together, you crossed rivers, explored secret caves, and climbed a huge mountain. At the top, you discovered a strange map carved in stone...",
+    endings: {
+      happy: "You followed the map and found a hidden garden full of sparkling flowers. Fritz barked joyfully!",
+      funny: "The map led to a giant pile of socks! Fritz rolled around laughing.",
+      mystery: "Suddenly, the map vanished! A whisper in the wind said: 'Adventure never ends...'"
+    }
+  },
+  it: {
+    base: "Fritz afferrò il cappello da esploratore. \"Pronto per un'avventura?\" Insieme avete attraversato fiumi, esplorato grotte segrete e scalato una montagna enorme. In cima, avete scoperto una mappa scolpita nella roccia...",
+    endings: {
+      happy: "Avete seguito la mappa e trovato un giardino nascosto pieno di fiori brillanti. Fritz ha abbaiato felice!",
+      funny: "La mappa portava a una montagna di calzini! Fritz ci si è rotolato sopra ridendo.",
+      mystery: "Improvvisamente, la mappa è sparita! Un sussurro nel vento diceva: 'L'avventura non finisce mai...'"
+    }
+  },
+  fr: {
+    base: "Fritz a attrapé son chapeau d'explorateur. \"Prêt pour une aventure ?\" Ensemble, vous avez traversé des rivières, exploré des grottes secrètes et grimpé une haute montagne. En haut, vous avez trouvé une carte gravée dans la pierre...",
+    endings: {
+      happy: "Vous avez suivi la carte et trouvé un jardin caché rempli de fleurs étincelantes. Fritz aboyait de joie !",
+      funny: "La carte menait à un tas géant de chaussettes ! Fritz roulait de rire.",
+      mystery: "Soudain, la carte a disparu ! Un murmure dans le vent disait : 'L'aventure ne finit jamais...'"
+    }
+  },
+  de: {
+    base: "Fritz setzte seinen Abenteurerhut auf. \"Bereit für ein Abenteuer?\" Gemeinsam überquertet ihr Flüsse, erforschtet geheime Höhlen und bestiegt einen riesigen Berg. Oben entdecktet ihr eine Karte im Stein...",
+    endings: {
+      happy: "Ihr folgtet der Karte und fandet einen versteckten Garten voller glänzender Blumen. Fritz bellte vor Freude!",
+      funny: "Die Karte führte zu einem riesigen Haufen Socken! Fritz rollte sich lachend darin.",
+      mystery: "Plötzlich verschwand die Karte! Eine Stimme im Wind flüsterte: 'Abenteuer enden nie...'"
+    }
+  },
+  es: {
+    base: "Fritz se puso su sombrero de explorador. \"\u00bfListo para una aventura?\" Juntos cruzaron ríos, exploraron cuevas secretas y escalaron una montaña enorme. En la cima, descubrieron un mapa grabado en piedra...",
+    endings: {
+      happy: "Siguieron el mapa y encontraron un jardín oculto lleno de flores brillantes. ¡Fritz ladró feliz!",
+      funny: "¡El mapa llevó a una pila gigante de calcetines! Fritz se revolcó riendo.",
+      mystery: "¡De repente, el mapa desapareció! Un susurro en el viento decía: 'La aventura nunca termina...'
+"
+    }
+  }
+};
+
+function showEnding() {
+  const lang = document.getElementById('lang-select')?.value || 'en';
+  const choice = document.getElementById('ending-select').value;
+  const story = storyTexts[lang];
+
+  document.getElementById('story-base').innerText = story.base;
+  document.getElementById('story-ending').innerText = story.endings[choice];
+  document.getElementById('trophy-block').style.display = 'block';
+}
+</script>
 
 
     <div class="back-link">
