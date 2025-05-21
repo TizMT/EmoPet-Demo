@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <button id="lang-toggle" onclick="toggleLanguage()" style="position: fixed; top: 10px; right: 10px; padding: 6px 12px; background-color: #eee; border: 1px solid #ccc; border-radius: 6px; cursor: pointer;">
+  🇬🇧 / 🇮🇹
+</button>
+
   <h1>EMOpet Hologram Lab 🐾</h1>
   <div class="hologram-container">
     <!-- Fritz -->
@@ -104,6 +108,27 @@
     </p>
   </div>
 </footer>
+
+    <script>
+  let lang = 'en';
+
+  function toggleLanguage() {
+    lang = lang === 'en' ? 'it' : 'en';
+
+    // Titolo
+    document.querySelector('h1').innerText = lang === 'en' ? 'EMOpet Hologram Lab 🐾' : 'Laboratorio Ologrammi EMOpet 🐾';
+
+    // Fritz chatbot
+    document.getElementById('fritz-msg').innerText = lang === 'en'
+      ? fritzLines[fritzIndex]
+      : ["Ciao! Sono Fritz. Vuoi risolvere un puzzle?", "Adoro le avventure! Preferisci labirinti o memoria?", "Andiamo a giocare!"][fritzIndex];
+
+    // Lulù chatbot
+    document.getElementById('lulu-msg').innerText = lang === 'en'
+      ? luluLines[luluIndex]
+      : ["Ciao, sono Lulù. Ti senti rilassato oggi?", "Adoro ascoltare musica tra gli alberi.", "Scegliamo qualcosa di tranquillo."][luluIndex];
+  }
+</script>
 
 </body>
 </html>
