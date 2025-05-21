@@ -99,7 +99,16 @@
   </style>
 </head>
 <body>
-  <button id="lang-toggle" onclick="toggleLanguage()">🇬🇧 / 🇮🇹</button>
+<div style="position: fixed; top: 10px; right: 10px;">
+  <select id="lang-select" onchange="changeLanguage()" style="padding: 6px; border-radius: 5px;">
+    <option value="en">🇬🇧 English</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="de">🇩🇪 Deutsch</option>
+    <option value="es">🇪🇸 Español</option>
+  </select>
+</div>
+
 
   <header>
     <h1>Create a Story</h1>
