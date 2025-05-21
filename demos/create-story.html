@@ -202,7 +202,7 @@ const storyTexts = {
 let lang = 'en';
 
 function changeLanguage() {
-  lang = document.getElementById('lang-select').value;
+  lang = document.getElementById('lang-select')?.value || 'en';
   showStory();
 }
 
@@ -223,7 +223,6 @@ function showStory() {
 function showEnding() {
   const choice = document.getElementById('ending-select').value;
   const ending = storyTexts[lang].endings[choice];
-
   document.getElementById('story-ending').innerText = ending;
   document.getElementById('trophy-block').style.display = 'block';
 }
