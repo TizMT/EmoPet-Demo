@@ -18,7 +18,7 @@
       <img src="images/fritz.jpg" alt="Fritz the Dog">
       <div class="hologram-description">
         <h3>FRITZ</h3>
-        <p>Loyal playful dog • Loves running in meadows • Always ready to fetch!</p>
+        <p id="fritz-desc">Loyal playful dog • Loves running in meadows • Always ready to fetch!</p>
 <div class="chatbox" id="fritz-chat">
   <p id="fritz-msg">Hello! I'm Fritz. Want to solve a puzzle together?</p>
   <select id="fritz-select">
@@ -40,7 +40,7 @@
   <img src="images/lulu.jpg" alt="Lulù the Cat">
   <div class="hologram-description">
     <h3>LULÙ</h3>
-    <p>Graceful and curious cat • Loves sunny spots • Master of mischief!</p>
+    <p id="lulu-desc">Graceful and curious cat • Loves sunny spots • Master of mischief!</p>
 
     <div class="chatbox" id="lulu-chat">
       <p id="lulu-msg">Hi there, I'm Lulù. Feeling relaxed today?</p>
@@ -131,6 +131,17 @@
       if (luluMsg) luluMsg.innerText = lang === 'en'
         ? "Hi there, I'm Lulù. Feeling relaxed today?"
         : "Ciao, sono Lulù. Ti senti rilassato oggi?";
+      // Descrizioni
+const fritzDesc = document.getElementById('fritz-desc');
+if (fritzDesc) fritzDesc.innerText = lang === 'en'
+  ? "Loyal playful dog • Loves running in meadows • Always ready to fetch!"
+  : "Cane giocherellone e fedele • Ama correre nei prati • Sempre pronto a giocare!";
+
+const luluDesc = document.getElementById('lulu-desc');
+if (luluDesc) luluDesc.innerText = lang === 'en'
+  ? "Graceful and curious cat • Loves sunny spots • Master of mischief!"
+  : "Gatta elegante e curiosa • Ama i posti soleggiati • Maestra del dispetto!";
+
     });
   });
 </script>
