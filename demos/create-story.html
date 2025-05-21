@@ -216,118 +216,80 @@ function showEnding() {
   </footer>
 
  <script>
-  const langTexts = {
-    en: {
-      header: "Create a Story",
-      subtitle: "Create a Story is a project by EMOPet",
-      restart: "🔁 Start Again",
-      back: "🔙 Back to the start page",
-      error: "Oops! Something went wrong. Please start again.",
-      fritz: {
-        puzzle: "One sunny morning, Fritz the playful dog invited you to solve a big puzzle...",
-        treasure: "Fritz sniffed the ground and barked: 'Let's go find a treasure!'...",
-        adventure: "Fritz grabbed his explorer hat. 'Ready for an adventure?'..."
-      },
-      lulu: {
-        music: "Lulù curled up on a sunny windowsill. Soft music played...",
-        sun: "Lulù led you to the garden. The sun was warm...",
-        tree: "Lulù climbed a tall tree and called, 'Come see the view!'..."
-      }
-    },
-    it: {
-      header: "Crea la tua storia",
-      subtitle: "Crea una Storia è un progetto di EMOPet",
-      restart: "🔁 Ricomincia",
-      back: "🔙 Torna alla pagina iniziale",
-      error: "Oops! Qualcosa è andato storto. Riprova.",
-      fritz: {
-        puzzle: "Una mattina di sole, Fritz ti invitò a risolvere un puzzle...",
-        treasure: "Fritz fiutò il terreno e abbaiò: 'Troviamo un tesoro!'...",
-        adventure: "Fritz indossò il cappello da esploratore. 'Pronto per l'avventura?'..."
-      },
-      lulu: {
-        music: "Lulù si accoccolò vicino alla finestra, la musica suonava dolce...",
-        sun: "Lulù ti guidò nel giardino. Il sole era caldo...",
-        tree: "Lulù salì su un ramo e ti invitò a guardare le nuvole..."
-      }
-    },
-    fr: {
-      header: "Crée ton histoire",
-      subtitle: "Créer une histoire est un projet d'EMOPet",
-      restart: "🔁 Recommencer",
-      back: "🔙 Retour à la page d’accueil",
-      error: "Oups ! Quelque chose s'est mal passé. Veuillez réessayer.",
-      fritz: {
-        puzzle: "Un matin ensoleillé, Fritz t’a invité à faire un puzzle...",
-        treasure: "Fritz reniflait le sol et a aboyé : 'Trouvons un trésor !'...",
-        adventure: "Fritz a mis son chapeau d’aventurier. 'Prêt pour l’aventure ?'..."
-      },
-      lulu: {
-        music: "Lulù était allongée au soleil, une douce musique jouait...",
-        sun: "Lulù t’a emmené au jardin. Le soleil brillait...",
-        tree: "Lulù a grimpé dans un arbre et t’a appelé : 'Viens voir !'..."
-      }
-    },
-    de: {
-      header: "Erzähle deine Geschichte",
-      subtitle: "Eine Geschichte erstellen ist ein Projekt von EMOPet",
-      restart: "🔁 Neu starten",
-      back: "🔙 Zurück zur Startseite",
-      error: "Ups! Etwas ist schief gelaufen. Bitte versuche es erneut.",
-      fritz: {
-        puzzle: "An einem sonnigen Morgen lädt Fritz dich ein, ein Puzzle zu lösen...",
-        treasure: "Fritz schnüffelte und bellte: 'Lass uns einen Schatz suchen!'...",
-        adventure: "Fritz setzte seinen Abenteurerhut auf. 'Bereit für ein Abenteuer?'..."
-      },
-      lulu: {
-        music: "Lulù lag auf der Fensterbank, während Musik spielte...",
-        sun: "Lulù führte dich in den Garten. Die Sonne war warm...",
-        tree: "Lulù kletterte auf einen Baum und rief: 'Komm, sieh dir die Aussicht an!'..."
-      }
-    },
-    es: {
-      header: "Crea tu historia",
-      subtitle: "Crear una historia es un proyecto de EMOPet",
-      restart: "🔁 Empezar de nuevo",
-      back: "🔙 Volver a la página principal",
-      error: "¡Ups! Algo salió mal. Inténtalo de nuevo.",
-      fritz: {
-        puzzle: "Una mañana soleada, Fritz te invitó a hacer un rompecabezas...",
-        treasure: "Fritz olfateó y ladró: '¡Vamos a buscar un tesoro!'...",
-        adventure: "Fritz se puso su sombrero de explorador. '¿Listo para una aventura?'..."
-      },
-      lulu: {
-        music: "Lulù se tumbó al sol mientras sonaba una dulce música...",
-        sun: "Lulù te llevó al jardín. El sol estaba cálido...",
-        tree: "Lulù subió a un árbol y te llamó: '¡Mira las nubes conmigo!'..."
-      }
+const storyTexts = {
+  en: {
+    header: "Create a Story",
+    subtitle: "Create a Story is a project by EMOPet",
+    restart: "🔁 Start Again",
+    back: "🔙 Back to the start page",
+    base: "Fritz grabbed his explorer hat. \"Ready for an adventure?\" Together, you crossed rivers, explored secret caves, and climbed a huge mountain. At the top, you discovered a strange map carved in stone...",
+    endings: {
+      happy: "You followed the map and found a hidden garden full of sparkling flowers. Fritz barked joyfully!",
+      funny: "The map led to a giant pile of socks! Fritz rolled around laughing.",
+      mystery: "Suddenly, the map vanished! A whisper in the wind said: 'Adventure never ends...'"
     }
-  };
-
-  let lang = 'en';
-
-  function changeLanguage() {
-    lang = document.getElementById('lang-select').value;
-    showStory();
+  },
+  it: {
+    header: "Crea la tua storia",
+    subtitle: "Crea una Storia è un progetto di EMOPet",
+    restart: "🔁 Ricomincia",
+    back: "🔙 Torna alla pagina iniziale",
+    base: "Fritz afferrò il cappello da esploratore. \"Pronto per un'avventura?\" Insieme avete attraversato fiumi, esplorato grotte segrete e scalato una montagna enorme. In cima, avete scoperto una mappa scolpita nella roccia...",
+    endings: {
+      happy: "Avete seguito la mappa e trovato un giardino nascosto pieno di fiori brillanti. Fritz ha abbaiato felice!",
+      funny: "La mappa portava a una montagna di calzini! Fritz ci si è rotolato sopra ridendo.",
+      mystery: "Improvvisamente, la mappa è sparita! Un sussurro nel vento diceva: 'L'avventura non finisce mai...'"
+    }
+  },
+  fr: {
+    header: "Crée ton histoire",
+    subtitle: "Créer une histoire est un projet d'EMOPet",
+    restart: "🔁 Recommencer",
+    back: "🔙 Retour à la page d’accueil",
+    base: "Fritz a attrapé son chapeau d'explorateur. \"Prêt pour une aventure ?\" Ensemble, vous avez traversé des rivières, exploré des grottes secrètes et grimpé une haute montagne. En haut, vous avez trouvé une carte gravée dans la pierre...",
+    endings: {
+      happy: "Vous avez suivi la carte et trouvé un jardin caché rempli de fleurs étincelantes. Fritz aboyait de joie !",
+      funny: "La carte menait à un tas géant de chaussettes ! Fritz roulait de rire.",
+      mystery: "Soudain, la carte a disparu ! Un murmure dans le vent disait : 'L'aventure ne finit jamais...'"
+    }
   }
+};
 
-  function showStory() {
-    const pet = localStorage.getItem('chosenPet');
-    const activity = localStorage.getItem('chosenActivity');
-    const strings = langTexts[lang];
+let lang = 'en';
 
-    document.querySelector('h1').innerText = strings.header;
-    document.querySelector('header p').innerText = strings.subtitle;
+function changeLanguage() {
+  lang = document.getElementById('lang-select').value;
+  showStory();
+}
 
-    const story = strings?.[pet]?.[activity] || strings.error;
-    document.getElementById('story-text').innerText = story;
+function showStory() {
+  const strings = storyTexts[lang];
+  if (!strings) return;
 
-    document.querySelector('.restart-button').innerText = strings.restart;
-    document.querySelector('.back-link a').innerText = strings.back;
-  }
+  document.querySelector('h1').innerText = strings.header;
+  document.querySelector('header p').innerText = strings.subtitle;
+  document.querySelector('.restart-button').innerText = strings.restart;
+  document.querySelector('.back-link a').innerText = strings.back;
 
-  document.addEventListener('DOMContentLoaded', showStory);
+  document.getElementById('story-base').innerText = strings.base;
+  document.getElementById('story-ending').innerText = '';
+  document.getElementById('trophy-block').style.display = 'none';
+}
+
+function showEnding() {
+  const choice = document.getElementById('ending-select').value;
+  const ending = storyTexts[lang].endings[choice];
+
+  document.getElementById('story-ending').innerText = ending;
+  document.getElementById('trophy-block').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  lang = document.getElementById('lang-select')?.value || 'en';
+  showStory();
+});
 </script>
+
 
 </body>
 </html>
