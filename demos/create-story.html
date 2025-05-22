@@ -222,8 +222,22 @@
       const choice = document.getElementById('ending-select').value;
       const ending = stories?.[lang]?.endings?.[choice] || '';
       document.getElementById('story-ending').innerText = ending;
+      speak(ending);
       document.getElementById('trophy-block').style.display = 'block';
     }
+
+    function speak(text) {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang === 'fr' ? 'fr-FR' : lang === 'it' ? 'it-IT' : 'en-US';
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+    // seleziona una voce corrispondente alla lingua
+    utterance.voice = speechSynthesis.getVoices().find(v => v.lang.startsWith(utterance.lang));
+    speechSynthesis.cancel(); // interrompe eventuali letture precedenti
+    speechSynthesis.speak(utterance);
+  }
+}
 
     document.addEventListener('DOMContentLoaded', loadStory);
   </script>
