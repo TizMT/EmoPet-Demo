@@ -161,6 +161,8 @@
       const activity = localStorage.getItem('chosenActivity');
       const text = stories?.[lang]?.[pet]?.[activity] || "Story not found. Please try again.";
       document.getElementById('story-text').innerText = text;
+      const trophyText = stories?.[lang]?.trophy || "🌟 Well done!";
+document.getElementById('trophy-text').innerText = trophyText;
     }
 
     document.addEventListener('DOMContentLoaded', loadStory);
