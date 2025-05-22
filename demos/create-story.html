@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Create a Story – EMOPet</title>
+  <title>LE STORIE DI EMOPet – da un progetto di Leonardo TRONCI</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 20px;
-      background: #f4faff;
+      background: linear-gradient(to bottom right, #f4faff, #e3f2fd);
       color: #333;
     }
     header {
@@ -17,13 +17,14 @@
       margin-bottom: 30px;
     }
     header h1 {
-      font-size: 32px;
+      font-size: 34px;
       color: #ff6600;
       margin-bottom: 10px;
     }
     header p {
-      font-size: 16px;
-      color: #555;
+      font-size: 18px;
+      color: #336699;
+      font-weight: bold;
     }
     #lang-select {
       position: fixed;
@@ -44,10 +45,13 @@
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 30px;
+      background-color: #fff9c4;
+      padding: 20px;
+      border-radius: 10px;
     }
-    .restart-button {
+    .restart-button, .print-button, .back-button {
       display: block;
-      margin: 0 auto;
+      margin: 10px auto;
       padding: 12px 20px;
       background-color: #4CAF50;
       color: white;
@@ -57,15 +61,26 @@
       cursor: pointer;
     }
     .print-button {
-      display: block;
-      margin: 10px auto;
-      padding: 10px 20px;
       background-color: #2196F3;
-      color: white;
-      font-size: 14px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+    }
+    .back-button {
+      background-color: #FF9800;
+    }
+    #ending-choice {
+      text-align: center;
+      margin: 20px 0;
+    }
+    #story-ending {
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #6a1b9a;
+    }
+    #trophy-block {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
     }
     footer {
       margin-top: 40px;
@@ -84,105 +99,133 @@
   </select>
 
   <header>
-    <h1 id="main-title">Create a Story</h1>
-    <p id="main-sub">Create a Story is a project by EMOPet</p>
+    <h1 id="main-title">LE STORIE DI EMOPet</h1>
+    <p id="main-sub">Leggi la storia e scegli tu il finale!</p>
   </header>
 
   <main>
-    <div class="story-box" id="story-text">
-      Loading your story...
+    <div class="story-box" id="story-text">Loading your story...</div>
+
+    <div id="ending-choice">
+      <label for="ending-select"><strong>✨ Scegli il finale:</strong></label><br>
+      <select id="ending-select">
+        <option value="happy">Happy Ending</option>
+        <option value="funny">Funny Ending</option>
+        <option value="mystery">Mystery Ending</option>
+      </select>
+      <button onclick="showEnding()">Mostra Finale</button>
     </div>
-    <div id="trophy-block" style="display: none; text-align: center; margin-top: 30px;">
-  <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" width="100" alt="Trophy">
-  <p id="trophy-text" style="font-size: 18px; color: #ff6600;">🌟 Well done! Do you want to play again?</p>
-  <button class="restart-button" onclick="location.href='hologram-lab/index.html'">Play Again</button>
-  <button class="restart-button" onclick="location.href='../placeholder.html'">Back to Home</button>
-  <button class="print-button" onclick="window.print()">🖶️ Print your story</button>
-</div>
-    <button class="restart-button" onclick="location.href='hologram-lab/index.html'">Start Again</button>
-    <button class="print-button" onclick="window.print()">🖶️ Print your story</button>
+
+    <div id="story-ending"></div>
+
+    <div id="trophy-block">
+      <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" width="100" alt="Trophy">
+      <p id="trophy-text" style="font-size: 18px; color: #ff6600;">🌟 Well done! Do you want to play again?</p>
+      <button class="restart-button" onclick="location.href='hologram-lab/index.html'">Play Again</button>
+      <button class="print-button" onclick="window.print()">🖶️ Print your story</button>
+      <button class="back-button" onclick="location.href='../placeholder.html'">Back to Menu</button>
+    </div>
   </main>
 
   <footer>
     <p>© Leonardo Tronci – Leo EmoPet 2024–2025</p>
-    <p>All content of this project, including texts, graphics, interaction design, conversational logic, and related materials, is protected.<br>
-    Copying, reproduction, or redistribution, even partially, is prohibited without written permission from the author.<br>
-    All rights reserved.</p>
-    <p><strong>Disclaimer:</strong> This demo is intended for educational purposes. Any interaction by minors must be supervised by a parent or legal guardian. No personal data is collected.</p>
-    <p style="margin-top: 15px;">🏆 <strong>Third Place Winner – Future Minds Hackathon, May 2025</strong><br>
-    Organized by Fifty Is Nifty</p>
+    <p>Tutti i contenuti del progetto sono protetti da copyright. L’uso è consentito solo previa autorizzazione scritta.<br>Progetto educativo premiato.</p>
+    <p><strong>Disclaimer:</strong> Questa demo è pensata per uso educativo. I minori devono essere accompagnati da un adulto. Nessun dato personale viene raccolto.</p>
+    <p style="margin-top: 15px;">🏆 <strong>3º Premio – Future Minds Hackathon, Maggio 2025</strong></p>
   </footer>
 
   <script>
-  const stories = {
-    en: {
-      fritz: {
-        adventure: "Fritz grabbed his explorer hat. Together, you crossed rivers, explored caves, and reached a glowing mountain top...",
-        puzzle: "Fritz brought a giant puzzle and wagged his tail excitedly. Piece by piece, you laughed solving it together...",
-        treasure: "With a bark, Fritz uncovered a map! You followed it through trees and meadows to find a sparkling treasure chest!"
+    const stories = {
+      en: {
+        fritz: {
+          adventure: "Fritz grabbed his explorer hat. You crossed rivers, caves, and found a glowing mountain!",
+          puzzle: "Fritz brought a puzzle. You worked on it laughing together.",
+          treasure: "Fritz barked excitedly. You followed a map to treasure!"
+        },
+        lulu: {
+          music: "Lulù purred by the window. You listened and sang with joy.",
+          sun: "Lulù stretched in the sun. You joined peacefully.",
+          tree: "Lulù climbed high. You saw the world from above."
+        },
+        endings: {
+          happy: "You smiled happily as the sun set.",
+          funny: "A squirrel danced and made everyone laugh!",
+          mystery: "A shadow appeared... what could it be?"
+        },
+        trophy: "🌟 Well done! Do you want to play again?"
       },
-      lulu: {
-        music: "Lulù curled up near the window as music filled the air. You joined, creating a gentle song of joy.",
-        sun: "Lulù stretched under the sunbeam. You both lay in peace, soaking in warmth and light.",
-        tree: "Lulù climbed a tall tree and called for you. From up high, the world looked magical and new!"
+      it: {
+        fritz: {
+          adventure: "Fritz afferrò il cappello da esploratore. Attraversaste fiumi, grotte e una montagna splendente!",
+          puzzle: "Fritz portò un puzzle. Lo risolveste ridendo.",
+          treasure: "Fritz abbaiò. Seguisti una mappa verso un tesoro!"
+        },
+        lulu: {
+          music: "Lulù faceva le fusa vicino alla finestra. Cantavate insieme.",
+          sun: "Lulù si stiracchiava al sole. Ti unisti sereno.",
+          tree: "Lulù salì in alto. Da lì vedevate tutto il mondo."
+        },
+        endings: {
+          happy: "Sorrideste al tramonto.",
+          funny: "Uno scoiattolo ballò e tutti risero!",
+          mystery: "Apparve un’ombra… cosa sarà?"
+        },
+        trophy: "🌟 Bravo! Vuoi giocare ancora?"
       },
-      trophy: "🌟 Well done! Do you want to play again?"
-    },
-    it: {
-      fritz: {
-        adventure: "Fritz afferrò il cappello da esploratore. Insieme avete attraversato fiumi, grotte e raggiunto la cima luminosa di una montagna...",
-        puzzle: "Fritz portò un puzzle gigante e scodinzolava felice. Pezzo dopo pezzo, lo risolveste ridendo insieme...",
-        treasure: "Con un abbaio, Fritz trovò una mappa! La seguisti tra alberi e prati fino a un forziere brillante!"
-      },
-      lulu: {
-        music: "Lulù si accoccolò vicino alla finestra mentre la musica si diffondeva. Ti unisti a lei, creando un canto di gioia.",
-        sun: "Lulù si stese sotto il raggio di sole. Vi sdraiaste in pace, assorbendo calore e luce.",
-        tree: "Lulù salì su un albero alto e ti chiamò. Da lassù, il mondo sembrava magico e nuovo!"
-      },
-      trophy: "🌟 Bravo! Vuoi giocare ancora?"
-    },
-    fr: {
-      fritz: {
-        adventure: "Fritz a pris son chapeau d’aventurier. Ensemble, vous avez traversé rivières, grottes et atteint un sommet brillant...",
-        puzzle: "Fritz apporta un puzzle immense et remuait la queue. Pièce par pièce, vous le résolviez en riant...",
-        treasure: "Avec un aboiement, Fritz trouva une carte! Vous l'avez suivie jusqu'à un trésor caché!"
-      },
-      lulu: {
-        music: "Lulù s’est couchée près de la fenêtre alors que la musique remplissait l’air. Ensemble, vous avez créé une mélodie douce.",
-        sun: "Lulù s’étira sous un rayon de soleil. Vous vous reposiez dans la chaleur et la lumière.",
-        tree: "Lulù grimpa dans un grand arbre et t’appela. De là-haut, le monde semblait magique!"
-      },
-      trophy: "🌟 Bravo ! Veux-tu rejouer ?"
+      fr: {
+        fritz: {
+          adventure: "Fritz mit son chapeau. Vous avez exploré rivières, grottes, et une montagne brillante!",
+          puzzle: "Fritz apporta un puzzle. Vous l’avez résolu en riant.",
+          treasure: "Fritz aboya. Vous avez suivi une carte au trésor!"
+        },
+        lulu: {
+          music: "Lulù ronronnait près de la fenêtre. Vous avez chanté ensemble.",
+          sun: "Lulù s’étirait au soleil. Vous étiez paisibles.",
+          tree: "Lulù grimpa haut. De là, vous voyiez le monde."
+        },
+        endings: {
+          happy: "Vous avez souri au coucher du soleil.",
+          funny: "Un écureuil a dansé, tout le monde riait!",
+          mystery: "Une ombre est apparue… qui est-ce?"
+        },
+        trophy: "🌟 Bravo ! Veux-tu rejouer ?"
+      }
+    };
+
+    let lang = 'en';
+
+    function changeLanguage() {
+      lang = document.getElementById('lang-select').value;
+      loadStory();
     }
-  };
 
-  let lang = 'en';
+    function loadStory() {
+      const pet = localStorage.getItem('chosenPet');
+      const activity = localStorage.getItem('chosenActivity');
 
-  function changeLanguage() {
-    lang = document.getElementById('lang-select').value;
-    loadStory();
-  }
+      if (!pet || !activity) {
+        document.getElementById('story-text').innerText = "⚠️ Please go back and choose a character and activity.";
+        document.getElementById('trophy-block').style.display = 'none';
+        return;
+      }
 
-  function loadStory() {
-    const pet = localStorage.getItem('chosenPet');
-    const activity = localStorage.getItem('chosenActivity');
-
-    if (!pet || !activity) {
-      document.getElementById('story-text').innerText = "⚠️ Please go back and choose a character and activity.";
+      const base = stories?.[lang]?.[pet]?.[activity] || "Story not found.";
+      document.getElementById('story-text').innerText = base;
+      document.getElementById('story-ending').innerText = '';
       document.getElementById('trophy-block').style.display = 'none';
-      return;
+
+      const trophyText = stories?.[lang]?.trophy;
+      document.getElementById('trophy-text').innerText = trophyText;
     }
 
-    const text = stories?.[lang]?.[pet]?.[activity] || "Story not found. Please try again.";
-    document.getElementById('story-text').innerText = text;
+    function showEnding() {
+      const choice = document.getElementById('ending-select').value;
+      const ending = stories?.[lang]?.endings?.[choice] || '';
+      document.getElementById('story-ending').innerText = ending;
+      document.getElementById('trophy-block').style.display = 'block';
+    }
 
-    const trophyText = stories?.[lang]?.trophy || "🌟 Well done!";
-    document.getElementById('trophy-text').innerText = trophyText;
-    document.getElementById('trophy-block').style.display = 'block';
-  }
-
-  document.addEventListener('DOMContentLoaded', loadStory);
-</script>
-
+    document.addEventListener('DOMContentLoaded', loadStory);
+  </script>
 </body>
 </html>
