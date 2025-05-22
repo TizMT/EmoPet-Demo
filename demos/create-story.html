@@ -92,6 +92,13 @@
     <div class="story-box" id="story-text">
       Loading your story...
     </div>
+    <div id="trophy-block" style="display: none; text-align: center; margin-top: 30px;">
+  <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" width="100" alt="Trophy">
+  <p id="trophy-text" style="font-size: 18px; color: #ff6600;">🌟 Well done! Do you want to play again?</p>
+  <button class="restart-button" onclick="location.href='hologram-lab/index.html'">Play Again</button>
+  <button class="restart-button" onclick="location.href='../placeholder.html'">Back to Home</button>
+  <button class="print-button" onclick="window.print()">🖶️ Print your story</button>
+</div>
     <button class="restart-button" onclick="location.href='hologram-lab/index.html'">Start Again</button>
     <button class="print-button" onclick="window.print()">🖶️ Print your story</button>
   </main>
@@ -119,8 +126,13 @@
       sun: "Lulù stretched under the sunbeam. You both lay in peace, soaking in warmth and light.",
       tree: "Lulù climbed a tall tree and called for you. From up high, the world looked magical and new!"
     },
+    trophy: "🌟 Well done! Do you want to play again?",  tree: "Lulù climbed a tall tree and called for you. From up high, the world looked magical and new!"
+    },
     trophy: "🌟 Well done! Do you want to play again?"
-  },
+     },
+  it: {
+    fritz: {
+      },
   it: {
     fritz: {
       adventure: "Fritz afferrò il cappello da esploratore. Insieme avete attraversato fiumi, grotte e raggiunto la cima luminosa di una montagna...",
@@ -163,6 +175,7 @@
       document.getElementById('story-text').innerText = text;
       const trophyText = stories?.[lang]?.trophy || "🌟 Well done!";
 document.getElementById('trophy-text').innerText = trophyText;
+      document.getElementById('trophy-block').style.display = 'block';
     }
 
     document.addEventListener('DOMContentLoaded', loadStory);
