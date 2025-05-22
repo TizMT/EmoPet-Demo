@@ -216,8 +216,9 @@
 
       const trophyText = stories?.[lang]?.trophy;
       document.getElementById('trophy-text').innerText = trophyText;
-    }
-
+       speak(base);
+}
+  
     function showEnding() {
       const choice = document.getElementById('ending-select').value;
       const ending = stories?.[lang]?.endings?.[choice] || '';
