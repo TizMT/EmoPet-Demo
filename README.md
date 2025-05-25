@@ -53,7 +53,7 @@ Organized by Fifty Is Nifty
 ---
 ## 🚀 Opportunità di Collaborazione e Sponsorizzazione
 
-Leonardo Tronci è un giovane sviluppatore e innovatore nel campo dell’intelligenza artificiale applicata alla salute mentale. Se sei un **sviluppatore, sponsor di software, centro di ricerca o università** interessato a collaborare su progetti AI con impatto sociale, **contattalo**!
+Leonardo Tronci è un giovane sviluppatore e innovatore nel campo dell’intelligenza artificiale applicata alla salute mentale. Se sei un **sviluppatore, sponsor di software, centro di ricerca o Università** interessato a collaborare su progetti AI con impatto sociale, **contattalo**!
 
 📩 **Email**: [Leo.Tronci@tiscali.it](mailto:Leo.Tronci@tiscali.it)
 
