@@ -65,7 +65,7 @@ Leonardo Tronci è un giovane sviluppatore e innovatore nel campo dell’intelli
 
 ## 🚀 Collaboration & Sponsorship Opportunities
 
-Leonardo Tronci is a young developer and innovator in the field of artificial intelligence applied to mental health. If you are a **developer, software sponsor, research center, or university** interested in collaborating on AI projects with social impact, **get in touch**!
+Leonardo Tronci is a young developer and innovator in the field of artificial intelligence applied to mental health. If you are a **developer, software sponsor, research center, or University** interested in collaborating on AI projects with social impact, **get in touch**!
 
 📩 **Email**: [Leo.Tronci@tiscali.it](mailto:Leo.Tronci@tiscali.it)
 
@@ -77,7 +77,7 @@ Leonardo Tronci is a young developer and innovator in the field of artificial in
 ---
 ## 🇫🇷 Opportunités de Collaboration et Sponsoring
 
-Leonardo Tronci est un jeune développeur et innovateur dans le domaine de l’intelligence artificielle appliquée à la santé mentale. Si vous êtes un **développeur, sponsor de logiciels, centre de recherche ou université** intéressé par une collaboration sur des projets d’IA à impact social, **contactez-le**!
+Leonardo Tronci est un jeune développeur et innovateur dans le domaine de l’intelligence artificielle appliquée à la santé mentale. Si vous êtes un **développeur, sponsor de logiciels, centre de recherche ou Université** intéressé par une collaboration sur des projets d’IA à impact social, **contactez-le**!
 
 📩 **Email**: [Leo.Tronci@tiscali.it](mailto:Leo.Tronci@tiscali.it)
 
