@@ -244,6 +244,12 @@
         font-size: 0.8em;
       }
     }
+    /* Sposta solo la sezione di Fritz e Lulù per evitare sovrapposizione con il menu */
+@media screen and (min-width: 601px) {
+  .dialogue-section {
+    margin-left: 200px; /* Puoi regolare questo valore se necessario */
+  }
+}
   </style>
 
 
@@ -281,22 +287,23 @@
 </div>
     </div>
 
-    <div class="dialogue-section" style="margin-left: 200px;">
-      <div class="dialogue">
-        <img src="images/fritz.jpg" alt="Fritz the Dog">
-        <div>
-          <h3><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" target="_blank">Fritz</a></h3>
-          <p>Your playful and cheerful virtual friend. Let's have some fun together!</p>
-        </div>
-      </div>
-      <div class="dialogue">
-        <img src="images/lulu.jpg" alt="Lulù the Cat">
-        <div>
-          <h3><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" target="_blank">Lulù</a></h3>
-          <p>Your curious and graceful companion. Let's explore and relax together!</p>
-         </div>
-      </div>
+    <div class="character-info">
+  <!-- Immagine combinata, centrata e proporzionata -->
+  <img src="https://raw.githubusercontent.com/TizMT/EmoPet-Demo/main/Dog%20and%20Cat%20ologram-EmoPet.png" 
+       alt="Fritz and Lulù">
+
+  <!-- Descrizioni dei personaggi con link -->
+  <div class="character-descriptions">
+    <div class="character">
+      <h3><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" target="_blank">Fritz</a></h3>
+      <p>Your playful and cheerful virtual friend. Let's have some fun together!</p>
     </div>
+    <div class="character">
+      <h3><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" target="_blank">Lulù the Cat</a></h3>
+      <p>Your curious and graceful companion. Let's explore and relax together!</p>
+    </div>
+  </div>
+</div>
 <div id="footer">
   <p>Here we talk about us (Fritz and Lulu): 
     <a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" target="_blank"><u>Click Here</u></a>
