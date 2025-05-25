@@ -109,78 +109,167 @@
   </style>
 </head>
 <body>
-  <!-- Sidebar Menu for the index page only (responsive and reduced size) -->
-  <style>
-    /* Sidebar Menu Styles */
+ <!-- Responsive Sidebar / Dropdown Menu for the index page only -->
+<style>
+  /* Common container style */
+  #menu-container {
+    font-size: 0.8em;
+    z-index: 1050;
+  }
+  /* Sidebar styles for desktop */
+  #sidebar-menu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 160px;
+    background: #2c3e50;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  #sidebar-menu h3 {
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 1em;
+    background: #ff6600;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  #sidebar-menu ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  #sidebar-menu ul li {
+    margin: 5px 0;
+  }
+  #sidebar-menu ul li a {
+    display: block;
+    color: white;
+    padding: 6px;
+    text-align: center;
+    background: #3498db;
+    border-radius: 6px;
+    margin: 5px 0;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  /* Title button non-clickable */
+  #sidebar-menu ul li.title-btn a, 
+  .dropdown-menu ul li.title-btn a {
+    pointer-events: none;
+    background: #95a5a6;
+    cursor: default;
+  }
+  /* Final button style (idea + sponsor) */
+  #sidebar-menu ul li.final-btn a,
+  .dropdown-menu ul li.final-btn a {
+    background: #e67e22;
+  }
+  /* Dropdown toggle button: visibile solo su mobile */
+  .dropdown-toggle {
+    display: none;
+    background: #2c3e50;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 1em;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  /* Dropdown menu styles for mobile */
+  .dropdown-menu {
+    display: none;
+    background: #2c3e50;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .dropdown-menu ul li {
+    margin: 5px 0;
+  }
+  .dropdown-menu ul li a {
+    display: block;
+    color: white;
+    padding: 6px;
+    text-align: center;
+    background: #3498db;
+    border-radius: 6px;
+    margin: 5px 0;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  /* Responsive adjustments per mobile */
+  @media screen and (max-width: 600px) {
     #sidebar-menu {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      width: 160px;
-      background: #2c3e50;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      display: none; /* Nasconde il sidebar per mobile */
+    }
+    .dropdown-toggle {
+      display: block; /* Mostra il tasto per aprire il menu */
+    }
+    .dropdown-menu ul li a {
       font-size: 0.8em;
-      z-index: 1050;
+      padding: 5px;
+      margin: 3px 0;
     }
-    #sidebar-menu h3 {
-      color: white;
-      text-align: center;
-      padding: 8px;
-      font-size: 1em;
-      background: #ff6600;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-    #sidebar-menu ul {
-      list-style-type: none;
-      padding: 0;
-      text-align: left;
-    }
-    #sidebar-menu ul li {
-      margin: 5px 0;
-    }
-    #sidebar-menu ul li a {
-      display: block;
-      color: white;
-      padding: 6px;
-      text-align: center;
-      background: #3498db;
-      border-radius: 6px;
-      margin: 5px 0;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    /* Responsive adjustments for mobile */
-    @media screen and (max-width: 600px) {
-      #sidebar-menu {
-        width: 120px;
-        padding: 5px;
-        font-size: 0.7em;
-      }
-      #sidebar-menu h3 {
-        font-size: 0.9em;
-        padding: 6px;
-      }
-      #sidebar-menu ul li a {
-        padding: 5px;
-      }
-    }
-  </style>
+  }
+</style>
 
+<div id="menu-container">
+  <!-- Pulsante per aprire il dropdown (visibile solo su mobile) -->
+  <button class="dropdown-toggle" onclick="toggleDropdown()">Menu</button>
+
+  <!-- Sidebar per desktop -->
   <div id="sidebar-menu">
     <h3>MAIN MENU</h3>
     <ul>
-      <li><a href="#">PLAY WITH OUR HOLOGRAMS</a></li>
+      <!-- Tasto-titolo non cliccabile -->
+      <li class="title-btn"><a href="#">PLAY WITH OUR HOLOGRAMS</a></li>
       <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/">Hologram Lab</a></li>
       <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/">Puzzle Game</a></li>
       <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/create-story.html">Create a Story</a></li>
       <li><a href="https://www.youtube.com/embed/h5QRYsDMHuk">Music</a></li>
       <li><a href="https://tizmt.github.io/EmoPet-Demo/placeholder.html">Snack & More</a></li>
+      <!-- Pulsante finale per "EmoPet" -->
+      <li class="final-btn"><a href="https://tizmt.github.io/EmoPet-Demo/leo.html">EmoPet: born from an idea by Leonardo Tronci</a></li>
+      <!-- Pulsante Sponsor -->
+      <li class="final-btn"><a href="https://tizmt.github.io/EmoPet-Demo/scientific-sponsors.html">Sponsor</a></li>
     </ul>
   </div>
 
+  <!-- Dropdown menu per mobile -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <ul>
+      <li class="title-btn"><a href="#">PLAY WITH OUR HOLOGRAMS</a></li>
+      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/">Hologram Lab</a></li>
+      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/">Puzzle Game</a></li>
+      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/create-story.html">Create a Story</a></li>
+      <li><a href="https://www.youtube.com/embed/h5QRYsDMHuk">Music</a></li>
+      <li><a href="https://tizmt.github.io/EmoPet-Demo/placeholder.html">Snack & More</a></li>
+      <li class="final-btn"><a href="https://tizmt.github.io/EmoPet-Demo/leo.html">EmoPet: born from an idea by Leonardo Tronci</a></li>
+      <li class="final-btn"><a href="https://tizmt.github.io/EmoPet-Demo/scientific-sponsors.html">Sponsor</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  function toggleDropdown() {
+    var dropdown = document.getElementById('dropdownMenu');
+    if (dropdown.style.display === 'block') {
+      dropdown.style.display = 'none';
+    } else {
+      dropdown.style.display = 'block';
+    }
+  }
+</script>
 
 
 
