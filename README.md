@@ -2,7 +2,7 @@
 
 Welcome to EMOPet!
 
-EMOPet is an interactive web application designed for children to manage playful activities with their holographic pets: Fritz the Dog and Lulu the Cat.
+EMOPet is an interactive web application designed for children to manage playful activities with their holographic pets: Fritz the Dog and Lulù the Cat.
 
 ## How it works
 
