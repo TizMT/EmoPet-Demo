@@ -109,18 +109,79 @@
   </style>
 </head>
 <body>
-  <!-- Sidebar Menu for the index page only -->
-  <div id="sidebar-menu" style="position: fixed; top: 10px; left: 10px; width: 200px; background: #2c3e50; padding: 15px; border-radius: 10px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);">
-    <h3 style="color: white; text-align: center; padding: 10px; font-size: 1.2em; background: #ff6600; border-radius: 8px;">MAIN MENU</h3>
-    <ul style="list-style-type: none; padding: 0; text-align: left;">
-      <li><a href="#" style="display: block; color: white; padding: 8px; text-align: center; background: #3498db; border-radius: 6px; margin: 5px 0; font-weight: bold;">PLAY WITH OUR HOLOGRAMS</a></li>
-      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/" style="display: block; color: white; padding: 8px; text-align: center; background: #3498db; border-radius: 6px; margin: 5px 0;">Hologram Lab</a></li>
-      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/" style="display: block; color: white; padding: 8px; text-align: center; background: #3498db; border-radius: 6px; margin: 5px 0;">Puzzle Game</a></li>
-      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/create-story.html" style="display: block; color: white; padding: 8px; text-align: center; background: #3498db; border-radius: 6px; margin: 5px 0;">Create a Story</a></li>
-      <li><a href="https://www.youtube.com/embed/h5QRYsDMHuk" style="display: block; color: white; padding: 8px; text-align: center; background: #3498db; border-radius: 6px; margin: 5px 0;">Music</a></li>
-      <li><a href="https://tizmt.github.io/EmoPet-Demo/placeholder.html" style="display: block; color: white; padding: 8px; text-align: center; background: #3498db; border-radius: 6px; margin: 5px 0;">Snack & More</a></li>
+  <!-- Sidebar Menu for the index page only (responsive and reduced size) -->
+  <style>
+    /* Sidebar Menu Styles */
+    #sidebar-menu {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 160px;
+      background: #2c3e50;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      font-size: 0.8em;
+      z-index: 1050;
+    }
+    #sidebar-menu h3 {
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 1em;
+      background: #ff6600;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    #sidebar-menu ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+    }
+    #sidebar-menu ul li {
+      margin: 5px 0;
+    }
+    #sidebar-menu ul li a {
+      display: block;
+      color: white;
+      padding: 6px;
+      text-align: center;
+      background: #3498db;
+      border-radius: 6px;
+      margin: 5px 0;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    /* Responsive adjustments for mobile */
+    @media screen and (max-width: 600px) {
+      #sidebar-menu {
+        width: 120px;
+        padding: 5px;
+        font-size: 0.7em;
+      }
+      #sidebar-menu h3 {
+        font-size: 0.9em;
+        padding: 6px;
+      }
+      #sidebar-menu ul li a {
+        padding: 5px;
+      }
+    }
+  </style>
+
+  <div id="sidebar-menu">
+    <h3>MAIN MENU</h3>
+    <ul>
+      <li><a href="#">PLAY WITH OUR HOLOGRAMS</a></li>
+      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/">Hologram Lab</a></li>
+      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/puzzle-game/">Puzzle Game</a></li>
+      <li><a href="https://tizmt.github.io/EmoPet-Demo/demos/create-story.html">Create a Story</a></li>
+      <li><a href="https://www.youtube.com/embed/h5QRYsDMHuk">Music</a></li>
+      <li><a href="https://tizmt.github.io/EmoPet-Demo/placeholder.html">Snack & More</a></li>
     </ul>
   </div>
+
+
 
 
   <header style="background-color: #ffffffd0; padding: 10px 20px; display: flex; align-items: center; justify-content: flex-start; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
