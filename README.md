@@ -4,14 +4,6 @@ Welcome to EMOPet!
 
 EMOPet is an interactive web application designed for children to manage playful activities with their holographic pets: Fritz the Dog and Lulù the Cat.
 
-## How it works
-
-- Add new activities by typing into the input field and pressing Enter.
-- New activities will appear under the "Choose Pet" section.
-- When you click an activity, it will move to the "Chosen" section.
-- The app is responsive and works on desktop, tablets, and mobile devices.
-- EMOPet uses holographic cartoon-style graphics to create a fun and futuristic experience.
-
 - ## 🛠 Technologies & Tools
 
 Leonardo Tronci has expertise in various cutting-edge technologies for AI and web development:
@@ -35,6 +27,10 @@ Leonardo Tronci has expertise in various cutting-edge technologies for AI and we
 Zen Pet helps children manage their emotions through interactive activities!  
 
 ### 🔹 How it works:  
+
+The app is responsive and works on desktop, tablets, and mobile devices.
+
+EMOPet uses holographic cartoon-style graphics to create a fun and futuristic experience.
 - If the child is **feeling sad**, Zen Pet guides them to relaxation techniques in **[Zen Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-relax.html)**.  
 - If the child is **feeling happy**, Zen Pet enhances their joy with positive activities in **[Zen Happy](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-happy.html)**.  
 
