@@ -6,9 +6,12 @@ EMOPet is an interactive web application designed for children to manage playful
 Meet Lulù, the charming French kitten with a flair for adventure, and Fritz, the spirited pup who’s half Italian and half German. Together, they invite you to explore magical stories, fun-filled puzzles, and delightful games where you decide the ending!
 
 How It Works:
-On our Holograms page, under the Stories section, you'll find a drop-down menu with various options—from exciting adventures to catchy songs. Choose your preferred language (Italian, English, or French) and select a story that sparks your imagination. Every tale is interactive, meaning you get to shape the outcome with your choices!
-These holographic friends aren’t just here to tell stories—they’re here to create a world where every twist and turn is in your hands. Dive into adventures that celebrate creativity, cultural flavors, and, most importantly, the joy of storytelling.
-Ready to embark on an unforgettable journey? Check out the stories here and let Lulù and Fritz carry you away into a realm of wonder.
+On our Holograms page, under the Stories section, you'll find a drop-down menu with various options—from exciting adventures to catchy songs. 
+Choose your preferred language (Italian, English, or French) and select a story that sparks your imagination. Every tale is interactive, meaning you get to shape the outcome with your choices!
+These holographic friends aren’t just here to tell stories—they’re here to create a world where every twist and turn is in your hands. 
+Dive into adventures that celebrate creativity, cultural flavors, and, most importantly, the joy of storytelling.
+Ready to embark on an unforgettable journey? 
+Check out the stories here and let Lulù and Fritz carry you away into a realm of wonder.
 
 - ## 🛠 Technologies & Tools
 
