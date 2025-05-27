@@ -35,11 +35,8 @@ EMOPet uses holographic cartoon-style graphics to create a fun and futuristic ex
 - If the child is **feeling happy**, Zen Pet enhances their joy with positive activities in **[Zen Happy](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-happy.html)**.  
 
 🔗 **Relaxation Techniques:**  
-📖 **Read positive stories** → [Story Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/story-relax.html)  
-🎶 **Listen to relaxing music** → [Music Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/music-relax.html)  
-🎨 **Draw your emotions** → [Drawing Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/drawing-relax.html)  
+*(These features are currently under evaluation in collaboration with our scientific team. The final options will be implemented soon – stay tuned for updates!)*  
 
-🚀 **This section is being updated! The final version will be completed tomorrow or later.**  
 
 ✨ **Try Zen Pet in [Hologram Lab](https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/)!**  
 
