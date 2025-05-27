@@ -43,6 +43,65 @@ EMOPet uses holographic cartoon-style graphics to create a fun and futuristic ex
 
 ✨ **Try Zen Pet in [Hologram Lab](https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/)!**  
 
+## Zen Pet – Emotional Support AI 🌿
+
+Zen Pet helps children manage their emotions through interactive activities!
+
+### 🔹 How it works:
+
+The app is responsive and works on desktop, tablets, and mobile devices.
+
+EMOPet uses holographic cartoon-style graphics to create a fun and futuristic experience.
+- If the child is **feeling sad**, Zen Pet guides them to relaxation techniques in **[Zen Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-relax.html)**.
+- If the child is **feeling happy**, Zen Pet enhances their joy with positive activities in **[Zen Happy](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-happy.html)**.
+
+🔗 **Relaxation Techniques:**
+📖 **Read positive stories** → [Story Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/story-relax.html)  
+🎶 **Listen to relaxing music** → [Music Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/music-relax.html)  
+🎨 **Draw your emotions** → [Drawing Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/drawing-relax.html)
+
+🚀 **This section is being updated! The final version will be completed tomorrow or later.**
+
+✨ **Try Zen Pet in [Hologram Lab](https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/)!**
+
+## 🌟 EmoPet-Demo – Site Navigation & Features
+
+EmoPet-Demo is an interactive web experience that goes beyond pet care. It features an intuitive overlay menu that grants access to various sections of the site, including stories, games, and relaxation techniques.
+
+### Overlay Menu & Navigation
+- The overlay menu appears when you click on the menu button or hover over it (depending on your device), making navigation quick and simple.
+- From the menu you can access:
+    - **Hologram Lab:** Meet your holographic pets like Fritz, Lulù, and Zen Pet in their interactive environments.
+    - **Puzzle Game:** Engage in fun challenges that improve problem-solving skills.
+    - **Story Creator:** Customize and generate stories by choosing your favorite pet and activity.
+    - **Zen Pet Relaxation:** Access guided activities, relaxation techniques, and creative exercises. For example, if you’re feeling sad, check out [Zen Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-relax.html) or, if happy, try [Zen Happy](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-happy.html).
+
+### Story Features
+- The site also includes interactive stories. Each story can be personalized based on the character (Fritz, Lulù, or Zen Pet) and the chosen activity.
+- Users can trigger narrative scenes and the system dynamically adjusts the content to reflect the mood of the exploration.
+
+🚀 **Note:** This section is being updated – the final version will be completed tomorrow or later.
+
+---
+
+## 🌟 EmoPet-Demo – Navigation et Fonctionnalités du site
+
+EmoPet-Demo est une expérience web interactive qui va au-delà du simple soin des animaux de compagnie. Le site propose un menu en surimpression intuitif qui permet d’accéder à différentes sections, incluant des histoires, des jeux et des techniques de relaxation.
+
+### Menu en surimpression & Navigation
+- Le menu apparaît lorsque vous cliquez sur le bouton de menu ou que vous le survolez (selon l’appareil utilisé), facilitant ainsi une navigation rapide et simple.
+- Dans ce menu, vous pouvez accéder à :
+    - **Hologram Lab :** Rencontrez vos animaux holographiques comme Fritz, Lulù et Zen Pet dans leurs environnements interactifs.
+    - **Puzzle Game :** Participez à des défis amusants qui stimulent vos compétences en résolution de problèmes.
+    - **Créateur d’Histoires :** Personnalisez et générez des histoires en choisissant votre personnage et l’activité souhaitée.
+    - **Relaxation Zen Pet :** Accédez à des activités guidées, des techniques de relaxation et des exercices créatifs. Par exemple, si vous vous sentez triste, découvrez [Zen Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-relax.html), ou si vous êtes heureux, essayez [Zen Happy](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-happy.html).
+
+### Fonctionnalités des Histoires
+- Le site propose également des histoires interactives. Chaque histoire peut être personnalisée en fonction du personnage (Fritz, Lulù ou Zen Pet) et de l’activité choisie.
+- Les utilisateurs peuvent déclencher des scènes narratives, et le système ajuste dynamiquement le contenu pour refléter l’humeur de l’exploration.
+
+🚀 **Remarque :** Cette section est en cours de mise à jour – la version finale sera complétée demain ou ultérieurement.
+
 ## Authors
 
 - Leo and Team
@@ -72,6 +131,7 @@ Leonardo Tronci è un giovane sviluppatore e innovatore nel campo dell’intelli
 🔗 **GitHub**: [EmoPet-Demo](https://github.com/TizMT/EmoPet-Demo)
 
 💡 **Competenze**: AI, Machine Learning, Web Development, UI/UX Design
+
 
 🌍 **Aperto a collaborazioni internazionali!**
 
