@@ -30,6 +30,22 @@ Leonardo Tronci has expertise in various cutting-edge technologies for AI and we
 ## Demo Link
 
 👉 [Click here to view the live prototype!](https://tizmt.github.io/EmoPet-Demo/)
+## Zen Pet – Emotional Support AI 🌿  
+
+Zen Pet helps children manage their emotions through interactive activities!  
+
+### 🔹 How it works:  
+- If the child is **feeling sad**, Zen Pet guides them to relaxation techniques in **[Zen Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-relax.html)**.  
+- If the child is **feeling happy**, Zen Pet enhances their joy with positive activities in **[Zen Happy](https://tizmt.github.io/EmoPet-Demo/zen-pet/zen-happy.html)**.  
+
+🔗 **Relaxation Techniques:**  
+📖 **Read positive stories** → [Story Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/story-relax.html)  
+🎶 **Listen to relaxing music** → [Music Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/music-relax.html)  
+🎨 **Draw your emotions** → [Drawing Relax](https://tizmt.github.io/EmoPet-Demo/zen-pet/drawing-relax.html)  
+
+🚀 **This section is being updated! The final version will be completed tomorrow or later.**  
+
+✨ **Try Zen Pet in [Hologram Lab](https://tizmt.github.io/EmoPet-Demo/demos/hologram-lab/)!**  
 
 ## Authors
 
