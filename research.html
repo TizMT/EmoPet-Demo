@@ -1,66 +1,931 @@
-<h1>EmoPet: A Behavioral Framework for Emotional Monitoring in Children Using Virtual Holographic Pets</h1>
-<p><strong>Author:</strong> Leonardo Tronci<br>
-   <strong>Affiliation:</strong> Independent Research Scholar<br>
-   <strong>Date:</strong> July 16, 2025</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmoPet Research | Modern Framework for Emotional Monitoring by Leonardo TRONCI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A90E2;
+            --accent: #FF6B6B;
+            --light: #F8F9FA;
+            --dark: #2D3748;
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --info: #17A2B8;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: #f5f7fb;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.4rem;
+            text-decoration: none;
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            padding: 80px 0 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/7TvXz3j.png') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .hero-pets {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .pet {
+            text-align: center;
+            width: 150px;
+        }
+        
+        .pet-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pet-image.dog {
+            background: linear-gradient(135deg, #FF9A8B, #FF6B6B);
+        }
+        
+        .pet-image.cat {
+            background: linear-gradient(135deg, #6A11CB, #2575FC);
+        }
+        
+        .pet i {
+            font-size: 60px;
+            color: white;
+        }
+        
+        .pet h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .pet p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Content Sections */
+        section {
+            padding: 70px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        /* Abstract Box */
+        .abstract-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .abstract-box h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .abstract-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Use Cases */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .use-case {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .use-case:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .use-case h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .use-case i {
+            font-size: 1.5rem;
+        }
+        
+        /* Outcomes Section */
+        .outcomes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .outcome-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .outcome-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-header {
+            padding: 20px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .sadness .card-header {
+            background: var(--secondary);
+        }
+        
+        .joy .card-header {
+            background: var(--success);
+        }
+        
+        .anxiety .card-header {
+            background: var(--warning);
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .card-body p:last-child {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            left: 55%;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -50px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -50px;
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Emotional Flow */
+        .flow-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-top: 50px;
+        }
+        
+        .flow-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .flow-step {
+            text-align: center;
+            width: 180px;
+            margin: 20px;
+            position: relative;
+        }
+        
+        .flow-step:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        
+        /* QR Section */
+        .qr-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .qr-content {
+            max-width: 500px;
+        }
+        
+        .qr-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .qr-content p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        
+        .qr-image {
+            background: #f0f5ff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .qr-image img {
+            width: 180px;
+            height: 180px;
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #CBD5E0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #A0AEC0;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .timeline-content {
+                width: 90%;
+                left: 5% !important;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-content::after {
+                left: -40px !important;
+                right: auto !important;
+            }
+            
+            .flow-step:not(:last-child)::after {
+                display: none;
+            }
+            
+            .flow-step {
+                margin: 20px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-pets {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Language Switcher -->
+    <header>
+        <div class="container header-content">
+            <a href="https://tizmt.github.io/EmoPet-Demo/index.html" class="logo">
+                <i class="fas fa-paw"></i>
+                EmoPet
+            </a>
+            <div class="language-switcher">
+                <button class="lang-btn">EN</button>
+                <button class="lang-btn">IT</button>
+                <button class="lang-btn">FR</button>
+            </div>
+        </div>
+    </header>
 
-<div class="abstract-box">
-  <h2>Abstract</h2>
-  <p>This research outlines a real-time behavioral framework developed for EmoPet AI—an interactive platform that helps children manage emotions through playful interaction with two holographic pets: Fritz the Dog and Lulù the Cat. Using a combination of observational feedback, linguistic adaptation, and guided activities, the system aims to identify emotional states such as joy, sadness, anxiety, or boredom through children's interactions. EmoPet does not collect biometric data but instead relies on responsive storytelling, mood-based game selection, and language-driven feedback loops to offer personalized support.</p>
-</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>EmoPet: Emotional Monitoring Framework</h1>
+            <p>A behavioral framework for emotional monitoring in children using virtual holographic pets</p>
+            
+            <div class="hero-pets">
+                <div class="pet">
+                    <div class="pet-image dog">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <h3>Fritz</h3>
+                    <p>Curious and active dog</p>
+                </div>
+                
+                <div class="pet">
+                    <div class="pet-image cat">
+                        <i class="fas fa-cat"></i>
+                    </div>
+                    <h3>Lulù</h3>
+                    <p>Gentle and imaginative cat</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2>Observed Use Cases</h2>
-<ul>
-  <li><strong>Audience:</strong> Children aged 6–12 experiencing emotional stress or social isolation</li>
-  <li><strong>Mode:</strong> Web-based interface with touch and voice feedback</li>
-  <li><strong>Languages:</strong> English,  French , Italian, </li>
-  <li><strong>Character Profiles:</strong> Fritz (curious and active), Lulù (gentle and imaginative)</li>
-</ul>
+    <!-- Abstract Section -->
+    <section class="container">
+        <div class="abstract-box">
+            <h2><i class="fas fa-file-alt"></i> Abstract</h2>
+            <p>This research outlines a real-time behavioral framework developed for EmoPet AI—an interactive platform that helps children manage emotions through playful interaction with two holographic pets: Fritz the Dog and Lulù the Cat. Using a combination of observational feedback, linguistic adaptation, and guided activities, the system aims to identify emotional states such as joy, sadness, anxiety, or boredom through children's interactions. EmoPet does not collect biometric data but instead relies on responsive storytelling, mood-based game selection, and language-driven feedback loops to offer personalized support.</p>
+        </div>
+    </section>
 
-<h2>Interaction Outcomes</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Emotional Trigger</th>
-      <th>Behavioral Response from EmoPet</th>
-      <th>Child Engagement Outcome</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Sadness</td>
-      <td>Zen Relax Module activated with breathing games</td>
-      <td>Improved self-soothing, calmer interactions</td>
-    </tr>
-    <tr>
-      <td>Joy</td>
-      <td>Zen Happy Module + Create Your Story finale builder</td>
-      <td>Increased narrative creativity and language use</td>
-    </tr>
-    <tr>
-      <td>Anxiety</td>
-      <td>Puzzle tasks and guided story dialogues</td>
-      <td>Focused attention and emotional redirection</td>
-    </tr>
-  </tbody>
-</table>
+    <!-- Use Cases Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Observed Use Cases</h2>
+        </div>
+        
+        <div class="use-cases">
+            <div class="use-case">
+                <h3><i class="fas fa-users"></i> Audience</h3>
+                <p>Children aged 6–12 experiencing emotional stress or social isolation</p>
+            </div>
+            
+            <div class="use-case">
+                <h3><i class="fas fa-laptop"></i> Mode</h3>
+                <p>Web-based interface with touch and voice feedback</p>
+            </div>
+            
+            <div class="use-case">
+                <h3><i class="fas fa-language"></i> Languages</h3>
+                <p> English, French , Italian</p>
+            </div>
+            
+            <div class="use-case">
+                <h3><i class="fas fa-paw"></i> Character Profiles</h3>
+                <p>Fritz (curious and active), Lulù (gentle and imaginative)</p>
+            </div>
+        </div>
+    </section>
 
-<h2>Scientific Collaboration</h2>
-<p>The framework is currently evaluated under guidance of Dr. Roberto Diana, an expert in therapeutic ecosystems and member of the Blue Zone movement. His support is helping refine narrative triggers and thematic environments that contribute to emotional regulation in children.We are open to collaborating with other professionals, such as pediatricians, child neuropsychiatrists, and robotic engineers.</p>
+    <!-- Interaction Outcomes -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Interaction Outcomes</h2>
+        </div>
+        
+        <div class="outcomes-container">
+            <div class="outcome-card sadness">
+                <div class="card-header">
+                    Sadness Response
+                </div>
+                <div class="card-body">
+                    <p><strong>Behavioral Response:</strong> Zen Relax Module activated with breathing games</p>
+                    <p><strong>Child Engagement Outcome:</strong> Improved self-soothing, calmer interactions</p>
+                </div>
+            </div>
+            
+            <div class="outcome-card joy">
+                <div class="card-header">
+                    Joy Response
+                </div>
+                <div class="card-body">
+                    <p><strong>Behavioral Response:</strong> Zen Happy Module + Create Your Story finale builder</p>
+                    <p><strong>Child Engagement Outcome:</strong> Increased narrative creativity and language use</p>
+                </div>
+            </div>
+            
+            <div class="outcome-card anxiety">
+                <div class="card-header">
+                    Anxiety Response
+                </div>
+                <div class="card-body">
+                    <p><strong>Behavioral Response:</strong> Puzzle tasks and guided story dialogues</p>
+                    <p><strong>Child Engagement Outcome:</strong> Focused attention and emotional redirection</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2>Planned Enhancements</h2>
-<ul>
-  <li>New ambient story backgrounds (forest, classroom, fantasy worlds)</li>
-  <li>Voice narration for story chapters and customized endings</li>
-  <li>Parent feedback dashboard to track child interaction trends</li>
-</ul>
+    <!-- Scientific Collaboration -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Scientific Collaboration</h2>
+        </div>
+        
+        <div class="abstract-box" style="background: #f0f7ff; border-left: 5px solid #4A90E2;">
+            <p>The framework is currently evaluated under guidance of Dr. Roberto Diana, an expert in therapeutic ecosystems and member of the Blue Zone movement. His support is helping refine narrative triggers and thematic environments that contribute to emotional regulation in children.</p>
+            <p style="margin-top: 20px; font-weight: 500;"> We have now the collaboration of Research Grop Team of "Movere in salus", too, but We are open to collaborating with other professionals, such as pediatricians, child neuropsychiatrists, and robotic engineers.</p>
+        </div>
+    </section>
 
-<h2>QR Code Access</h2>
-<div class="qr-section">
-  <h3>Scan to View EmoPet Research Page</h3>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tizmt.github.io/EmoPet-Demo/research.html" alt="QR Code">
-</div>
+    <!-- Timeline -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Project Evolution</h2>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Concept Development</h3>
+                    <p>Initial research and conceptualization of the EmoPet framework, defining core principles and objectives.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Prototype Creation</h3>
+                    <p>Development of the first working prototype with Fritz and Lulù characters and basic interaction modules.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Initial Testing</h3>
+                    <p>First round of testing with target age group to evaluate emotional response effectiveness.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Scientific Collaboration</h3>
+                    <p>Partnership with Dr. Roberto Diana to refine therapeutic aspects of the framework.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Multi-language Support</h3>
+                    <p>Implementation of Italian, English, and French language options for broader accessibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="footer-links">
-  <a href="index.html">← Back to Home</a>
-  <a href="leo.html">About the Author →</a>
-</div>
+    <!-- Emotional Flow -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Emotional Flow Process</h2>
+        </div>
+        
+        <div class="flow-container">
+            <div class="flow-chart">
+                <div class="flow-step">
+                    <div class="step-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="step-title">Child Interaction</div>
+                    <p>Child engages with EmoPet through voice or touch</p>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="step-title">Emotion Analysis</div>
+                    <p>AI analyzes verbal/non-verbal cues to determine emotional state</p>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="step-title">Activity Selection</div>
+                    <p>Appropriate module selected based on emotional state</p>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="step-title">Emotional Regulation</div>
+                    <p>Child engages in therapeutic activity for emotional support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Section -->
+    <section class="container">
+        <div class="qr-section">
+            <div class="qr-content">
+                <h3>Access EmoPet Research</h3>
+                <p>Scan this QR code with your mobile device to access the full research documentation and interactive demo of the EmoPet framework.</p>
+                <p>You can also share this research with colleagues and collaborators interested in child emotional development technologies.</p>
+            </div>
+            
+            <div class="qr-image">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tizmt.github.io/EmoPet-Demo/research.html" alt="QR Code">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div class="footer-logo">Emo<span>Pet</span></div>
+                    <p>An innovative framework for emotional monitoring in children through interactive holographic companions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://tizmt.github.io/EmoPet-Demo/index.html">Home Page</a></li>
+                        <li><a href="https://tizmt.github.io/EmoPet-Demo/research.html">Research</a></li>
+                        <li><a href="https://tizmt.github.io/EmoPet-Demo/leo.html">About the Author</a></li>
+                        <li><a href="#">Scientific Papers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Implementation Guide</a></li>
+                        <li><a href="#">For Educators</a></li>
+                        <li><a href="#">For Therapists</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact@emopet.org</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Rome, Italy</li>
+                        <li><i class="fas fa-user"></i> Leonardo Tronci</li>
+                        <li><i class="fas fa-graduation-cap"></i> Independent Research Scholar</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Leonardo Tronci. Prototype developed for EmoPet. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Animate cards
+            document.querySelectorAll('.use-case, .outcome-card, .flow-step').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Animate timeline items
+            document.querySelectorAll('.timeline-content').forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+            
+            // Language switcher functionality
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    // In a real implementation, this would change the page language
+                });
+            });
+            
+            // Set initial active language
+            document.querySelector('.lang-btn').classList.add('active');
+        });
+    </script>
+</body>
+</html>
