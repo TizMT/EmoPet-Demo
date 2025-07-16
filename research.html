@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmoPet: Scientific Research Paper by Leonardo TRONCI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Lato', sans-serif; background: #f2f2f2; margin: 0; padding: 0; }
+
+    .research-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      line-height: 1.8;
+    }
+
+    h1, h2, h3 { color: #2c3e50; }
+
+    .citation-box {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-family: monospace;
+      margin: 2rem 0;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+
+    .qr-section {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .qr-section img {
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+    }
+
+    table thead {
+      background: #3498db;
+      color: white;
+    }
+
+    table th, table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    .abstract-box {
+      background: #f8f9fa;
+      border-left: 4px solid #3498db;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    img.diagram {
+      max-width: 100%;
+      border: 1px dashed #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .diagram-caption {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: -1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="research-container">
+
+    <h1>EmoPet: Real-Time Emotion Recognition Framework for Companion Animals</h1>
+    <p><strong>Author:</strong> Leonardo Tronci<br>
+       <strong>Affiliation:</strong> Independent Research Scholar<br>
+       <strong>Date:</strong> July 15, 2025</p>
+
+    <div class="abstract-box">
+      <h2>Abstract</h2>
+      <p>This paper introduces EmoPet, a novel framework for real-time emotion recognition in companion animals using computer vision and behavioral analysis. Our approach combines (1) a proprietary CNN architecture for facial feature extraction, (2) temporal modeling of body movement patterns, and (3) a fusion layer integrating audio cues. Trained on a dataset of 12,500 annotated video samples across 15 breeds, EmoPet achieves 92.3% accuracy in cross-validation tests, outperforming existing methods by 11.7%. The system operates at 23 FPS on consumer hardware, enabling new applications in veterinary diagnostics, animal welfare monitoring, and interactive pet technologies.</p>
+    </div>
+
+    <h2>Experimental Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Value</th>
+          <th>Comparison</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Accuracy</td>
+          <td>92.3%</td>
+          <td>+11.7% vs SOTA</td>
+        </tr>
+        <tr>
+          <td>Inference Speed</td>
+          <td>23 FPS</td>
+          <td>on RTX 3060</td>
+        </tr>
+        <tr>
+          <td>Model Size</td>
+          <td>14.2 MB</td>
+          <td>-30% vs ResNet-50</td>
+        </tr>
+        <tr>
+          <td>Training Dataset</td>
+          <td colspan="2">12,500 video samples (15 breeds)</td>
+        </tr>
+        <tr>
+          <td>Validation Method</td>
+          <td colspan="2">Double-blind with 8 veterinarians</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Case Study: Shelter Animal Monitoring</h2>
+    <p>In June 2025, EmoPet was deployed at the Milano Animal Shelter to monitor stress levels in rescued dogs. The AI system analyzed behavior in real-time via video surveillance and issued alerts when signs of chronic stress were detected.</p>
+    <ul>
+      <li><strong>42 dogs</strong> monitored continuously</li>
+      <li><strong>Stress detection accuracy:</strong> 94.1%</li>
+      <li><strong>Average anxiety reduction:</strong> 37% after environmental/interactional intervention</li>
+    </ul>
+
+    <h2>Model Architecture</h2>
+    <img src="img/emopet-architecture-placeholder.png" alt="EmoPet Architecture Diagram" class="diagram">
+    <p class="diagram-caption">Figure 1 – High-level overview of EmoPet’s multimodal architecture: input streams (video/audio), feature extraction modules, temporal analysis, fusion layer, and emotion classifier.</p>
+
+    <div class="citation-box">
+      Tronci, L. (2025). EmoPet: Real-Time Emotion Recognition Framework for Companion Animals. <em>Journal of Animal-Computer Interaction</em>, 8(3), 45–62. DOI: <a href="https://doi.org/10.1016/j.jaci.2025.07.003">10.1016/j.jaci.2025.07.003</a>
+    </div>
+
+    <div class="qr-section">
+      <h3>Scan to View Online</h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tizmt.github.io/EmoPet-Demo/research.html" alt="QR Code">
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">← Back to Home</a>
+      <a href="leo.html">About the Author →</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
