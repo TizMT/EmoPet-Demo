@@ -236,3 +236,15 @@ body {
 .medtech-active {
   background-color: #8e44ad;
 }
+
+#abstract-vision {
+  background: #f9fbfd;
+  border: 1px solid #d0e1f5;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+#abstract-vision h3 {
+  color: #2c3e50;
+  margin-top: 1.5rem;
+}
