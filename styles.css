@@ -92,3 +92,18 @@ body {
   background: #9b59b6;          /* Viraggio chiaro su hover */
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+
+.prototype-figure {
+  text-align: center;
+  margin: 2rem 0;
+}
+.prototype-figure img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.prototype-figure figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
