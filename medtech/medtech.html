@@ -251,4 +251,42 @@
     }
   </script>
 </body>
+  <script>
+  function launchStory(mood) {
+    const out = document.getElementById("story-area");
+    let char, msg, act, illu;
+    switch (mood) {
+      case "anxious":
+        char = "🦮 Fritz";
+        msg = "Take a deep breath… I'll stay with you.";
+        act = "🌬️ Bubbles appear for guided breathing.";
+        illu = "🏥 Waiting room lit in cool tones, soft music.";
+        break;
+      case "sad":
+        char = "🐱 Lulù";
+        msg = "Let’s go on a gentle journey together.";
+        act = "✨ Stars swirl as Lulù tells a story.";
+        illu = "🌈 Calming rainbow sky projected around.";
+        break;
+      case "curious":
+        char = "🦮 Fritz";
+        msg = "Come explore! I’ll show you the fun parts.";
+        act = "🔍 Interactive posters and animated objects.";
+        illu = "🏥 Pediatric room with play panels.";
+        break;
+      case "ready":
+      default:
+        char = "🐱 Lulù";
+        msg = "You're brave and ready!";
+        act = "🎉 Celebration sequence with confetti.";
+        illu = "🚪 Virtual door opens, Fritz welcomes you.";
+    }
+    out.innerHTML = `
+      <p><strong>${char}</strong>: ${msg}</p>
+      <p>${act}</p>
+      <p>${illu}</p>
+      <br><strong>Now you're ready! 🚑</strong>
+    `;
+  }
+</script>
 </html>
