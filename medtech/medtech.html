@@ -78,12 +78,34 @@
 <div class="highlight-box">
 
   <!-- Prototype Image (placeholder) -->
-  <figure style="text-align:center; margin-bottom:1rem;">
-    <img src="assets/img/ar-pet-prototype.png"
-         alt="Prototype of AR headset with virtual pet interaction"
-         style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" />
-    <figcaption style="font-size:0.9em; color:#666; margin-top:0.5rem;">
-      Prototype: AR headset + Fritz & Lulù holograms + wrist PPG sensor
+  <style>
+  .prototype-figure {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  .prototype-figure img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .prototype-figure figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+</style>
+
+<!-- AR-Enhanced Virtual Pet Therapy -->
+<h2 class="section-title">AR-Enhanced Virtual Pet Therapy</h2>
+<div class="highlight-box">
+
+  <figure class="prototype-figure">
+    <img
+      src="https://raw.githubusercontent.com/TizMT/EmoPet-Demo/main/medtech/pet-therapy.png"
+      alt="Child wearing AR headset interacting with holographic pets and wrist PPG sensor"
+    />
+    <figcaption>
+      Prototype: AR headset + Fritz &amp; Lulù holograms + wrist PPG sensor
     </figcaption>
   </figure>
 
@@ -97,7 +119,8 @@
     <li>Modulate pet animation speed and gestures</li>
     <li>Trigger calming audio cues or breathing prompts</li>
   </ul>
-
+</div>
+ 
   <pre style="background:#f0f5ff; padding:1rem; border-radius:8px; overflow-x:auto;">
 [ Wrist PPG Sensor ] ───► [ ESP32 + BLE ]
         │                          │
