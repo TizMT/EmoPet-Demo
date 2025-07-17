@@ -74,21 +74,70 @@
     </div>
 
     <!-- 5) AR-Enhanced Virtual Pet Therapy -->
-    <h2 class="section-title">AR-Enhanced Virtual Pet Therapy</h2>
-    <div class="highlight-box">
-      <p>A headset renders a holographic world with Fritz & Lulù; a wrist PPG sensor measures heart rate and via BLE the app adapts light, sounds, and pet behavior to foster calmness.</p>
-      <pre>
-[ Wrist Pulse Sensor ]───►[ ESP32 + BLE ]───►[ AR Headset ]
-                │                   │
-                ▼                   ▼
-       Heart-rate data         AR Scene Engine
-              adjusts      ┌───────┴─────────┐
-                            │                 │
-                   Light & Color      Pet Animation
-      </pre>
-      <p><strong>Hardware:</strong> MAX30102, ESP32-BLE, WebXR headset.<br>
-         <strong>Software:</strong> Web Bluetooth API, Three.js.</p>
-    </div>
+<h2 class="section-title">AR-Enhanced Virtual Pet Therapy</h2>
+<div class="highlight-box">
+
+  <!-- Prototype Image (placeholder) -->
+  <figure style="text-align:center; margin-bottom:1rem;">
+    <img src="assets/img/ar-pet-prototype.png"
+         alt="Prototype of AR headset with virtual pet interaction"
+         style="max-width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2);" />
+    <figcaption style="font-size:0.9em; color:#666; margin-top:0.5rem;">
+      Prototype: AR headset + Fritz & Lulù holograms + wrist PPG sensor
+    </figcaption>
+  </figure>
+
+  <p>
+    The child wears an AR headset that overlays holographic pets—Fritz and Lulù—into the real environment.
+    A wrist-worn PPG sensor continuously measures heart rate and sends data over BLE to an ESP32.
+    The AR application’s engine interprets the biometric feedback in real-time to:
+  </p>
+  <ul>
+    <li>Adjust ambient lighting color and intensity</li>
+    <li>Modulate pet animation speed and gestures</li>
+    <li>Trigger calming audio cues or breathing prompts</li>
+  </ul>
+
+  <pre style="background:#f0f5ff; padding:1rem; border-radius:8px; overflow-x:auto;">
+[ Wrist PPG Sensor ] ───► [ ESP32 + BLE ]
+        │                          │
+        ▼                          ▼
+   Raw PPG data           AR Scene Engine
+     filtered                 │
+     & smoothed               ▼
+                         ┌───────────┐
+                         │  Biofeedback Mapping  │
+                         └─────┬─────┘
+                              │
+                   ┌──────────┴──────────┐
+                   │                     │
+        Ambient Light Control     Pet Animation Control
+  </pre>
+
+  <h3>Hardware</h3>
+  <ul>
+    <li>MAX30102 PPG sensor (heart rate & SpO₂)</li>
+    <li>ESP32-BLE microcontroller (BLE GATT profile)</li>
+    <li>WebXR-capable AR headset or smartphone in a visor</li>
+  </ul>
+
+  <h3>Software</h3>
+  <ul>
+    <li>Web Bluetooth API for real-time BLE data</li>
+    <li>Three.js + GLTF loader for hologram rendering</li>
+    <li>Custom biofeedback mapping module (JavaScript)</li>
+  </ul>
+
+  <h3>Future Enhancements</h3>
+  <ul>
+    <li>Dynamic heart-rate zones (e.g. cool blues below 70 bpm, warm ambers above 90 bpm)</li>
+    <li>On-screen “Zen Bar” that fills as the child’s heart rate stabilizes</li>
+    <li>Spatial audio with directional cues from the pet</li>
+    <li>Integration of EEG headband for combined PPG + brainwave feedback</li>
+    <li>Mobile companion app for parents to track session summaries and metrics</li>
+  </ul>
+
+</div>
 
     <!-- 6) Technologies Applied -->
     <h2 class="section-title">Technologies Applied</h2>
@@ -116,21 +165,24 @@
       </ul>
     </div>
 
-    <!-- 9) 3D Prototype Preview -->
-    <h2 class="section-title">3D Prototype Preview</h2>
-    <div class="highlight-box">
-      <model-viewer
-        src="assets/3d/prototipo-emopet.glb"
-        alt="EmoPet AR/VR Prototype"
-        ar ar-modes="webxr quick-look scene-viewer"
-        environment-image="neutral"
-        poster="assets/3d/prototipo-poster.png"
-        camera-controls>
-      </model-viewer>
-      <p style="font-style:italic; margin-top:1rem;">
-        Prototype v0.1 – In attesa di finanziamenti e borse di studio per completamento.
-      </p>
-    </div>
+   <!-- 3D Prototype Preview -->
+<h2 class="section-title">3D Prototype Preview</h2>
+<div class="highlight-box" style="text-align:center;">
+  <model-viewer
+    src="assets/3d/prototipo-emopet.glb"
+    alt="3D Prototype: AR headset + Wrist Sensor + Virtual Pets"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    environment-image="neutral"
+    poster="assets/3d/prototipo-poster.png"
+    camera-controls
+    style="width:100%; max-width:600px; height:400px; margin:auto;">
+  </model-viewer>
+
+  <p style="margin-top:1rem; font-style:italic; color:#555;">
+    Prototype v0.1—Visore AR, sensore PPG e animali olografici. In attesa di finanziamenti per sviluppo completo.
+  </p>
+</div>
 
     <!-- 10) Access & Print -->
     <h2 class="section-title">Access & Print</h2>
