@@ -225,6 +225,12 @@ body {
   background-color: #2980b9;
   transform: scale(1.05);
 }
+.author-line {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
 
 /* Evidenzia la pagina attiva */
 .medtech-active {
