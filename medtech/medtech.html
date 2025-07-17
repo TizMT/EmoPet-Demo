@@ -4,58 +4,580 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EmoPet MedTech & BioPharma by Leonardo TRONCI</title>
-  <link rel="stylesheet" href="css/medtech.css">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Nasconde il blocco articolo fino ad attivazione */
-    #article-block { display: none; }
-    /* Quando il body ha classe .show-article, mostra l’articolo e nasconde la nota */
-    body.show-article #article-block { display: block; margin: 20px auto; max-width: 600px; }
-    body.show-article .note-box   { display: none; }
+    :root {
+      --primary: #2a5b8c;
+      --secondary: #3a86c9;
+      --accent: #ff6b6b;
+      --light: #f8f9fa;
+      --dark: #2d3748;
+      --paper: #fcfaf6;
+      --border: #e0d6c8;
+      --gold: #d4af37;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Crimson Text', serif;
+      color: #333;
+      background-color: #f5f3ef;
+      line-height: 1.6;
+      padding: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f3ef" opacity="1"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23e0d6c8" stroke-width="0.5" opacity="0.1"/></svg>');
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+      background-size: 100px;
+    }
+    
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      letter-spacing: -0.5px;
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .author-line {
+      margin-top: 1.5rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    
+    .author-line strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    
+    /* Navigation */
+    .top-menu {
+      display: flex;
+      justify-content: center;
+      background: var(--paper);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-btn {
+      color: var(--primary);
+      text-decoration: none;
+      padding: 0.7rem 1.8rem;
+      margin: 0 0.5rem;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      background: white;
+    }
+    
+    .nav-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      position: relative;
+      background: var(--paper);
+      margin: 2rem auto;
+      max-width: 1000px;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    
+    .hero-section h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .hero-section p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      color: #555;
+    }
+    
+    .note-box {
+      background: rgba(42, 91, 140, 0.07);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 600px;
+      font-size: 1.1rem;
+      border-left: 4px solid var(--primary);
+    }
+    
+    /* Academic Content Styling */
+    .article-box {
+      background: var(--paper);
+      border-radius: 8px;
+      padding: 3rem;
+      margin: 3rem 0;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .article-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    
+    .article-box h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      text-align: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .article-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .article-inner h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--secondary);
+      margin: 1.8rem 0 1rem;
+      font-size: 1.4rem;
+      border-left: 3px solid var(--gold);
+      padding-left: 12px;
+    }
+    
+    .article-inner p {
+      margin-bottom: 1.2rem;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+    
+    .article-inner ul {
+      padding-left: 1.8rem;
+      margin: 1.5rem 0;
+    }
+    
+    .article-inner li {
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+    
+    .article-inner a {
+      color: var(--secondary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--secondary);
+    }
+    
+    .article-inner a:hover {
+      color: var(--primary);
+      border-bottom: 1px solid var(--primary);
+    }
+    
+    /* Print Button */
+    .print-btn-container {
+      text-align: center;
+      margin: 3rem 0 1rem;
+    }
+    
+    .print-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .print-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    
+    /* Content Cards */
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary);
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+    
+    .highlight-box {
+      background: var(--paper);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .tech-card {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-top: 4px solid var(--secondary);
+      transition: all 0.3s ease;
+    }
+    
+    .tech-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    
+    .tech-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .tech-card ul {
+      padding-left: 1.5rem;
+    }
+    
+    .tech-card li {
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+    
+    /* Prototype Preview */
+    .prototype-figure {
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+    
+    .prototype-figure img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+    }
+    
+    .prototype-figure figcaption {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 0.8rem;
+      font-style: italic;
+    }
+    
+    /* Interactive Elements */
+    #emotion-select {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    
+    #emotion-select button {
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 30px;
+      background: var(--secondary);
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    #emotion-select button:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .story-box {
+      background: rgba(58, 134, 201, 0.05);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-top: 1.5rem;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px dashed var(--secondary);
+      font-size: 1.1rem;
+    }
+    
+    /* Model Viewer */
+    model-viewer {
+      width: 100%;
+      height: 400px;
+      margin: 2rem auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
+      position: relative;
+    }
+    
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="rgba(0,0,0,0.1)"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+      background-size: 100px;
+    }
+    
+    footer p {
+      margin: 0.5rem 0;
+      position: relative;
+      z-index: 2;
+    }
+    
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    footer a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    footer hr {
+      max-width: 300px;
+      margin: 1.5rem auto;
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .achievement {
+      background: rgba(212, 175, 55, 0.15);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 2;
+      border-left: 4px solid var(--gold);
+    }
+    
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        font-size: 12pt;
+        padding: 0;
+      }
+      
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+      
+      header, .top-menu, .note-box, .print-btn-container, 
+      .print-button, .tech-card, .card-grid, .prototype-figure,
+      .highlight-box:not(#abstract-vision), model-viewer, 
+      footer {
+        display: none;
+      }
+      
+      .article-box {
+        box-shadow: none;
+        border: none;
+        padding: 1.5cm;
+        margin: 0;
+      }
+      
+      .article-box::before {
+        display: none;
+      }
+      
+      .print-footer {
+        display: block;
+        text-align: center;
+        margin-top: 2cm;
+        font-size: 10pt;
+        color: #666;
+      }
+      
+      .article-inner h3 {
+        page-break-after: avoid;
+      }
+      
+      .article-inner p, .article-inner ul {
+        page-break-inside: avoid;
+      }
+    }
+    
+    .print-footer {
+      display: none;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .top-menu {
+        flex-wrap: wrap;
+      }
+      
+      .nav-btn {
+        margin: 0.3rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+      
+      .article-box {
+        padding: 2rem 1.5rem;
+      }
+      
+      .article-inner {
+        padding: 0;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- 1) Header & Nav -->
+  <!-- Header & Nav -->
   <header>
-    <h1>EmoPet MedTech & BioPharma</h1>
-    <p>AI Meets Pediatric Care, Neuroscience & Pharmaceutical Biochemistry</p>
-    <p class="author-line">Project designed by <strong>Leonardo Tronci</strong></p>
-  </header>
-  <nav class="top-menu">
-  <a href="index.html" class="nav-btn">🏠 Home</a>
-  <a href="research.html" class="nav-btn">🔬 Research</a>
-    <a href="leo.html" class="nav-btn">👤 About Leo</a>
-</nav>
-
-
-  <!-- 2) Hero Section -->
-  <section class="hero-section">
-    <h1>Innovative AI for Child Health & PharmaTech</h1>
-    <p>Combining emotional AI, robotics, oxytocin release and biochemical feedback.</p>
-
-    <!-- Blocchetto nascosto: Foto + Articolo AngloAm -->
-    <div id="article-block">
-      <img src="img/leo-angloam.jpg"
-           alt="Leo with Anglo American Director"
-           style="width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/>
-      <p style="margin-top:1rem; font-style:italic;">
-        <strong>Leo Tronci – Official Endorsement from Anglo American Director</strong><br>
-        “Testo estratto dall’articolo stampa che verrà pubblicato.”
-      </p>
+    <div class="container">
+      <h1>EmoPet MedTech & BioPharma</h1>
+      <p>AI Meets Pediatric Care, Neuroscience & Pharmaceutical Biochemistry</p>
+      <p class="author-line">Project designed by <strong>Leonardo Tronci</strong></p>
     </div>
+  </header>
+  
+  <nav class="top-menu">
+    <div class="container">
+      <a href="index.html" class="nav-btn">🏠 Home</a>
+      <a href="research.html" class="nav-btn">🔬 Research</a>
+      <a href="leo.html" class="nav-btn">👤 About Leo</a>
+    </div>
+  </nav>
 
-    <!-- Nota visibile finché non si attiva il blocco articolo -->
-    <div class="note-box">
-      🔜 Coming soon: 
-      Official photo and press release of Leo with the director of the Anglo American Academy of Cagliari who awarded him a scholarship
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Innovative AI for Child Health & PharmaTech</h1>
+      <p>Combining emotional AI, robotics, oxytocin release and biochemical feedback.</p>
+
+      <!-- Nota visibile finché non si attiva il blocco articolo -->
+      <div class="note-box">
+        🔜 Coming soon: 
+        Official photo and press release of Leo with the director of the Anglo American Academy of Cagliari who awarded him a scholarship
+      </div>
     </div>
   </section>
 
   <div class="container">
 
-   <!-- 3) Abstract & Vision -->
+   <!-- Abstract & Vision -->
 <section id="abstract-vision" class="article-box">
   <h2>Scientific Abstract & Vision</h2>
 
@@ -99,7 +621,7 @@
   <!-- Bottone stampa -->
   <div class="print-btn-container">
     <button onclick="window.print()" class="print-btn">
-      🖨️ Read & Print Scientific Abstract
+      <i class="fas fa-print"></i> Read & Print Scientific Abstract
     </button>
   </div>
 
@@ -110,18 +632,39 @@
   </div>
 </section>
     
-    <!-- 4) Interactive Clinical Simulation -->
+    <!-- 3D Prototype Preview -->
+    <h2 class="section-title">3D Prototype Preview</h2>
+    <div class="highlight-box">
+      <model-viewer
+        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+        alt="3D Prototype: AR headset + Wrist Sensor + Virtual Pets"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        environment-image="neutral"
+        poster="https://modelviewer.dev/shared-assets/models/Astronaut.webp"
+        camera-controls
+        style="width:100%; height:400px;">
+      </model-viewer>
+      <div class="prototype-figure">
+        <p style="margin-top:1rem; font-style:italic; color:#555; text-align:center;">
+          Prototype v0.1—Visore AR, sensore PPG e animali olografici. In attesa di finanziamenti per sviluppo completo.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Interactive Clinical Simulation -->
     <h2 class="section-title">Interactive Clinical Simulation</h2>
-    <div class="highlight-box" id="clinical-sim">
+    <div class="highlight-box">
       <figure class="prototype-figure">
-  <img
-    src="https://raw.githubusercontent.com/TizMT/EmoPet-Demo/main/A%20child%20wearing%20an%20AR%20teach.png"
-    alt="Child experiencing AR simulation with Fritz and Lulù in a calming waiting room"
-  />
-  <figcaption>
-    Child experiencing AR waiting room therapy with holographic pets Fritz &amp; Lulù, ambient lighting, and biometric sensor feedback.
-  </figcaption>
-</figure>
+        <img
+          src="https://raw.githubusercontent.com/TizMT/EmoPet-Demo/main/A%20child%20wearing%20an%20AR%20teach.png"
+          alt="Child experiencing AR simulation with Fritz and Lulù in a calming waiting room"
+        />
+        <figcaption>
+          Child experiencing AR waiting room therapy with holographic pets Fritz &amp; Lulù, ambient lighting, and biometric sensor feedback.
+        </figcaption>
+      </figure>
+      
       <p>Choose how you feel before the doctor’s visit and let Fritz or Lulù guide you.</p>
       <div id="emotion-select">
         <button onclick="launchStory('anxious')">😟 Anxious</button>
@@ -129,58 +672,36 @@
         <button onclick="launchStory('curious')">🤔 Curious</button>
         <button onclick="launchStory('ready')">😁 Ready!</button>
       </div>
-      <div id="story-area" class="story-box"></div>
+      <div id="story-area" class="story-box">
+        <p>Select an emotion to begin the simulation</p>
+      </div>
     </div>
 
-    <!-- 5) AR-Enhanced Virtual Pet Therapy -->
-<h2 class="section-title">AR-Enhanced Virtual Pet Therapy</h2>
-<div class="highlight-box">
+    <!-- AR-Enhanced Virtual Pet Therapy -->
+    <h2 class="section-title">AR-Enhanced Virtual Pet Therapy</h2>
+    <div class="highlight-box">
+      <figure class="prototype-figure">
+        <img
+          src="https://raw.githubusercontent.com/TizMT/EmoPet-Demo/main/medtech/pet%20therapy.png"
+          alt="Child wearing AR headset interacting with holographic pets and wrist PPG sensor"
+        />
+        <figcaption>
+          Prototype: AR headset + Fritz &amp; Lulù holograms + wrist PPG sensor
+        </figcaption>
+      </figure>
 
-  <!-- Prototype Image (placeholder) -->
-  <style>
-  .prototype-figure {
-    text-align: center;
-    margin: 2rem 0;
-  }
-  .prototype-figure img {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-  .prototype-figure figcaption {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 0.5rem;
-  }
-</style>
-
-<!-- AR-Enhanced Virtual Pet Therapy -->
-<h2 class="section-title">AR-Enhanced Virtual Pet Therapy</h2>
-<div class="highlight-box">
-
-  <figure class="prototype-figure">
-    <img
-      src=https://raw.githubusercontent.com/TizMT/EmoPet-Demo/main/medtech/pet%20therapy.png
-      alt="Child wearing AR headset interacting with holographic pets and wrist PPG sensor"
-    />
-    <figcaption>
-      Prototype: AR headset + Fritz &amp; Lulù holograms + wrist PPG sensor
-    </figcaption>
-  </figure>
-
-  <p>
-    The child wears an AR headset that overlays holographic pets—Fritz and Lulù—into the real environment.
-    A wrist-worn PPG sensor continuously measures heart rate and sends data over BLE to an ESP32.
-    The AR application’s engine interprets the biometric feedback in real-time to:
-  </p>
-  <ul>
-    <li>Adjust ambient lighting color and intensity</li>
-    <li>Modulate pet animation speed and gestures</li>
-    <li>Trigger calming audio cues or breathing prompts</li>
-  </ul>
-</div>
- 
-  <pre style="background:#f0f5ff; padding:1rem; border-radius:8px; overflow-x:auto;">
+      <p>
+        The child wears an AR headset that overlays holographic pets—Fritz and Lulù—into the real environment.
+        A wrist-worn PPG sensor continuously measures heart rate and sends data over BLE to an ESP32.
+        The AR application’s engine interprets the biometric feedback in real-time to:
+      </p>
+      <ul>
+        <li>Adjust ambient lighting color and intensity</li>
+        <li>Modulate pet animation speed and gestures</li>
+        <li>Trigger calming audio cues or breathing prompts</li>
+      </ul>
+      
+      <pre style="background:#f0f5ff; padding:1.5rem; border-radius:8px; overflow-x:auto; margin-top: 1.5rem; font-family: monospace; font-size: 0.95rem;">
 [ Wrist PPG Sensor ] ───► [ ESP32 + BLE ]
         │                          │
         ▼                          ▼
@@ -194,105 +715,132 @@
                    ┌──────────┴──────────┐
                    │                     │
         Ambient Light Control     Pet Animation Control
-  </pre>
+      </pre>
 
-  <h3>Hardware</h3>
-  <ul>
-    <li>MAX30102 PPG sensor (heart rate & SpO₂)</li>
-    <li>ESP32-BLE microcontroller (BLE GATT profile)</li>
-    <li>WebXR-capable AR headset or smartphone in a visor</li>
-  </ul>
+      <h3>Hardware</h3>
+      <ul>
+        <li>MAX30102 PPG sensor (heart rate & SpO₂)</li>
+        <li>ESP32-BLE microcontroller (BLE GATT profile)</li>
+        <li>WebXR-capable AR headset or smartphone in a visor</li>
+      </ul>
 
-  <h3>Software</h3>
-  <ul>
-    <li>Web Bluetooth API for real-time BLE data</li>
-    <li>Three.js + GLTF loader for hologram rendering</li>
-    <li>Custom biofeedback mapping module (JavaScript)</li>
-  </ul>
+      <h3>Software</h3>
+      <ul>
+        <li>Web Bluetooth API for real-time BLE data</li>
+        <li>Three.js + GLTF loader for hologram rendering</li>
+        <li>Custom biofeedback mapping module (JavaScript)</li>
+      </ul>
 
-  <h3>Future Enhancements</h3>
-  <ul>
-    <li>Dynamic heart-rate zones (e.g. cool blues below 70 bpm, warm ambers above 90 bpm)</li>
-    <li>On-screen “Zen Bar” that fills as the child’s heart rate stabilizes</li>
-    <li>Spatial audio with directional cues from the pet</li>
-    <li>Integration of EEG headband for combined PPG + brainwave feedback</li>
-    <li>Mobile companion app for parents to track session summaries and metrics</li>
-  </ul>
-
-</div>
-
-    <!-- 6) Technologies Applied -->
-    <h2 class="section-title">Technologies Applied</h2>
-    <div class="highlight-box">
-      <ul class="tech-list">
-        <li>AI Frameworks: TensorFlow, PyTorch</li>
-        <li>Web: React.js, Tailwind CSS</li>
-        <li>Bio Sensors: PPG, ECG</li>
-        <li>Hardware: ESP32-BLE, WebXR Headset</li>
+      <h3>Future Enhancements</h3>
+      <ul>
+        <li>Dynamic heart-rate zones (e.g. cool blues below 70 bpm, warm ambers above 90 bpm)</li>
+        <li>On-screen "Zen Bar" that fills as the child's heart rate stabilizes</li>
+        <li>Spatial audio with directional cues from the pet</li>
+        <li>Integration of EEG headband for combined PPG + brainwave feedback</li>
+        <li>Mobile companion app for parents to track session summaries and metrics</li>
       </ul>
     </div>
-
-    <!-- 7) PharmaTech & Biochemical Highlights -->
+    
+    <!-- Technologies Applied -->
+    <h2 class="section-title">Technologies Applied</h2>
+    <div class="card-grid">
+      <div class="tech-card">
+        <h3><i class="fas fa-brain"></i> AI Frameworks</h3>
+        <ul>
+          <li>TensorFlow for emotion recognition</li>
+          <li>PyTorch for neural network modeling</li>
+          <li>Scikit-learn for data analysis</li>
+        </ul>
+      </div>
+      
+      <div class="tech-card">
+        <h3><i class="fas fa-laptop-code"></i> Web Technologies</h3>
+        <ul>
+          <li>React.js for interactive interfaces</li>
+          <li>Tailwind CSS for responsive design</li>
+          <li>WebXR for augmented reality</li>
+        </ul>
+      </div>
+      
+      <div class="tech-card">
+        <h3><i class="fas fa-microchip"></i> Hardware Components</h3>
+        <ul>
+          <li>PPG sensors for heart rate monitoring</li>
+          <li>ESP32-BLE for wireless communication</li>
+          <li>WebXR-capable AR headsets</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- PharmaTech & Biochemical Highlights -->
     <h2 class="section-title">PharmaTech & Biochemistry</h2>
     <div class="highlight-box">
-      <p>Exploring emotion-based feedback in pediatric pharmacology: neurotransmitter release (endorphins, serotonin, oxytocin) and compliance enhancers via “chemical storytelling.”</p>
+      <p>Exploring emotion-based feedback in pediatric pharmacology: neurotransmitter release (endorphins, serotonin, oxytocin) and compliance enhancers via "chemical storytelling."</p>
+      
+      <div style="display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 250px; background: rgba(58, 134, 201, 0.05); padding: 1.5rem; border-radius: 8px;">
+          <h3 style="font-family: 'Montserrat', sans-serif; color: var(--primary); margin-bottom: 1rem;">Neurotransmitter Modulation</h3>
+          <p>Virtual stimulation techniques designed to trigger positive neurochemical responses in pediatric patients.</p>
+        </div>
+        
+        <div style="flex: 1; min-width: 250px; background: rgba(58, 134, 201, 0.05); padding: 1.5rem; border-radius: 8px;">
+          <h3 style="font-family: 'Montserrat', sans-serif; color: var(--primary); margin-bottom: 1rem;">Chemical Storytelling</h3>
+          <p>Narrative-driven interventions that enhance medication compliance through emotional engagement.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- 8) Scientific Collaborations -->
+    <!-- Scientific Collaborations -->
     <h2 class="section-title">Scientific Collaborations</h2>
     <div class="highlight-box">
-      <ul class="collab-list">
-        <li>Dr. Roberto Diana – Therapeutic Ecosystems</li>
-        <li>"Movere in Salus" Researcher Team – Ethics & Childhood Rights</li>
-      </ul>
+      <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <h3 style="font-family: 'Montserrat', sans-serif; color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-user-md"></i> Dr. Roberto Diana
+          </h3>
+          <p>Therapeutic Ecosystems Expert - Blue Zone Movement</p>
+          <p>Collaborating on narrative triggers and therapeutic environments for emotional regulation in children.</p>
+        </div>
+        
+        <div style="flex: 1; min-width: 300px;">
+          <h3 style="font-family: 'Montserrat', sans-serif; color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-users"></i> "Movere in Salus" Team
+          </h3>
+          <p>Research Group - Ethics & Childhood Rights</p>
+          <p>Collaborating on ethical frameworks and child-centered design principles.</p>
+        </div>
+      </div>
     </div>
-
-   <!-- 3D Prototype Preview -->
-<h2 class="section-title">3D Prototype Preview</h2>
-<div class="highlight-box" style="text-align:center;">
-  <model-viewer
-    src="assets/3d/prototipo-emopet.glb"
-    alt="3D Prototype: AR headset + Wrist Sensor + Virtual Pets"
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    environment-image="neutral"
-    poster="assets/3d/prototipo-poster.png"
-    camera-controls
-    style="width:100%; max-width:600px; height:400px; margin:auto;">
-  </model-viewer>
-
-  <p style="margin-top:1rem; font-style:italic; color:#555;">
-    Prototype v0.1—Visore AR, sensore PPG e animali olografici. In attesa di finanziamenti per sviluppo completo.
-  </p>
-</div>
-
-    <!-- 10) Access & Print -->
+    
+    <!-- Access & Print -->
     <h2 class="section-title">Access & Print</h2>
-    <div class="qr-section">
-      <p>Scan to read Leo’s full research paper.</p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tizmt.github.io/EmoPet-Demo/research.html" alt="QR Code">
+    <div class="highlight-box" style="text-align: center;">
+      <p>Scan to read Leo's full research paper.</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tizmt.github.io/EmoPet-Demo/research.html" alt="QR Code" style="margin: 1.5rem auto; display: block;">
+      <div class="print-button">
+        <button onclick="window.print()" class="print-btn">
+          <i class="fas fa-print"></i> Print / Save as PDF
+        </button>
+      </div>
     </div>
-    <div class="print-button">
-      <button onclick="window.print()">🖨️ Print / Save as PDF</button>
-    </div>
-
   </div>
 
- <!-- 11) Footer -->
-<footer style="text-align:center; font-size:0.9rem; color:#666; margin-top:3rem; padding-bottom:2rem;">
-  <p>© 2025 EmoPet MedTech & BioPharma — Designed by Leonardo Tronci</p>
-  <p>All rights reserved. The content and visuals are protected and owned by Leonardo Tronci.</p>
-  <p>Contact: <a href="mailto:Leo.Tronci@tiscali.it">Leo.Tronci@tiscali.it</a></p>
-  <p>Quartucciu (CA), Sardinia, Italy</p>
-  <hr style="max-width:300px; margin:1rem auto; border:0; border-top:1px solid #ccc;">
-  <p style="font-style:italic; color:#444;">
-    This prototype is part of an ongoing research initiative.  
-    If you're interested in supporting its development or collaborating,  
-    feel free to reach out regarding funding and partnership opportunities.
-    
-    --🏆 Leonardo TRONCI was the Winner of third place in the world – Future Minds Hackathon, may 2025
-Organized by da Fifty Is Nifty--
-  </p>
+ <!-- Footer -->
+<footer>
+  <div class="container">
+    <p>© 2025 EmoPet MedTech & BioPharma — Designed by Leonardo Tronci</p>
+    <p>All rights reserved. The content and visuals are protected and owned by Leonardo Tronci.</p>
+    <p>Contact: <a href="mailto:Leo.Tronci@tiscali.it">Leo.Tronci@tiscali.it</a></p>
+    <p>Quartucciu (CA), Sardinia, Italy</p>
+    <hr>
+    <div class="achievement">
+      <p style="font-style:italic; color:white;">
+        This prototype is part of an ongoing research initiative.<br>
+        Leonardo TRONCI was the Winner of third place in the world – Future Minds Hackathon, May 2025<br>
+        Organized by Fifty Is Nifty
+      </p>
+    </div>
+  </div>
 </footer>
 
   <!-- JS per la simulazione clinica -->
@@ -302,60 +850,42 @@ Organized by da Fifty Is Nifty--
       let char, msg, act, illu;
       switch (mood) {
         case "anxious":
-          char="🦮 Fritz"; msg="Take a deep breath…"; act="🌬️ Bubbles float…"; illu="🏥 Cozy waiting room."; break;
+          char="🦮 Fritz"; 
+          msg="Take a deep breath… I'll stay with you.";
+          act="🌬️ Bubbles appear for guided breathing.";
+          illu="🏥 Waiting room lit in cool tones, soft music.";
+          break;
         case "sad":
-          char="🐱 Lulù"; msg="I’ll tell you a magic tale."; act="✨ 'Once upon a time…'"; illu="🌈 Clouds & stars."; break;
+          char="🐱 Lulù"; 
+          msg="Let's go on a gentle journey together.";
+          act="✨ Stars swirl as Lulù tells a story.";
+          illu="🌈 Calming rainbow sky projected around.";
+          break;
         case "curious":
-          char="🦮 Fritz"; msg="Let's explore the clinic!"; act="🔍 Friendly tools."; illu="🏥 Pediatric office."; break;
+          char="🦮 Fritz"; 
+          msg="Come explore! I'll show you the fun parts.";
+          act="🔍 Interactive posters and animated objects.";
+          illu="🏥 Pediatric room with play panels.";
+          break;
+        case "ready":
         default:
-          char="🐱 Lulù"; msg="You're ready!"; act="👟 Walking in."; illu="🎉 Celebration!"; break;
+          char="🐱 Lulù"; 
+          msg="You're brave and ready!";
+          act="🎉 Celebration sequence with confetti.";
+          illu="🚪 Virtual door opens, Fritz welcomes you.";
       }
-      out.innerHTML = `<p><strong>${char}</strong>: ${msg}</p><p>${act}</p><p>${illu}</p><br><strong>Now you’re ready! 🚑</strong>`;
+      out.innerHTML = `
+        <p><strong>${char}</strong>: ${msg}</p>
+        <p>${act}</p>
+        <p>${illu}</p>
+        <br><strong>Now you're ready! 🚑</strong>
+      `;
     }
-
-    // Attivazione del blocco foto-articolo via query-string
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('showArticle') === '1') {
-      document.body.classList.add('show-article');
-    }
+    
+    // Initialize with a default state
+    document.addEventListener('DOMContentLoaded', function() {
+      launchStory('ready');
+    });
   </script>
 </body>
-  <script>
-  function launchStory(mood) {
-    const out = document.getElementById("story-area");
-    let char, msg, act, illu;
-    switch (mood) {
-      case "anxious":
-        char = "🦮 Fritz";
-        msg = "Take a deep breath… I'll stay with you.";
-        act = "🌬️ Bubbles appear for guided breathing.";
-        illu = "🏥 Waiting room lit in cool tones, soft music.";
-        break;
-      case "sad":
-        char = "🐱 Lulù";
-        msg = "Let’s go on a gentle journey together.";
-        act = "✨ Stars swirl as Lulù tells a story.";
-        illu = "🌈 Calming rainbow sky projected around.";
-        break;
-      case "curious":
-        char = "🦮 Fritz";
-        msg = "Come explore! I’ll show you the fun parts.";
-        act = "🔍 Interactive posters and animated objects.";
-        illu = "🏥 Pediatric room with play panels.";
-        break;
-      case "ready":
-      default:
-        char = "🐱 Lulù";
-        msg = "You're brave and ready!";
-        act = "🎉 Celebration sequence with confetti.";
-        illu = "🚪 Virtual door opens, Fritz welcomes you.";
-    }
-    out.innerHTML = `
-      <p><strong>${char}</strong>: ${msg}</p>
-      <p>${act}</p>
-      <p>${illu}</p>
-      <br><strong>Now you're ready! 🚑</strong>
-    `;
-  }
-</script>
 </html>
