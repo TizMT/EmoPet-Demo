@@ -1,1161 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EmoPet Research | Complete Navigation Integration</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6C63FF;
-            --secondary: #4A90E2;
-            --accent: #FF6B6B;
-            --light: #F8F9FA;
-            --dark: #2D3748;
-            --success: #4CAF50;
-            --warning: #FFC107;
-            --info: #17A2B8;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark);
-            background: linear-gradient(135deg, #f5f7fb 0%, #e3e9ff 100%);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.6rem;
-            text-decoration: none;
-            font-family: 'Quicksand', sans-serif;
-        }
-        
-        .logo i {
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-            padding: 8px 0;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        
-        .nav-links a.active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .language-switcher {
-            display: flex;
-            gap: 8px;
-            background: rgba(108, 99, 255, 0.1);
-            border-radius: 30px;
-            padding: 4px;
-        }
-        
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: var(--dark);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .lang-btn.active, .lang-btn:hover {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 100px 0 60px;
-            color: var(--dark);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-            font-family: 'Quicksand', sans-serif;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            color: #555;
-        }
-        
-        .hero-pets {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin-top: 60px;
-            flex-wrap: wrap;
-        }
-        
-        .pet {
-            text-align: center;
-            width: 180px;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .pet:nth-child(2) {
-            animation-delay: 1s;
-        }
-        
-        .pet-image {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-            border: 5px solid white;
-        }
-        
-        .pet-image.dog {
-            background: linear-gradient(135deg, #FF9A8B, #FF6B6B);
-        }
-        
-        .pet-image.cat {
-            background: linear-gradient(135deg, #6A11CB, #2575FC);
-        }
-        
-        .pet i {
-            font-size: 80px;
-            color: white;
-        }
-        
-        .pet h3 {
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
-        
-        .pet p {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 500;
-        }
-        
-        /* Content Sections */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            font-weight: 700;
-            display: inline-block;
-            padding-bottom: 15px;
-            font-family: 'Quicksand', sans-serif;
-        }
-        
-        .section-title h2::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background: var(--primary);
-            border-radius: 3px;
-        }
-        
-        /* Abstract Box */
-        .abstract-box {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 50px;
-            border-top: 5px solid var(--primary);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .abstract-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-        }
-        
-        .abstract-box h2 {
-            color: var(--primary);
-            margin-bottom: 25px;
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .abstract-box p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #444;
-        }
-        
-        /* Use Cases */
-        .use-cases {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .use-case {
-            background: white;
-            border-radius: 20px;
-            padding: 35px 30px;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(108, 99, 255, 0.1);
-        }
-        
-        .use-case::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--gradient);
-        }
-        
-        .use-case:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .use-case h3 {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-        
-        .use-case i {
-            font-size: 1.8rem;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(108, 99, 255, 0.1);
-            border-radius: 12px;
-            color: var(--primary);
-        }
-        
-        .use-case p {
-            font-size: 1.1rem;
-            color: #555;
-            padding-left: 10px;
-        }
-        
-        /* Outcomes Section */
-        .outcomes-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-        }
-        
-        .outcome-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .outcome-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .card-header {
-            padding: 25px;
-            color: white;
-            font-weight: 600;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .sadness .card-header {
-            background: var(--secondary);
-        }
-        
-        .joy .card-header {
-            background: var(--success);
-        }
-        
-        .anxiety .card-header {
-            background: var(--warning);
-        }
-        
-        .card-body {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .card-body p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            color: #444;
-        }
-        
-        .card-body p:last-child {
-            margin-bottom: 0;
-            font-weight: 600;
-            color: var(--primary);
-            background: rgba(108, 99, 255, 0.05);
-            padding: 15px;
-            border-radius: 12px;
-        }
-        
-        /* Scientific Collaboration */
-        .collaboration-box {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .collaboration-box::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-        
-        .collaboration-box::after {
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            left: -80px;
-            width: 250px;
-            height: 250px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-        
-        .collaboration-box h2 {
-            font-size: 2rem;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .collaboration-box p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .highlight {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 25px;
-            position: relative;
-            z-index: 2;
-            font-weight: 500;
-        }
-        
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 50px auto 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 6px;
-            background: var(--gradient);
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 3px;
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 70px;
-            width: 100%;
-        }
-        
-        .timeline-content {
-            position: relative;
-            width: 46%;
-            padding: 30px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease;
-        }
-        
-        .timeline-content:hover {
-            transform: scale(1.03);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content {
-            left: 54%;
-        }
-        
-        .timeline-content::after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            width: 26px;
-            height: 26px;
-            background: var(--primary);
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 0 0 3px var(--primary);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::after {
-            right: -48px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content::after {
-            left: -48px;
-        }
-        
-        .timeline-content h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        /* QR Section */
-        .qr-section {
-            background: white;
-            border-radius: 25px;
-            padding: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: var(--card-shadow);
-            margin-top: 50px;
-            gap: 40px;
-        }
-        
-        .qr-content {
-            flex: 1;
-        }
-        
-        .qr-content h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-family: 'Quicksand', sans-serif;
-        }
-        
-        .qr-content p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            color: #555;
-            max-width: 600px;
-        }
-        
-        .qr-image {
-            background: linear-gradient(135deg, #f0f5ff 0%, #e6eeff 100%);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .qr-image img {
-            width: 200px;
-            height: 200px;
-            display: block;
-            margin-bottom: 20px;
-        }
-        
-        .qr-image p {
-            font-weight: 500;
-            color: var(--primary);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 80px 0 30px;
-            position: relative;
-        }
-        
-        .footer-wave {
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z" fill="%232d3748" fill-opacity="1"/></svg>');
-            background-size: cover;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: white;
-            font-family: 'Quicksand', sans-serif;
-        }
-        
-        .footer-logo span {
-            color: var(--primary);
-        }
-        
-        .footer-about p {
-            color: #CBD5E0;
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-        
-        .footer-links h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-links h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links a {
-            color: #CBD5E0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .footer-links a i {
-            width: 20px;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #A0AEC0;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-        
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .timeline-content {
-                width: 90%;
-                left: 5% !important;
-            }
-            
-            .timeline::before {
-                left: 30px;
-            }
-            
-            .timeline-content::after {
-                left: -40px !important;
-                right: auto !important;
-            }
-            
-            .qr-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .qr-content p {
-                margin: 0 auto 25px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-links {
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .pet {
-                width: 140px;
-            }
-            
-            .pet-image {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .pet i {
-                font-size: 60px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EmoPet MedTech & BioPharma</title>
+  <link rel="stylesheet" href="css/medtech.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    /* Nasconde il blocco articolo fino ad attivazione */
+    #article-block { display: none; }
+    /* Quando il body ha classe .show-article, mostra l’articolo e nasconde la nota */
+    body.show-article #article-block { display: block; margin: 20px auto; max-width: 600px; }
+    body.show-article .note-box   { display: none; }
+  </style>
 </head>
 <body>
-    <!-- Header with Navigation Menu -->
-    <header>
-        <div class="container header-content">
-            <a href="https://tizmt.github.io/EmoPet-Demo/index.html" class="logo">
-                <i class="fas fa-heart"></i>
-                EmoPet
-            </a>
-            
-            <div class="nav-links">
-                <!-- Home link -->
-                <a href="https://tizmt.github.io/EmoPet-Demo/index.html">
-                    <i class="fas fa-home"></i> Home
-                </a>
-                
-                <!-- Research link - ACTIVE STATE -->
-                <a href="https://tizmt.github.io/EmoPet-Demo/research.html" class="active">
-                    <i class="fas fa-file-alt"></i> Research
-                </a>
-                
-                <!-- About Author link -->
-                <a href="https://tizmt.github.io/EmoPet-Demo/leo.html">
-                    <i class="fas fa-user"></i> About Author
-                </a>
-                
-                <!-- Contact link -->
-                <a href="#">
-                    <i class="fas fa-envelope"></i> Contact
-                </a>
-            </div>
-            
-            <div class="language-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="it">IT</button>
-                <button class="lang-btn" data-lang="fr">FR</button>
-            </div>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>EmoPet: Emotional Monitoring Framework</h1>
-            <p>A behavioral framework for emotional monitoring in children using virtual holographic pets</p>
-            
-            <div class="hero-pets">
-                <div class="pet">
-                    <div class="pet-image dog">
-                        <i class="fas fa-dog"></i>
-                    </div>
-                    <h3>Fritz</h3>
-                    <p>Curious and active dog</p>
-                </div>
-                
-                <div class="pet">
-                    <div class="pet-image cat">
-                        <i class="fas fa-cat"></i>
-                    </div>
-                    <h3>Lulù</h3>
-                    <p>Gentle and imaginative cat</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- 1) Header & Nav -->
+  <header>
+    <h1>EmoPet MedTech & BioPharma</h1>
+    <p>AI Meets Pediatric Care, Neuroscience & Pharmaceutical Biochemistry</p>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="medtech.html" class="medtech-btn">MedTech & BioPharma</a>
+    <a href="leo.html">About Leo</a>
+    <a href="publications.html" class="menu-group">Publications ▾</a>
+  </nav>
 
-    <!-- Abstract Section -->
-    <section class="container">
-        <div class="abstract-box">
-            <h2><i class="fas fa-file-alt"></i> Abstract</h2>
-            <p>This research outlines a real-time behavioral framework developed for EmoPet AI—an interactive platform that helps children manage emotions through playful interaction with two holographic pets: Fritz the Dog and Lulù the Cat. Using a combination of observational feedback, linguistic adaptation, and guided activities, the system aims to identify emotional states such as joy, sadness, anxiety, or boredom through children's interactions. EmoPet does not collect biometric data but instead relies on responsive storytelling, mood-based game selection, and language-driven feedback loops to offer personalized support.</p>
-        </div>
-    </section>
+  <!-- 2) Hero Section -->
+  <section class="hero-section">
+    <h1>Innovative AI for Child Health & PharmaTech</h1>
+    <p>Combining emotional AI, robotics, oxytocin release and biochemical feedback.</p>
 
-    <!-- Use Cases Section -->
-    <section class="container">
-        <div class="section-title">
-            <h2>Observed Use Cases</h2>
-        </div>
-        
-        <div class="use-cases">
-            <div class="use-case">
-                <h3><i class="fas fa-users"></i> Audience</h3>
-                <p>Children aged 6–12 experiencing emotional stress or social isolation</p>
-            </div>
-            
-            <div class="use-case">
-                <h3><i class="fas fa-laptop"></i> Mode</h3>
-                <p>Web-based interface with touch and voice feedback</p>
-            </div>
-            
-            <div class="use-case">
-                <h3><i class="fas fa-language"></i> Languages</h3>
-                <p>Italian, English (C1), and French (ESABAC diploma track)</p>
-            </div>
-            
-            <div class="use-case">
-                <h3><i class="fas fa-paw"></i> Character Profiles</h3>
-                <p>Fritz (curious and active), Lulù (gentle and imaginative)</p>
-            </div>
-        </div>
-    </section>
+    <!-- Blocchetto nascosto: Foto + Articolo AngloAm -->
+    <div id="article-block">
+      <img src="img/leo-angloam.jpg"
+           alt="Leo with Anglo American Director"
+           style="width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/>
+      <p style="margin-top:1rem; font-style:italic;">
+        <strong>Leo Tronci – Official Endorsement from Anglo American Director</strong><br>
+        “Testo estratto dall’articolo stampa che verrà pubblicato.”
+      </p>
+    </div>
 
-    <!-- Interaction Outcomes -->
-    <section class="container">
-        <div class="section-title">
-            <h2>Interaction Outcomes</h2>
-        </div>
-        
-        <div class="outcomes-container">
-            <div class="outcome-card sadness">
-                <div class="card-header">
-                    <i class="fas fa-sad-tear"></i> Sadness Response
-                </div>
-                <div class="card-body">
-                    <p><strong>Behavioral Response:</strong> Zen Relax Module activated with breathing games</p>
-                    <p><strong>Child Engagement Outcome:</strong> Improved self-soothing, calmer interactions</p>
-                </div>
-            </div>
-            
-            <div class="outcome-card joy">
-                <div class="card-header">
-                    <i class="fas fa-laugh-beam"></i> Joy Response
-                </div>
-                <div class="card-body">
-                    <p><strong>Behavioral Response:</strong> Zen Happy Module + Create Your Story finale builder</p>
-                    <p><strong>Child Engagement Outcome:</strong> Increased narrative creativity and language use</p>
-                </div>
-            </div>
-            
-            <div class="outcome-card anxiety">
-                <div class="card-header">
-                    <i class="fas fa-flushed"></i> Anxiety Response
-                </div>
-                <div class="card-body">
-                    <p><strong>Behavioral Response:</strong> Puzzle tasks and guided story dialogues</p>
-                    <p><strong>Child Engagement Outcome:</strong> Focused attention and emotional redirection</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Nota visibile finché non si attiva il blocco articolo -->
+    <div class="note-box">
+      🔜 In arrivo: foto ufficiale di Leo con il Direttore Anglo American e link all’articolo stampa.
+    </div>
+  </section>
 
-    <!-- Scientific Collaboration -->
-    <section class="container">
-        <div class="section-title">
-            <h2>Scientific Collaboration</h2>
-        </div>
-        
-        <div class="collaboration-box">
-            <h2><i class="fas fa-handshake"></i> Research Partnership</h2>
-            <p>The framework is currently evaluated under guidance of Dr. Roberto Diana, an expert in therapeutic ecosystems and member of the Blue Zone movement. His support is helping refine narrative triggers and thematic environments that contribute to emotional regulation in children.</p>
-            
-            <div class="highlight">
-                We are open to collaborating with other professionals, such as pediatricians, child neuropsychiatrists, and robotic engineers.
-            </div>
-        </div>
-    </section>
+  <div class="container">
 
-    <!-- Timeline -->
-    <section class="container">
-        <div class="section-title">
-            <h2>Project Evolution</h2>
-        </div>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3><i class="fas fa-lightbulb"></i> Concept Development</h3>
-                    <p>Initial research and conceptualization of the EmoPet framework, defining core principles and objectives.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3><i class="fas fa-cogs"></i> Prototype Creation</h3>
-                    <p>Development of the first working prototype with Fritz and Lulù characters and basic interaction modules.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3><i class="fas fa-vial"></i> Initial Testing</h3>
-                    <p>First round of testing with target age group to evaluate emotional response effectiveness.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3><i class="fas fa-users"></i> Scientific Collaboration</h3>
-                    <p>Partnership with Dr. Roberto Diana to refine therapeutic aspects of the framework.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3><i class="fas fa-globe"></i> Multi-language Support</h3>
-                    <p>Implementation of Italian, English, and French language options for broader accessibility.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- 3) Abstract & Vision -->
+    <h2 class="section-title">Abstract & Vision</h2>
+    <div class="highlight-box">
+      <p>EmoPet MedTech & BioPharma Edition integrates AI-driven emotional support with pediatric neuroscience and pharmaceutical biochemistry. Real-time feedback adapts holographic pets and chemical cues to the child’s state.</p>
+    </div>
 
-    <!-- QR Code Section -->
-    <section class="container">
-        <div class="qr-section">
-            <div class="qr-content">
-                <h3>Access EmoPet Research</h3>
-                <p>Scan this QR code with your mobile device to access the full research documentation and interactive demo of the EmoPet framework.</p>
-                <p>You can also share this research with colleagues and collaborators interested in child emotional development technologies.</p>
-            </div>
-            
-            <div class="qr-image">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tizmt.github.io/EmoPet-Demo/research.html" alt="QR Code">
-                <p>Scan for Research Page</p>
-            </div>
-        </div>
-    </section>
+    <!-- 4) Interactive Clinical Simulation -->
+    <h2 class="section-title">Interactive Clinical Simulation</h2>
+    <div class="highlight-box" id="clinical-sim">
+      <p>Choose how you feel before the doctor’s visit and let Fritz or Lulù guide you.</p>
+      <div id="emotion-select">
+        <button onclick="launchStory('anxious')">😟 Anxious</button>
+        <button onclick="launchStory('sad')">😢 Sad</button>
+        <button onclick="launchStory('curious')">🤔 Curious</button>
+        <button onclick="launchStory('ready')">😁 Ready!</button>
+      </div>
+      <div id="story-area" class="story-box"></div>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-wave"></div>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">Emo<span>Pet</span></div>
-                    <p>An innovative framework for emotional monitoring in children through interactive holographic companions. Developed by Leonardo Tronci as a research prototype.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-researchgate"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="https://tizmt.github.io/EmoPet-Demo/index.html"><i class="fas fa-home"></i> Home Page</a></li>
-                        <li><a href="https://tizmt.github.io/EmoPet-Demo/research.html"><i class="fas fa-file-alt"></i> Research</a></li>
-                        <li><a href="https://tizmt.github.io/EmoPet-Demo/leo.html"><i class="fas fa-user"></i> About the Author</a></li>
-                        <li><a href="#"><i class="fas fa-book"></i> Scientific Papers</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-file-medical"></i> Case Studies</a></li>
-                        <li><a href="#"><i class="fas fa-book-open"></i> Implementation Guide</a></li>
-                        <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> For Educators</a></li>
-                        <li><a href="#"><i class="fas fa-user-md"></i> For Therapists</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><a href="mailto:contact@emopet.org"><i class="fas fa-envelope"></i> contact@emopet.org</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Rome, Italy</a></li>
-                        <li><a href="https://tizmt.github.io/EmoPet-Demo/leo.html"><i class="fas fa-user"></i> Leonardo Tronci</a></li>
-                        <li><a href="#"><i class="fas fa-graduation-cap"></i> Independent Research Scholar</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Leonardo Tronci. Prototype developed for EmoPet. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- 5) AR-Enhanced Virtual Pet Therapy -->
+    <h2 class="section-title">AR-Enhanced Virtual Pet Therapy</h2>
+    <div class="highlight-box">
+      <p>A headset renders a holographic world with Fritz & Lulù; a wrist PPG sensor measures heart rate and via BLE the app adapts light, sounds, and pet behavior to foster calmness.</p>
+      <pre>
+[ Wrist Pulse Sensor ]───►[ ESP32 + BLE ]───►[ AR Headset ]
+                │                   │
+                ▼                   ▼
+       Heart-rate data         AR Scene Engine
+              adjusts      ┌───────┴─────────┐
+                            │                 │
+                   Light & Color      Pet Animation
+      </pre>
+      <p><strong>Hardware:</strong> MAX30102, ESP32-BLE, WebXR headset.<br>
+         <strong>Software:</strong> Web Bluetooth API, Three.js.</p>
+    </div>
 
-    <script>
-        // Language switching functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const langButtons = document.querySelectorAll('.lang-btn');
-            
-            // Set initial active language
-            document.querySelector('.lang-btn.active').classList.add('active');
-            
-            // Language switcher functionality
-            langButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    
-                    // Remove active class from all buttons
-                    langButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // In a real implementation, this would change the page language
-                    // For this demo, we'll just show an alert
-                    let message = '';
-                    
-                    if(lang === 'en') {
-                        message = 'Language switched to English';
-                    } else if(lang === 'it') {
-                        message = 'Lingua cambiata in Italiano';
-                    } else if(lang === 'fr') {
-                        message = 'Langue changée en Français';
-                    }
-                    
-                    // Create notification
-                    const notification = document.createElement('div');
-                    notification.textContent = message;
-                    notification.style.cssText = `
-                        position: fixed;
-                        bottom: 20px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background: var(--primary);
-                        color: white;
-                        padding: 15px 30px;
-                        border-radius: 30px;
-                        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-                        z-index: 1000;
-                        animation: fadeInOut 3s ease-in-out;
-                    `;
-                    
-                    document.body.appendChild(notification);
-                    
-                    // Add animation
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        @keyframes fadeInOut {
-                            0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-                            10% { opacity: 1; transform: translateX(-50%) translateY(0); }
-                            90% { opacity: 1; transform: translateX(-50%) translateY(0); }
-                            100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                    
-                    // Remove notification after animation
-                    setTimeout(() => {
-                        notification.remove();
-                        style.remove();
-                    }, 3000);
-                });
-            });
-            
-            // Animation for elements on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            // Animate cards
-            document.querySelectorAll('.use-case, .outcome-card, .timeline-content, .qr-section').forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-        });
-    </script>
+    <!-- 6) Technologies Applied -->
+    <h2 class="section-title">Technologies Applied</h2>
+    <div class="highlight-box">
+      <ul class="tech-list">
+        <li>AI Frameworks: TensorFlow, PyTorch</li>
+        <li>Web: React.js, Tailwind CSS</li>
+        <li>Bio Sensors: PPG, ECG</li>
+        <li>Hardware: ESP32-BLE, WebXR Headset</li>
+      </ul>
+    </div>
+
+    <!-- 7) PharmaTech & Biochemical Highlights -->
+    <h2 class="section-title">PharmaTech & Biochemistry</h2>
+    <div class="highlight-box">
+      <p>Exploring emotion-based feedback in pediatric pharmacology: neurotransmitter release (endorphins, serotonin, oxytocin) and compliance enhancers via “chemical storytelling.”</p>
+    </div>
+
+    <!-- 8) Scientific Collaborations -->
+    <h2 class="section-title">Scientific Collaborations</h2>
+    <div class="highlight-box">
+      <ul class="collab-list">
+        <li>Dr. Roberto Diana – Therapeutic Ecosystems</li>
+        <li>Movere in Salus – Ethics & Childhood Rights</li>
+      </ul>
+    </div>
+
+    <!-- 9) 3D Prototype Preview -->
+    <h2 class="section-title">3D Prototype Preview</h2>
+    <div class="highlight-box">
+      <model-viewer
+        src="assets/3d/prototipo-emopet.glb"
+        alt="EmoPet AR/VR Prototype"
+        ar ar-modes="webxr quick-look scene-viewer"
+        environment-image="neutral"
+        poster="assets/3d/prototipo-poster.png"
+        camera-controls>
+      </model-viewer>
+      <p style="font-style:italic; margin-top:1rem;">
+        Prototype v0.1 – In attesa di finanziamenti e borse di studio per completamento.
+      </p>
+    </div>
+
+    <!-- 10) Access & Print -->
+    <h2 class="section-title">Access & Print</h2>
+    <div class="qr-section">
+      <p>Scan to read Leo’s full research paper.</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tizmt.github.io/EmoPet-Demo/research.html" alt="QR Code">
+    </div>
+    <div class="print-button">
+      <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+
+  </div>
+
+  <!-- 11) Footer -->
+  <footer>
+    <p>© 2025 EmoPet MedTech & BioPharma — Designed by Leonardo Tronci</p>
+    <p>Contact: <a href="mailto:Leo.Tronci@tiscali.it">Leo.Tronci@tiscali.it</a></p>
+    <p>Quartucciu (CA), Sardinia, Italy</p>
+  </footer>
+
+  <!-- JS per la simulazione clinica -->
+  <script>
+    function launchStory(mood) {
+      const out = document.getElementById("story-area");
+      let char, msg, act, illu;
+      switch (mood) {
+        case "anxious":
+          char="🦮 Fritz"; msg="Take a deep breath…"; act="🌬️ Bubbles float…"; illu="🏥 Cozy waiting room."; break;
+        case "sad":
+          char="🐱 Lulù"; msg="I’ll tell you a magic tale."; act="✨ 'Once upon a time…'"; illu="🌈 Clouds & stars."; break;
+        case "curious":
+          char="🦮 Fritz"; msg="Let's explore the clinic!"; act="🔍 Friendly tools."; illu="🏥 Pediatric office."; break;
+        default:
+          char="🐱 Lulù"; msg="You're ready!"; act="👟 Walking in."; illu="🎉 Celebration!"; break;
+      }
+      out.innerHTML = `<p><strong>${char}</strong>: ${msg}</p><p>${act}</p><p>${illu}</p><br><strong>Now you’re ready! 🚑</strong>`;
+    }
+
+    // Attivazione del blocco foto-articolo via query-string
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('showArticle') === '1') {
+      document.body.classList.add('show-article');
+    }
+  </script>
 </body>
 </html>
