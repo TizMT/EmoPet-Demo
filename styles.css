@@ -83,3 +83,12 @@ body {
 #zen-pet:hover {
     transform: scale(1.1);
 }
+
+.medtech-btn {
+  background: #8e44ad;          /* Viola in linea col header */
+  color: #ffffff;
+}
+.medtech-btn:hover {
+  background: #9b59b6;          /* Viraggio chiaro su hover */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
