@@ -524,3 +524,94 @@ body {
     font-size: 0.9rem;
     color: #a3b3cc;
 }
+.biochemistry-section {
+    background: linear-gradient(135deg, #1a3a5e 0%, #0d2b4e 100%);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 40px 0;
+    border-left: 4px solid #3a86ff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.study-card {
+    background: rgba(26, 42, 71, 0.8);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 25px 0;
+    border: 1px solid rgba(58, 134, 255, 0.3);
+}
+
+.study-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.study-header h4 {
+    color: #ffd166;
+    font-size: 1.4rem;
+}
+
+.study-header i {
+    font-size: 28px;
+    color: #3a86ff;
+    background: rgba(58, 134, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.study-card ul {
+    padding-left: 25px;
+    margin: 15px 0;
+}
+
+.study-card li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.study-card li::before {
+    content: "•";
+    color: #3a86ff;
+    font-weight: bold;
+    position: absolute;
+    left: -15px;
+}
+
+.study-reference {
+    background: rgba(255, 209, 102, 0.1);
+    border-left: 3px solid #ffd166;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+    display: flex;
+    gap: 10px;
+}
+
+.study-reference i {
+    color: #ffd166;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.methodological-note {
+    background: rgba(26, 71, 52, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    border-left: 3px solid #3aff86;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.methodological-note i {
+    color: #3aff86;
+    font-size: 1.5rem;
+}
