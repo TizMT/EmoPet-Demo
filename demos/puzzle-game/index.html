@@ -151,31 +151,6 @@
             opacity: 1;
         }
 
-        #full-image-container {
-            display: none;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        #full-image {
-            max-width: 600px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 3px solid #00695c;
-        }
-
-        #show-image-button {
-            background: linear-gradient(145deg, #9b59b6, #8e44ad);
-            margin-bottom: 20px;
-        }
-
-        .buttons-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
         .score-display {
             font-size: 1.2em;
             font-weight: bold;
@@ -202,7 +177,7 @@
         }
 
         .more-games {
-            margin-top: 30px;
+            margin: 20px 0;
             text-align: center;
         }
 
@@ -220,6 +195,26 @@
         .more-games a:hover {
             transform: translateY(-3px);
         }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .nav-buttons a {
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
@@ -228,14 +223,9 @@
     <p>Compose the jungle by placing the pieces correctly!</p>
 
     <div class="buttons-container">
-        <button id="show-image-button">Show Complete Image</button>
         <button id="shuffle-button">Shuffle Pieces</button>
         <button id="reset-button">Restart Puzzle</button>
         <button id="check-button">Check Solution</button>
-    </div>
-
-    <div id="full-image-container">
-        <img id="full-image" src="https://raw.githubusercontent.com/TizMT/EmoPet-Demo/main/assets/new-jungle-puzzle/piece1.jpg.png" alt="Complete Puzzle Image">
     </div>
 
     <div class="score-display" id="score-display">Pieces placed: 0/6</div>
@@ -269,8 +259,12 @@
     </div>
 
     <div class="more-games">
-        <h3>Want to play more?</h3>
-        <a href="#" id="more-games-link">Discover other EmoPet games</a>
+        <a href="#" id="play-again-link">Play Again</a>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="https://tizmt.github.io/EmoPet-Demo/">Home</a>
+        <a href="https://tizmt.github.io/EmoPet-Demo/leo.html">About Leo</a>
     </div>
 
     <div class="contribute">
@@ -296,13 +290,11 @@
             const shuffleButton = document.getElementById('shuffle-button');
             const resetButton = document.getElementById('reset-button');
             const checkButton = document.getElementById('check-button');
-            const showImageButton = document.getElementById('show-image-button');
-            const fullImageContainer = document.getElementById('full-image-container');
             const successMessage = document.getElementById('success-message');
             const errorMessage = document.getElementById('error-message');
             const errorDetails = document.getElementById('error-details');
             const scoreDisplay = document.getElementById('score-display');
-            const moreGamesLink = document.getElementById('more-games-link');
+            const playAgainLink = document.getElementById('play-again-link');
 
             // Audio elements
             const winSound = document.getElementById('win-sound');
@@ -314,7 +306,7 @@
             shufflePieces(true);
 
             // Play button sounds
-            [shuffleButton, resetButton, checkButton, showImageButton].forEach(button => {
+            [shuffleButton, resetButton, checkButton].forEach(button => {
                 button.addEventListener('click', function() {
                     buttonSound.currentTime = 0;
                     buttonSound.play();
@@ -382,18 +374,10 @@
                 });
             });
 
-            // Show full image button
-            showImageButton.addEventListener('click', function() {
-                fullImageContainer.style.display = fullImageContainer.style.display === 'block' ? 'none' : 'block';
-            });
-
-            // More games link
-            moreGamesLink.addEventListener('click', function(e) {
+            // Play again link
+            playAgainLink.addEventListener('click', function(e) {
                 e.preventDefault();
-                // Redirect to other games after a delay
-                setTimeout(() => {
-                    window.location.href = "https://github.com/TizMT/EmoPet-Demo";
-                }, 500);
+                resetPuzzle();
             });
 
             // Update score display
