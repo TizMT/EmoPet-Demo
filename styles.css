@@ -615,3 +615,20 @@ body {
     color: #3aff86;
     font-size: 1.5rem;
 }
+
+.social-links a[title] {
+    position: relative;
+}
+.social-links a[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
