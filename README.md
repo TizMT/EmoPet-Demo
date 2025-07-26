@@ -145,4 +145,13 @@ Leonardo Tronci est un jeune développeur et innovateur dans le domaine de l’i
 
 🌍 **Ouvert aux collaborations internationales!**
 
+// EMOPET CORE - Restricted Access License  
+Copyright (C) 2024-2025 Leonardo Tronci  
+This software is provided under PolyForm Shield License 1.0.0  
+See full terms at: https://polyformproject.org/licenses/shield/1.0.0  
 
+For commercial use or partnerships:  
+- Email: Leo.Tronci@tiscali.it  
+- Required subject: "[EMOPET LICENSE] Request from [Your Organization]"  
+
+Unauthorized commercial use violates EU Directive 2016/943 on trade secrets.  
