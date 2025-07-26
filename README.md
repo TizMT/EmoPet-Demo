@@ -145,8 +145,4 @@ Leonardo Tronci est un jeune développeur et innovateur dans le domaine de l’i
 
 🌍 **Ouvert aux collaborations internationales!**
 
-// EMOPET CORE - Restricted Access License  
-Copyright (C) 2024-2025 Leonardo Tronci  
 
-
-Unauthorized commercial use violates EU Directive 2016/943 on trade secrets.  
