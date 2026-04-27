@@ -1,1 +1,1 @@
--prova
+"Cartella Vetrina 2026 per demo RAI. Contiene immagini generate con DALL-E e interfaccia multilingue con tecnologia."
