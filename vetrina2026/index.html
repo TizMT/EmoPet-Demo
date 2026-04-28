@@ -37,12 +37,39 @@
           60% { transform: translate(3px, 2px) rotate(0deg); }
           80% { transform: translate(1px, -1px) rotate(1deg); }
           100% { transform: translate(-1px, 2px) rotate(0deg); }
-        }
-        .scan-vibration { 
-          animation: shake 0.5s infinite; 
-          filter: brightness(1.2) contrast(1.1); /* Rende l'immagine più "elettrica" durante la scansione */
-        }
-    </style>
+       .scan-vibration { 
+  animation: shake 0.5s infinite; 
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* OVERLAY SCANSIONE LASER */
+.card {
+    position: relative;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+    box-shadow: 0 0 12px #22d3ee, 0 0 25px #22d3ee;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.scanning::after {
+    opacity: 1;
+    animation: scanMove 2s linear infinite;
+}
+
+@keyframes scanMove {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+</style>
 </head>
 <body>
 
@@ -153,6 +180,7 @@
  function playStory(pet, event) {
         window.speechSynthesis.cancel();
         const img = document.getElementById('img-' + pet);
+     const card = img.closest('.card');
         const btn = event.currentTarget; 
         const originalSrc = pet === 'fritz' ? 'fritz_dentista.png' : 'lulu_bosco.png';
         const winSrc = pet === 'fritz' ? 'fritz_vittoria.png' : 'lulu_vittoria.png';
@@ -164,12 +192,14 @@
         btn.innerHTML = "🌀 ANALISI BIO-RITMO...";
         
         // Attiviamo la vibrazione per l'effetto "scansione"
-        img.classList.add('scan-vibration');
+       img.classList.add('scan-vibration');
+card.classList.add('scanning');
 
         // Creiamo l'attesa di 4 secondi per la spiegazione di Leo
         setTimeout(() => {
             // Fermiamo la vibrazione e cambiamo immagine
             img.classList.remove('scan-vibration');
+card.classList.remove('scanning');
             img.src = winSrc;
             
             btn.innerHTML = "✅ BIOFEEDBACK AGGANCIATO";
