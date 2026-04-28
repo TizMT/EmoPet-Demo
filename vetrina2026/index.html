@@ -70,7 +70,13 @@
     0% { top: 0%; }
     100% { top: 100%; }
 }
-
+/* FIX DIMENSIONE IMMAGINI */
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+        
 </style>
 </head>
 <body>
@@ -212,7 +218,9 @@
      const card = img.closest('.card');
         const btn = event.currentTarget; 
         const originalSrc = pet === 'fritz' ? 'fritz_dentista.png' : 'lulu_bosco.png';
-       const winSrc = pet === 'fritz' ? 'fritz_vittoria.png' : 'lulu_vittoria2.png';
+       const winSrc = pet === 'fritz'
+  ? 'fritz_vittoria.png'
+  : 'https://raw.githubusercontent.com/TizMT/EmoPet-Demo/main/vetrina2026/lulu_vittoria2.png';
         // --- REGIA RAI: FASE DI AGGANCIO BIOFEEDBACK ---
         btn.disabled = true;
         btn.style.transition = "all 0.5s";
