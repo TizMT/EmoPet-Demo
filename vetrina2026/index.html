@@ -127,19 +127,41 @@
         document.getElementById('copy-label').innerText = content[lang].copy;
         document.getElementById('btn1').innerText = content[lang].btn;
         document.getElementById('btn2').innerText = content[lang].btn;
-    }
-
-    function playStory(pet) {
+ function playStory(pet) {
         window.speechSynthesis.cancel();
         const img = document.getElementById('img-' + pet);
-        const winSrc = pet === 'fritz' ? 'fritz_vittoria.png' : 'lulu_vittoria.png';
+        const btn = event.currentTarget; // Prende il tasto giusto
         const originalSrc = pet === 'fritz' ? 'fritz_dentista.png' : 'lulu_bosco.png';
-        img.src = winSrc;
-        const msg = new SpeechSynthesisUtterance();
-        msg.text = pet === 'fritz' ? content[currentLang].fTxt : content[currentLang].lTxt;
-        msg.lang = content[currentLang].v;
-        msg.onend = () => { setTimeout(() => { img.src = originalSrc; }, 4000); };
-        window.speechSynthesis.speak(msg);
+        const winSrc = pet === 'fritz' ? 'fritz_vittoria.png' : 'lulu_vittoria.png';
+
+        // --- REGIA RAI: FASE DI AGGANCIO BIOFEEDBACK ---
+        btn.disabled = true;
+        btn.style.transition = "all 0.5s";
+        btn.style.background = "#1e293b";
+        btn.innerHTML = "🌀 ANALISI BIO-RITMO...";
+
+        // Creiamo l'attesa di 4 secondi per far parlare Leo
+        setTimeout(() => {
+            img.src = winSrc;
+            btn.innerHTML = "✅ BIOFEEDBACK AGGANCIATO";
+            btn.style.background = "#0d9488";
+            btn.style.boxShadow = "0 0 20px #0d9488";
+            
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = pet === 'fritz' ? content[currentLang].fTxt : content[currentLang].lTxt;
+            msg.lang = content[currentLang].v;
+            
+            msg.onend = () => { 
+                setTimeout(() => { 
+                    img.src = originalSrc; 
+                    btn.disabled = false;
+                    btn.innerHTML = content[currentLang].btn;
+                    btn.style.background = "var(--accent)";
+                    btn.style.boxShadow = "none";
+                }, 5000); 
+            };
+            window.speechSynthesis.speak(msg);
+        }, 4000); 
     }
 </script>
 </body>
