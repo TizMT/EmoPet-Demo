@@ -37,6 +37,7 @@
           60% { transform: translate(3px, 2px) rotate(0deg); }
           80% { transform: translate(1px, -1px) rotate(1deg); }
           100% { transform: translate(-1px, 2px) rotate(0deg); }
+        }
        .scan-vibration { 
   animation: shake 0.5s infinite; 
   filter: brightness(1.2) contrast(1.1);
@@ -52,8 +53,9 @@
     position: absolute;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+    height: 6px;
+    background: linear-gradient(90deg, transparent, #00f0ff, #00f0ff, transparent);
+    z-index: 10;
     box-shadow: 0 0 12px #22d3ee, 0 0 25px #22d3ee;
     opacity: 0;
     pointer-events: none;
@@ -207,8 +209,17 @@ card.classList.remove('scanning');
             btn.style.boxShadow = "0 0 20px #0d9488";
             
             const msg = new SpeechSynthesisUtterance();
-            msg.text = pet === 'fritz' ? content[currentLang].fTxt : content[currentLang].lTxt;
-            msg.lang = content[currentLang].v;
+msg.text = pet === 'fritz' ? content[currentLang].fTxt : content[currentLang].lTxt;
+msg.lang = content[currentLang].v;
+
+// FORZA VOCE CORRETTA MOBILE
+const voices = speechSynthesis.getVoices();
+const voice = voices.find(v => v.lang === msg.lang);
+if (voice) msg.voice = voice;
+
+// migliora resa mobile
+msg.rate = 0.9;
+msg.pitch = 1.05;
             
             msg.onend = () => { 
                 setTimeout(() => { 
@@ -219,7 +230,10 @@ card.classList.remove('scanning');
                     btn.style.boxShadow = "none";
                 }, 5000); 
             };
-            window.speechSynthesis.speak(msg);
+            speechSynthesis.cancel();
+setTimeout(() => {
+    speechSynthesis.speak(msg);
+}, 200);
         }, 4000); 
     }
 </script>
